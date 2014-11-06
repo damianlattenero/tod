@@ -90,6 +90,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    psych (2.0.6)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -123,8 +124,8 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    travis-lint (2.0.0)
-      json
+    travis-yaml (0.1.0)
+      psych (~> 2.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -144,4 +145,4 @@ DEPENDENCIES
   rake
   rspec
   slim
-  travis-lint
+  travis-yaml
