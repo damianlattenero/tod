@@ -4,6 +4,13 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
 script: PADRINO_ENV=travis padrino rake
 
+rvm:
+  - 1.9.3-p547
+
+branches:
+  only:
+    - master
+
 notifications:
   email:
     - hdmaidana@gmail.com
