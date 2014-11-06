@@ -123,6 +123,8 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
+    travis-lint (2.0.0)
+      json
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -142,3 +144,4 @@ DEPENDENCIES
   rake
   rspec
   slim
+  travis-lint
