@@ -1,15 +1,21 @@
 language: ruby
 
+before_install: gem install bundler --pre
+install:
+  - gem update --system
+  - bundle update
+
 before_script:
   - "sh -e /etc/init.d/xvfb start"
-script: PADRINO_ENV=travis padrino rake
+#script: PADRINO_ENV=travis padrino rake
+script: PADRINO_ENV=padrino rake
 
 rvm:
   - 1.9.3-p547
 
 branches:
   only:
-    - master
+    - master 
 
 notifications:
   email:
