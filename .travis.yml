@@ -1,0 +1,4 @@
+language: ruby
+before_script:
+  - "sh -e /etc/init.d/xvfb start"
+script: PADRINO_ENV=travis padrino rake
