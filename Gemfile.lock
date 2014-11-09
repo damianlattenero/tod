@@ -1,20 +1,20 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.1.7)
-      activesupport (= 4.1.7)
-      builder (~> 3.1)
-    activerecord (4.1.7)
-      activemodel (= 4.1.7)
-      activesupport (= 4.1.7)
-      arel (~> 5.0.0)
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
     activesupport (4.1.7)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    arel (5.0.1.20140414130214)
+    addressable (2.3.6)
+    bcrypt (3.1.9)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
     builder (3.2.2)
     celluloid (0.16.0)
       timers (~> 4.0.0)
@@ -25,8 +25,40 @@ GEM
       gherkin (~> 2.12)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.1)
+    data_objects (0.10.14)
+      addressable (~> 2.1)
     diff-lcs (1.2.5)
+    dm-aggregates (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-constraints (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-core (1.2.1)
+      addressable (~> 2.3)
+    dm-do-adapter (1.2.0)
+      data_objects (~> 0.10.6)
+      dm-core (~> 1.2.0)
+    dm-migrations (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-sqlite-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_sqlite3 (~> 0.10.6)
+    dm-timestamps (1.2.0)
+      dm-core (~> 1.2.0)
+    dm-types (1.2.2)
+      bcrypt-ruby (~> 3.0)
+      dm-core (~> 1.2.0)
+      fastercsv (~> 1.5)
+      json (~> 1.6)
+      multi_json (~> 1.0)
+      stringex (~> 1.4)
+      uuidtools (~> 2.1)
+    dm-validations (1.2.0)
+      dm-core (~> 1.2.0)
+    do_sqlite3 (0.10.14)
+      data_objects (= 0.10.14)
     erubis (2.7.0)
+    execjs (2.2.2)
+    fastercsv (1.5.5)
     ffi (1.9.6)
     formatador (0.2.5)
     gherkin (2.12.2)
@@ -40,6 +72,7 @@ GEM
     guard-rspec (4.3.1)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
+    hike (1.2.3)
     hitimes (1.2.2)
     http_router (0.11.1)
       rack (>= 1.0.0)
@@ -60,6 +93,7 @@ GEM
     moneta (0.7.20)
     multi_json (1.10.1)
     multi_test (0.1.1)
+    open4 (1.3.4)
     padrino (0.12.4)
       padrino-admin (= 0.12.4)
       padrino-cache (= 0.12.4)
@@ -92,6 +126,8 @@ GEM
     padrino-mailer (0.12.4)
       mail (~> 2.5.3)
       padrino-core (= 0.12.4)
+    padrino-sprockets (0.0.3)
+      sprockets
     padrino-support (0.12.4)
       activesupport (>= 3.1)
     polyglot (0.3.5)
@@ -126,7 +162,12 @@ GEM
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
     slop (3.6.0)
-    sqlite3 (1.3.10)
+    sprockets (2.12.3)
+      hike (~> 1.2)
+      multi_json (~> 1.0)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    stringex (1.5.1)
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
@@ -139,21 +180,36 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.1.1)
+      execjs (>= 0.3.0)
+      multi_json (~> 1.0, >= 1.0.2)
     url_mount (0.2.1)
       rack
+    uuidtools (2.1.5)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (>= 3.1)
   cucumber
+  dm-aggregates
+  dm-constraints
+  dm-core
+  dm-migrations
+  dm-sqlite-adapter
+  dm-timestamps
+  dm-types
+  dm-validations
   erubis (~> 2.7.0)
   guard
   guard-rspec
   padrino (= 0.12.4)
+  padrino-sprockets
   rack-test
   rake
   rspec
-  sqlite3
   travis-yaml
+  uglifier (= 2.1.1)
+  yui-compressor (= 0.9.6)
