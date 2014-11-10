@@ -1,5 +1,11 @@
 class ProposalAdministrator
-  attr_reader :proposals
+  include DataMapper::Resource
+
+  # property <name>, <type>
+  property :id, Serial
+
+  has n, :proposals
+  #attr_reader :proposals
 
   def initialize
     @proposals = []

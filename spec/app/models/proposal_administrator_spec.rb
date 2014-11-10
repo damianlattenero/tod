@@ -1,8 +1,9 @@
+require 'spec_helper'
 require 'rspec'
-require_relative '../bin/proposal_administrator'
-require_relative '../bin/proposal'
+require_relative '../../../app/models/proposal_administrator'
+require_relative '../../../app/models/proposal'
 
-describe 'proposal_administrator' do
+describe ProposalAdministrator do
   describe 'add_proposal' do
     it 'should add a proposal' do
       proposal_administrator = ProposalAdministrator.new

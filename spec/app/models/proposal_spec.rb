@@ -1,7 +1,8 @@
+require 'spec_helper'
 require 'rspec'
-require_relative '../bin/proposal'
+require_relative '../../../app/models/proposal'
 
-describe 'proposal' do
+describe Proposal do
   describe 'initialize' do
     it 'should initialize with a title, a description and an author' do
       proposal = Proposal.new 'A title', 'A description', 'An author'
