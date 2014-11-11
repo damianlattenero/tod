@@ -1,15 +1,13 @@
 require 'data_mapper'
 
-
-
 class Proposal
   include DataMapper::Resource
 
   # property <name>, <type>
   property :id,          Serial
-  property :title,       String
-  property :description, Text, :length => 1..500
-  property :author,      String
+  property :title,       String, required: true
+  property :description, Text,   required: true, :length => 1..500
+  property :author,      String, required: true
   # property :date,        DateTime
 
   validates_length_of :title, :min => 3

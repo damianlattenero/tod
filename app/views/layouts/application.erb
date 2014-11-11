@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html lang="es-AR">
   <head>
+    <meta charset="utf-8">
     <title>TOD - Organizador de conferencias</title>
+    <%= stylesheet_link_tag '/assets/application' %>
   </head>
   <body>
-    <%= yield %>
-    <%= stylesheet_link_tag '/assets/application' %>
+    <div class="container">
+
+      <%= render_partial 'partials/nav' %>
+
+      <div class="container">
+        <div>
+          <%= [:error, :warning, :success, :notice].map { 
+            |type| flash_tag(
+              type, :class => "alert alert-#{type} fade in", :bootstrap => true
+            )}.join.html_safe 
+          %>
+        </div>
+
+        <%= yield %>
+
+      </div>
+
+      <%= render_partial 'partials/footer' %>
+
+    </div>
+
     <%= javascript_include_tag '/assets/application' %>
   </body>
 </html>
