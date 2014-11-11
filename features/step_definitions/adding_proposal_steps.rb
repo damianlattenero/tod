@@ -1,10 +1,10 @@
+require 'data_mapper'
 require 'rspec'
-require_relative '../../bin/proposal'
-require_relative '../../bin/proposal_administrator'
+require_relative '../../app/models/proposal'
 
-Given(/^a proposal administrator$/) do
-  @proposal_administrator = ProposalAdministrator.new
-end
+# Data base in memory
+DataMapper.setup(:default, 'sqlite::memory:')
+DataMapper.auto_upgrade!
 
 Given(/^proposal title "(.*?)"$/) do |title|
   @title = title
@@ -19,13 +19,16 @@ Given(/^author nick "(.*?)"$/) do |author_nick|
 end
 
 When(/^submitting$/) do
-  @proposal_administrator.add_proposal(
-    Proposal.new @title, @description, @author
+  @proposal = Proposal.create(
+    :title       => @title, 
+    :description => @description, 
+    :author      => @author
   )
+  @proposal.save
 end
 
 Then(/^proposal is added$/) do
-  @proposal_administrator.proposals.length.should == 1
+  Proposal.all[0].should eq @proposal
 end
 
 Then(/^it should raise an error$/) do
@@ -33,5 +36,8 @@ Then(/^it should raise an error$/) do
 end
 
 Then(/^the second proposal should have title "(.*?)"$/) do |new_title|
-  @proposal_administrator.proposals[1].title.should eq new_title
+  @proposal = Proposal.all[1]
+  @proposal.append_author_to_title
+  @proposal.save
+  Proposal.all[1].title.should eq new_title
 end

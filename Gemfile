@@ -16,6 +16,7 @@ ruby '1.9.3'
 gem 'rake'
 
 # Component requirements
+gem 'data_mapper'
 gem 'erubis', '~> 2.7.0'
 gem 'dm-sqlite-adapter'
 gem 'dm-validations'

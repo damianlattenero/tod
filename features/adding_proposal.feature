@@ -4,7 +4,6 @@ Scenario: Adding a proposal that complies
   Given proposal title "Proposal"
   And a description "This is a proposal"
   And author nick "Author"
-  And a proposal administrator
   When submitting
   Then proposal is added
 
@@ -27,8 +26,7 @@ Scenario: Failing proposal submission when author is wrong
   Then it should raise an error
 
 Scenario: Proposal have duplicated title
-  Given a proposal administrator
-  And proposal title "Proposal"
+  Given proposal title "Proposal"
   And a description "This is a proposal"
   And author nick "Author"
   And submitting
