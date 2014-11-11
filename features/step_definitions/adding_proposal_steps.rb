@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../../bin/proposal'
-require_relative '../../bin/proposal_administrator'
+require_relative '../../app/models/proposal'
+require_relative '../../app/models/proposal_administrator'
 
 Given(/^a proposal administrator$/) do
   @proposal_administrator = ProposalAdministrator.new

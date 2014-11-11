@@ -7,10 +7,6 @@ class Proposal
   property :description, Text, :writer => :private
   property :author, String, :writer => :private
 
-  #attr_accessor :title
-  #attr_reader :description
-  #attr_reader :author
-
   def initialize(title, description, author)
     validate_fields_size(title)
     validate_fields_size(author)
