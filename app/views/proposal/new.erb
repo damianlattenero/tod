@@ -1,37 +1,36 @@
 <div class="container">
   <h1>Nueva Propuesta</h1>
 
-  <form class="form">
+  <% form_for(@proposal, '/proposal/create', html: { class: 'form' }) do |f| %>
     <fieldset>
       <div class="form-group">
-        <label class="control-label">Título</label>
+        <%= f.label :título, class: 'control-label' %>
         <div class="controls">
-          <input type="text" required
-                 placeholder="Ej: Super Tema 2016" class="form-control" />
+          <%= f.text_field :title, class: 'form-control', 
+            placeholder: 'Ej: Super Tema 2016', required: true %>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label">Descripción</label>
+        <%= f.label :descripción, class: 'control-label' %>
         <div class="controls">
-          <textarea placeholder="Ej: Esta es una linda descripción de propuesta"
-            class="form-control" rows="3" required></textarea>
+          <%= f.text_area :description, class: 'form-control',
+            placeholder: 'Ej: Esta es una linda descripción de propuesta',
+            rows: '3', required: true %>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="control-label">Author</label>
+        <%= f.label :autor, class: 'control-label' %>
         <div class="controls">
-           <input type="text" required
-                    placeholder="Ej: Don Pepito" class="form-control" />
+          <%= f.text_field :author, class: 'form-control', 
+            placeholder: 'Ej: Don Pepito', required: true %>
         </div>
       </div>
 
       <div class="form-actions">
-         <button type="submit" class="btn btn-primary">Enviar</button>
-         <button type="submit" 
-                 class="btn btn-default" formnovalidate>Cancelar</button>
+        <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+        <%= link_to "Cancelar", url(:proposal, :new), :class => "btn btn-default" %>
       </div>
-    </fieldset>
-  </form>
+  <% end %>
 </div>

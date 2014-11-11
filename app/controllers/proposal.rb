@@ -1,20 +1,24 @@
 Tod::App.controllers :proposal do
 
   get :new do
-    # @proposal = Proposal.new
+    @proposal = Proposal.new
     render 'proposal/new'
   end
 
   post :create do
-=begin
-    //TODO - Important to add validations from model here
-    title = params[:proposal][:title]
-    description = "asdasd"
-    author = "asdasd"
+    title = validate_fields_size(params[:proposal][:title])
+    description = validate_fields_size(params[:proposal][:description], 1)
+    author = validate_fields_size(params[:proposal][:author])
 
-    proposal = Proposal.create(title: title, description: description, author: author)
-    proposal.save
-=end
+    @proposal = Proposal.create(title: title, description: description, author: author)
+
+    if @proposal.save
+      flash[:success] = 'Propuesta enviada correctamente'
+      redirect '/'
+    else
+      flash.now[:error] = 'No se ha podido enviar la propuesta'
+      render 'proposal/new'
+    end
   end
   
 end
