@@ -1,4 +1,6 @@
 Tod::App.controllers :proposal do
+  DataMapper.setup(:default, 'sqlite::memory:')
+  DataMapper.auto_upgrade!
 
   get :new do
     @proposal = Proposal.new
@@ -6,9 +8,13 @@ Tod::App.controllers :proposal do
   end
 
   post :create do
-    title = validate_fields_size(params[:proposal][:title])
-    description = validate_fields_size(params[:proposal][:description], 1)
-    author = validate_fields_size(params[:proposal][:author])
+    title = params[:proposal][:title]
+    description = params[:proposal][:description]
+    author = params[:proposal][:author]
+
+    validate_fields_size(title)
+    validate_fields_size(description, 1)
+    validate_fields_size(author)
 
     @proposal = Proposal.create(title: title, description: description, author: author)
 
