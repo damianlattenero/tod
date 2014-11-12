@@ -1,7 +1,4 @@
 Tod::App.controllers :proposal do
-  DataMapper.setup(:default, 'sqlite::memory:')
-  DataMapper.auto_upgrade!
-
   get :new do
     @proposal = Proposal.new
     render 'proposal/new'
