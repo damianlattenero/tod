@@ -1,10 +1,3 @@
-require 'data_mapper'
-require 'rspec'
-require_relative '../../app/models/proposal'
-
-# Data base in memory
-DataMapper.setup(:default, 'sqlite::memory:')
-DataMapper.auto_upgrade!
 
 Given(/^details proposal page$/) do
   pending # express the regexp above with the code you wish you had
@@ -19,10 +12,6 @@ Given(/^comment body "(.*?)"$/) do |arg1|
 end
 
 Given(/^the author "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^submitted$/) do
   pending # express the regexp above with the code you wish you had
 end
 
