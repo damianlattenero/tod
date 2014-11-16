@@ -1,24 +1,33 @@
+require 'capybara'
 
 Given(/^a proposal list page without proposals$/) do
-  pending # express the regexp above with the code you wish you had
+  Proposal.all.destroy
+  #Proposal.all.create
+  expect(Proposal.all).to eq []
 end
 
-When(/^I brownse the proposal list$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^I browse the proposal list$/) do
+  visit '/proposal/list'
 end
 
 Then(/^I should see no proposals$/) do
-  pending # express the regexp above with the code you wish you had
+  pending
 end
 
-Given(/^someone add proposal "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^someone add proposal "(.*?)"$/) do |proposal|
+   Proposal.create(
+    :title       => proposal,
+    :description => "proposal description test", 
+    :author      => "a test author"
+  ).save
 end
 
-Then(/^I should see proposal "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see proposal "(.*?)"$/) do |proposal|
+  expect(page).to have_content(proposal)
+  page.should have_content(proposal)
+  page.should have_content('a test author')
 end
 
 Then(/^proposal "(.*?)" has to be on top of "(.*?)"$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+  pending
 end

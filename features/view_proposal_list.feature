@@ -9,7 +9,7 @@ Scenario: No proposals added
 
 Scenario: Adding a proposal
   Given someone add proposal "Tod Proposal"
-  When I brownse the proposal list
+  When I browse the proposal list
   Then I should see proposal "Tod Proposal"
 
 Scenario: Ordered proposals
