@@ -24,7 +24,7 @@ Tod::App.controllers :proposal do
       flash[:success] = 'Propuesta enviada correctamente'
       redirect 'proposal/list'
     else
-      flash.now[:error] = 'No se ha podido enviar la propuesta'
+      flash.now[:error] = t('proposal.new.result.error')
       render 'proposal/new'
     end
   end
