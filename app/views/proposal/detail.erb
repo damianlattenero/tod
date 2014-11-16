@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Nuevo comentario</h1>
+
+  <% form_for(@comment, '/proposal/comment', html: { class: 'form' }) do |f| %>
+    <fieldset>
+      <div class="form-group">
+        <%= f.label :nombre, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :author, class: 'form-control', 
+            placeholder: 'Ej: Don Pepito', required: true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :comentario, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :body, class: 'form-control',
+            placeholder: 'Ej: Esta es una linda descripción de propuesta',
+            rows: '3', required: true %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+        <%= link_to "Cancelar", url(:proposal, :detail), :class => "btn btn-default" %>
+      </div>
+  <% end %>
+
+
+  <div>
+    <ul>
+      <% for @comment in @comments %>
+        <li><%= @comment.post %></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

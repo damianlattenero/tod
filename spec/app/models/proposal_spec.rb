@@ -1,5 +1,7 @@
 # require 'spec_helper'
 require 'rspec'
+require 'data_mapper'
+
 require_relative '../../../app/models/proposal'
 
 describe Proposal do
@@ -8,6 +10,8 @@ describe Proposal do
     it { should respond_to( :title) }
     it { should respond_to( :description) }
     it { should respond_to( :author) }
+    it { should respond_to( :date) }
+    it { should respond_to( :comments) }
   end
 
   describe 'initialize' do
@@ -18,10 +22,12 @@ describe Proposal do
       proposal.title = 'A title'
       proposal.description = 'A description'
       proposal.author = 'Hache'
+      proposal.date = rigth_now
 
       proposal.title.should eq 'A title'
       proposal.description.should eq 'A description'
       proposal.author.should eq 'Hache'
+      proposal.date.should eql? rigth_now
     end
 
     # it 'should raise an error when title is "as"' do
