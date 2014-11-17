@@ -5,6 +5,7 @@ migration 1, :create_proposals do
       column :title, DataMapper::Property::String, :length => 255
       column :description, DataMapper::Property::Text
       column :author, DataMapper::Property::String, :length => 255
+      column :date, DataMapper::Property::DateTime
     end
   end
 
