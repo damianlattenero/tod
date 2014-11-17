@@ -34,6 +34,8 @@
         </div>
       </div>
 
+      <%= f.hidden_field :proposal_id, value: @proposal_detail.id%>
+
       <div class="form-actions">
         <%= f.submit 'Enviar', class: 'btn btn-primary' %>
       </div>

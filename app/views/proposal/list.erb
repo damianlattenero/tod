@@ -11,7 +11,7 @@
       <tr>
         <td><%= @proposal.title %></td>
         <td><%= @proposal.author %></td>
-        <td><%= link_to "Detalle", url(:proposal, :detail), :class => "btn btn-default" %></td>
+        <td><%= link_to "Detalle", url(:proposal, :detail, :proposal_id => @proposal.id), :class => "btn btn-default" %></td>
       </tr>
     <% end %>
 </div>
