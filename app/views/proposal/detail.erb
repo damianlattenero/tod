@@ -1,6 +1,7 @@
 <div class="container">
-  <h1>Nuevo comentario</h1>
+  <div class="well">
 
+  <h4>Deja un comentario:</h4>
   <% form_for(@comment, '/proposal/comment', html: { class: 'form' }) do |f| %>
     <fieldset>
       <div class="form-group">
@@ -15,24 +16,28 @@
         <%= f.label :comentario, class: 'control-label' %>
         <div class="controls">
           <%= f.text_area :body, class: 'form-control',
-            placeholder: 'Ej: Esta es una linda descripción de propuesta',
+            placeholder: 'Ej: Este es un hermoso comentario, positivo y constructivo',
             rows: '3', required: true %>
         </div>
       </div>
 
       <div class="form-actions">
         <%= f.submit 'Enviar', class: 'btn btn-primary' %>
-        <%= link_to "Cancelar", url(:proposal, :detail), :class => "btn btn-default" %>
       </div>
   <% end %>
-
-
-  <div>
-    <ul>
-      <% for @comment in @comments %>
-        <li><%= @comment.post %></li>
-      <% end %>
-    </ul>
   </div>
+
+  <hr>
+  <% for @comment in @comments %>
+    <div class = "media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%=@comment.author%>
+          <small><%=@comment.date.strftime('%c')%></small>
+        </h4>
+        <%=@comment.body%>
+      </div>
+    </div>
+  <% end %>
 
 </div>
