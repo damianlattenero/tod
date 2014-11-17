@@ -20,8 +20,8 @@ describe Comment do
       comment.body = 'Body'
       comment.date = rigth_now
 
-      comment.author.should eq "Hachedeeme"
-      comment.body.should eq "Body"
+      expect(comment.author).to eq "Hachedeeme"
+      expect(comment.body).to eq "Body"
       comment.date.should eql? rigth_now
   	end
   end

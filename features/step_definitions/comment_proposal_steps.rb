@@ -1,15 +1,14 @@
-require 'data_mapper'
-require 'rspec'
-require_relative '../../app/models/comment'
-
-# Data base in memory
-DataMapper.setup(:default, 'sqlite::memory:')
-DataMapper.auto_migrate!
-
-Given(/^details proposal page$/) do
+Given(/^a proposal$/) do
+  @proposal = Proposal.create(
+    :title       => "proposal for comment",
+    :description => "proposal for comment description test", 
+    :author      => "a test author who likes comments"
+  )
+  @proposal.save
 end
 
-Given(/^a proposal$/) do
+Given(/^details proposal page$/) do
+  visit 'proposal/detail?proposal_id=' + @proposal.id.to_s
 end
 
 Given(/^comment body "(.*?)"$/) do |body|
@@ -21,17 +20,21 @@ Given(/^the author "(.*?)"$/) do |author_name|
 end
 
 When(/^submitted$/) do
-  @comment = Comment.create(
-    :author => @author, 
-    :body   => @body, 
-    :date   => Time.now
-  )
-  @comment.save
+  fill_in('comment[author]', :with => @author)
+  fill_in('comment[body]', :with => @body)
+  click_button('Enviar')
+
 end
 
 Then(/^the comment is added and listed on the proposal view$/) do
-  Comment.all[0].should eq @comment
+  expect(page).to have_content(@author)
+  expect(page).to have_content(@body)
 end
 
-Then(/^I should see comment from "(.*?)" on top of comment from "(.*?)"$/) do |arg1, arg2|
+Then(/^I should see comment from "(.*?)" on top of comment from "(.*?)"$/) do |comment1, comment2|
+  expect(page).to have_content(comment1)
+  expect(page).to have_content(comment2)
+  #page.should =~ /#{comment1}.*#{comment2}/m
+  #expect(page).to match_array [/#{comment1}.*#{comment2}/m]
+  #expect(page).to match /#{comment1}.*#{comment2}/m
 end

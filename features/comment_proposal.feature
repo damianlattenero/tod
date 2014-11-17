@@ -1,10 +1,10 @@
 Feature: Comment a Proposal
 
  Background:
+   Given a proposal
    Given details proposal page
 
  Scenario: Add a comment
-   Given a proposal 
    And comment body "Body"
    And the author "Hache"
    When submitted
