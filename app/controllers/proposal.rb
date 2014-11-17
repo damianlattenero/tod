@@ -4,6 +4,11 @@ Tod::App.controllers :proposal do
     render 'proposal/new'
   end
 
+  get :list do
+    @proposals = Proposal.all
+    render 'proposal/list'
+  end
+
   post :create do
     title = params[:proposal][:title]
     description = params[:proposal][:description]
