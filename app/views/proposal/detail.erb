@@ -1,6 +1,19 @@
 <div class="container">
   <div class="well">
 
+  <div class = "media">
+      <div class="media-body">
+        <h3 class="media-heading">
+          <%=@proposal_detail.title%>
+          <small><%=@proposal_detail.date.strftime('%c')%></small>
+        </h3>
+        <%=@proposal_detail.description%>
+        <h4><%=@proposal_detail.author%></h4>
+      </div>
+    </div>
+
+  <hr>
+
   <h4>Deja un comentario:</h4>
   <% form_for(@comment, '/proposal/comment', html: { class: 'form' }) do |f| %>
     <fieldset>

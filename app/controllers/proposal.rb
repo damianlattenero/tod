@@ -30,9 +30,11 @@ Tod::App.controllers :proposal do
   end
 
   get :detail do
+    # proposal_id = params[:proposal_id]
+    @proposal_detail = Proposal.last
     @comments = Comment.all
     @comment = Comment.new
-    render 'proposal/detail'    
+    render 'proposal/detail'
   end
 
   post :comment do

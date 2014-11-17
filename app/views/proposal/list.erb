@@ -5,11 +5,13 @@
     <tr>
       <th>Título</th>
       <th>Autor</th>
+      <th>Acciones</th>
     </tr>
     <% for @proposal in @proposals %>
       <tr>
         <td><%= @proposal.title %></td>
         <td><%= @proposal.author %></td>
+        <td><%= link_to "Detalle", url(:proposal, :detail), :class => "btn btn-default" %></td>
       </tr>
     <% end %>
 </div>
