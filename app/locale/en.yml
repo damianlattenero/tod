@@ -2,6 +2,7 @@ en:
   nav:
     home_link: Home
     new_proposal: New Proposal
+    proposal_list: Proposal list
     search_placeholder: Looking for something?
     search_button: Search
   footer:
@@ -24,3 +25,17 @@ en:
       result:
         success: Proposal submitted successfully
         error: Proposal could not be sent
+    list:
+      title: List of Proposals
+      table:
+        title: Title
+        author: Author
+    detail:
+      send_by: "Send by: %{author}"
+      comment_box_title: "Leave a comment:"
+      form:
+        name_tag: Name
+        name_placeholder: "E.g.: Batman"
+        comment_tag: Comment
+        comment_placeholder: "E.g.: This is a beautiful comment, positive and constructive"
+        send_button: Send

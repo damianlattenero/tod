@@ -21,7 +21,7 @@ Tod::App.controllers :proposal do
     @proposal = Proposal.create(title: title, description: description, author: author, date: Time.now)
 
     if @proposal.save
-      flash[:success] = 'Propuesta enviada correctamente'
+      flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else
       flash.now[:error] = t('proposal.new.result.error')

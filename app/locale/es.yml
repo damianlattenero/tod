@@ -2,6 +2,7 @@ es:
   nav:
     home_link: Inicio
     new_proposal: Nueva Propuesta
+    proposal_list: Lista de propuestas
     search_placeholder: Búsqueda
     search_button: Buscar
   footer:
@@ -24,3 +25,17 @@ es:
       result:
         success: Propuesta enviada correctamente
         error: No se ha podido enviar la propuesta
+    list:
+      title: Lista de Propuestas
+      table:
+        title: Título
+        author: Autor
+    detail:
+      send_by: "Enviada por: %{author}"
+      comment_box_title: "Deja un comentario:"
+      form:
+        name_tag: Nombre
+        name_placeholder: "Ej: Don Pepito"
+        comment_tag: Comentario
+        comment_placeholder: "Ej: Este es un hermoso comentario, positivo y constructivo"
+        send_button: Enviar

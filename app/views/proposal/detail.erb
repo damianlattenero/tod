@@ -5,29 +5,29 @@
           <%=@proposal_detail.title%>
         </h2><hr>
         <p><%=@proposal_detail.description%></p>
-        <small>Enviada por: <%=@proposal_detail.author%></small>
+        <small><%=t('proposal.detail.send_by', author: @proposal_detail.author)%></small>
       </div>
     </div>
 
   <hr>
 
   <div class="well">
-  <h4>Deja un comentario:</h4>
+  <h4><%=t('proposal.detail.comment_box_title')%></h4>
   <% form_for(@comment, '/proposal/comment', html: { class: 'form' }) do |f| %>
     <fieldset>
       <div class="form-group">
-        <%= f.label :nombre, class: 'control-label' %>
+        <%= f.label t('proposal.detail.form.name_tag'), class: 'control-label' %>
         <div class="controls">
           <%= f.text_field :author, class: 'form-control', 
-            placeholder: 'Ej: Don Pepito', required: true %>
+            placeholder: t('proposal.detail.form.name_placeholder'), required: true %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label :comentario, class: 'control-label' %>
+        <%= f.label t('proposal.detail.form.comment_tag'), class: 'control-label' %>
         <div class="controls">
           <%= f.text_area :body, class: 'form-control',
-            placeholder: 'Ej: Este es un hermoso comentario, positivo y constructivo',
+            placeholder: t('proposal.detail.form.comment_placeholder'),
             rows: '3', required: true %>
         </div>
       </div>
@@ -35,7 +35,7 @@
       <%= f.hidden_field :proposal_id, value: @proposal_detail.id%>
 
       <div class="form-actions">
-        <%= f.submit 'Enviar', class: 'btn btn-primary' %>
+        <%= f.submit t('proposal.detail.form.send_button'), class: 'btn btn-primary' %>
       </div>
   <% end %>
   </div>
