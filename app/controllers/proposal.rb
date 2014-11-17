@@ -22,7 +22,7 @@ Tod::App.controllers :proposal do
 
     if @proposal.save
       flash[:success] = 'Propuesta enviada correctamente'
-      redirect '/'
+      redirect 'proposal/list'
     else
       flash.now[:error] = 'No se ha podido enviar la propuesta'
       render 'proposal/new'

@@ -1,17 +1,16 @@
 <div class="container">
   <h1>Lista de Propuestas</h1>
 
-  <table class="table table-bordered">
+  <table class="table">
     <tr>
       <th>Título</th>
       <th>Autor</th>
-      <th>Acciones</th>
     </tr>
     <% for @proposal in @proposals %>
       <tr>
-        <td><%= @proposal.title %></td>
+        <td><%= link_to @proposal.title, url(:proposal, :detail, proposal_id: @proposal.id) %></td>
         <td><%= @proposal.author %></td>
-        <td><%= link_to "Detalle", url(:proposal, :detail, :proposal_id => @proposal.id), :class => "btn btn-default" %></td>
       </tr>
     <% end %>
+  </table>
 </div>

@@ -1,19 +1,17 @@
 <div class="container">
-  <div class="well">
-
   <div class = "media">
       <div class="media-body">
-        <h3 class="media-heading">
+        <h2 class="media-heading">
           <%=@proposal_detail.title%>
-          <small><%=@proposal_detail.date.strftime('%c')%></small>
-        </h3>
-        <%=@proposal_detail.description%>
-        <h4><%=@proposal_detail.author%></h4>
+        </h2><hr>
+        <p><%=@proposal_detail.description%></p>
+        <small>Enviada por: <%=@proposal_detail.author%></small>
       </div>
     </div>
 
   <hr>
 
+  <div class="well">
   <h4>Deja un comentario:</h4>
   <% form_for(@comment, '/proposal/comment', html: { class: 'form' }) do |f| %>
     <fieldset>
