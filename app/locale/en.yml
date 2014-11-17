@@ -25,6 +25,7 @@ en:
       result:
         success: Proposal submitted successfully
         error: Proposal could not be sent
+        field_too_short: Field %{field} has less than %{cant} letters
     list:
       title: List of Proposals
       table:

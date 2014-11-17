@@ -25,6 +25,7 @@ es:
       result:
         success: Propuesta enviada correctamente
         error: No se ha podido enviar la propuesta
+        field_too_short: El campo %{field} tiene menos de %{cant} letras.
     list:
       title: Lista de Propuestas
       table:
