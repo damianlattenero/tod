@@ -14,9 +14,9 @@ Tod::App.controllers :proposal do
     description = params[:proposal][:description]
     author = params[:proposal][:author]
 
-    validate_fields_size(title)
-    validate_fields_size(description, 1)
-    validate_fields_size(author)
+    # validate_fields_size(title)
+    # validate_fields_size(description, 1)
+    # validate_fields_size(author)
 
     @proposal = Proposal.create(title: title, description: description, author: author, date: Time.now)
 
@@ -24,7 +24,11 @@ Tod::App.controllers :proposal do
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else
-      flash.now[:error] = t('proposal.new.result.error')
+      # flash.now[:error] = t('proposal.new.result.error')
+      flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.author_tag'), cant: '3') unless field_length_enough?(author)
+      flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.description_tag'), cant: '1') unless field_length_enough?(description, 1)
+      flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.title_tag'), cant: '3') unless field_length_enough?(title)
+
       render 'proposal/new'
     end
   end

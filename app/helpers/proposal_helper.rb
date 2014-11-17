@@ -12,6 +12,10 @@ module Tod
         end
       end
 
+      def field_length_enough?(a_field, min_size = 3)
+        a_field.length > min_size
+      end
+
     end
 
     helpers ProposalHelper
