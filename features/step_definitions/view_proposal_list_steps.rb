@@ -26,9 +26,5 @@ Then(/^I should see proposal "(.*?)"$/) do |proposal|
 end
 
 Then(/^proposal "(.*?)" has to be on top of "(.*?)"$/) do |proposal1, proposal2|
-  expect(page).to have_content(proposal1)
-  expect(page).to have_content(proposal2)
-  #page.should =~ /#{proposal1}.*#{proposal2}/m
-  #expect(page).to match_array [/#{proposal1}.*#{proposal2}/m]
-  #expect(page).to match /#{proposal1}.*#{proposal2}/m
+  expect(page.body).to match /#{proposal1}.*#{proposal2}/m
 end

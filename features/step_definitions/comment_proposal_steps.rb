@@ -31,9 +31,5 @@ Then(/^the comment is added and listed on the proposal view$/) do
 end
 
 Then(/^I should see comment from "(.*?)" on top of comment from "(.*?)"$/) do |comment1, comment2|
-  expect(page).to have_content(comment1)
-  expect(page).to have_content(comment2)
-  #page.should =~ /#{comment1}.*#{comment2}/m
-  #expect(page).to match_array [/#{comment1}.*#{comment2}/m]
-  #expect(page).to match /#{comment1}.*#{comment2}/m
+  expect(page.body).to match /#{comment1}.*#{comment2}/m
 end
