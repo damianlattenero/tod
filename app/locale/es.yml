@@ -1,0 +1,43 @@
+es:
+  title: TOD - Organizador de conferencias
+  nav:
+    home_link: Inicio
+    new_proposal: Nueva Propuesta
+    proposal_list: Lista de propuestas
+    search_placeholder: Búsqueda
+    search_button: Buscar
+  footer:
+    detail: Tod
+    year: 2014
+  home:
+    welcome_message: Bienvenido a Tod, tu organizador de conferencias preferido.
+  proposal:
+    new:
+      title: Nueva Propuesta
+      form:
+        title_tag: Título
+        description_tag: Descripción
+        author_tag: Autor
+        title_placeholder: "Ej: Super Tema 2016"
+        description_placeholder: "Ej: Esta es una linda descripción de propuesta"
+        author_placeholder: "Ej: Don Pepito"
+        send_button: Enviar
+        cancel_button: Cancelar
+      result:
+        success: Propuesta enviada correctamente
+        error: No se ha podido enviar la propuesta
+        field_too_short: El campo %{field} tiene menos de %{cant} letras.
+    list:
+      title: Lista de Propuestas
+      table:
+        title: Título
+        author: Autor
+    detail:
+      send_by: "Enviada por: %{author}"
+      comment_box_title: "Deja un comentario:"
+      form:
+        name_tag: Nombre
+        name_placeholder: "Ej: Don Pepito"
+        comment_tag: Comentario
+        comment_placeholder: "Ej: Este es un hermoso comentario, positivo y constructivo"
+        send_button: Enviar

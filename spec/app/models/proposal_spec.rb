@@ -1,5 +1,7 @@
 # require 'spec_helper'
 require 'rspec'
+require 'data_mapper'
+
 require_relative '../../../app/models/proposal'
 
 describe Proposal do
@@ -8,6 +10,8 @@ describe Proposal do
     it { should respond_to( :title) }
     it { should respond_to( :description) }
     it { should respond_to( :author) }
+    it { should respond_to( :date) }
+    # it { should respond_to( :comments) }
   end
 
   describe 'initialize' do
@@ -18,10 +22,12 @@ describe Proposal do
       proposal.title = 'A title'
       proposal.description = 'A description'
       proposal.author = 'Hache'
+      proposal.date = rigth_now
 
-      proposal.title.should eq 'A title'
-      proposal.description.should eq 'A description'
-      proposal.author.should eq 'Hache'
+      expect(proposal.title).to eq 'A title'
+      expect(proposal.description).to eq 'A description'
+      expect(proposal.author).to eq 'Hache'
+      proposal.date.should eql? rigth_now
     end
 
     # it 'should raise an error when title is "as"' do
@@ -61,7 +67,7 @@ describe Proposal do
       proposal2.description = 'A description2'
       proposal2.author = 'An author2'
 
-      proposal1.same_title?(proposal2).should eq true
+      expect(proposal1.same_title?(proposal2)).to eq true
     end
 
     it 'should be false' do
@@ -75,7 +81,7 @@ describe Proposal do
       proposal2.description = 'A description2'
       proposal2.author = 'An author2'
 
-      proposal1.same_title?(proposal2).should eq false
+      expect(proposal1.same_title?(proposal2)).to eq false
     end
   end
 
@@ -87,7 +93,7 @@ describe Proposal do
       proposal.description = 'A description'
       proposal.author = 'An author'
       proposal.append_author_to_title
-      proposal.title.should eq 'A title - An author'
+      expect(proposal.title).to eq 'A title - An author'
     end
   end
 end

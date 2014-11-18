@@ -1,0 +1,43 @@
+en:
+  title: TOD - Conference organizer
+  nav:
+    home_link: Home
+    new_proposal: New Proposal
+    proposal_list: Proposal list
+    search_placeholder: Looking for something?
+    search_button: Search
+  footer:
+    detail: Tod
+    year: 2014
+  home:
+    welcome_message: Welcome to Tod, your favorite conference organizer.
+  proposal:
+    new:
+      title: New Proposal
+      form:
+        title_tag: Title
+        description_tag: Description
+        author_tag: Author
+        title_placeholder: "E.g.: Super Proposal 2016"
+        description_placeholder: "E.g.: This is a nice proposal description"
+        author_placeholder: "E.g.: Superman"
+        send_button: Send
+        cancel_button: Cancel
+      result:
+        success: Proposal submitted successfully
+        error: Proposal could not be sent
+        field_too_short: Field %{field} has less than %{cant} letters
+    list:
+      title: List of Proposals
+      table:
+        title: Title
+        author: Author
+    detail:
+      send_by: "Send by: %{author}"
+      comment_box_title: "Leave a comment:"
+      form:
+        name_tag: Name
+        name_placeholder: "E.g.: Batman"
+        comment_tag: Comment
+        comment_placeholder: "E.g.: This is a beautiful comment, positive and constructive"
+        send_button: Send

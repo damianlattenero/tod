@@ -1,11 +1,3 @@
-require 'data_mapper'
-require 'rspec'
-require_relative '../../app/models/proposal'
-
-# Data base in memory
-DataMapper.setup(:default, 'sqlite::memory:')
-DataMapper.auto_upgrade!
-
 Given(/^proposal title "(.*?)"$/) do |title|
   @title = title
 end
