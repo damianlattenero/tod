@@ -8,7 +8,7 @@ When(/^I browse the proposal list$/) do
 end
 
 Then(/^I should see no proposals$/) do
-  #page.should_not have_content(content)
+  expect(page).to have_content("Aun no hay propuestas, puedes agregar una si deseas")
 end
 
 Given(/^someone add proposal "(.*?)"$/) do |proposal|
@@ -22,6 +22,7 @@ end
 Then(/^I should see proposal "(.*?)"$/) do |proposal|
   expect(page).to have_content(proposal)
   expect(page).to have_content('a test author')
+  expect(page).not_to have_content("Aun no hay propuestas, puedes agregar una si deseas")
 end
 
 Then(/^proposal "(.*?)" has to be on top of "(.*?)"$/) do |proposal1, proposal2|

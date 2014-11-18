@@ -35,6 +35,10 @@ es:
     detail:
       send_by: "Enviada por: %{author}"
       comment_box_title: "Deja un comentario:"
+      comment_result:
+        success: "Comentario enviado correctamente"
+        error: "No se ha podido enviar el comentario"
+        field_too_short: El campo %{field} tiene menos de %{cant} letras
       form:
         name_tag: Nombre
         name_placeholder: "Ej: Don Pepito"

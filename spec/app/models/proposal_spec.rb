@@ -16,7 +16,7 @@ describe Proposal do
 
   describe 'initialize' do
     it 'should create a proposal' do
-      rigth_now = Time.now
+      rigth_now = Time.now.to_date
 
       proposal = Proposal.new
       proposal.title = 'A title'
@@ -27,7 +27,7 @@ describe Proposal do
       expect(proposal.title).to eq 'A title'
       expect(proposal.description).to eq 'A description'
       expect(proposal.author).to eq 'Hache'
-      proposal.date.should eql? rigth_now
+      expect(proposal.date).to eql rigth_now
     end
 
     # it 'should raise an error when title is "as"' do

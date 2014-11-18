@@ -1,20 +1,23 @@
 <div class="container">
   <h1><%= t('proposal.list.title')%></h1>
 
-  <table class="table table-bordered">
-    <tr>
-      <th><%= t('proposal.list.table.title')%></th>
-      <th><%= t('proposal.list.table.author')%></th>
-    </tr>
+  <% if @proposals.empty? then %>
+    <tr>Aun no hay propuestas, puedes agregar una si deseas</tr>
+    
+  <% else %>
+    <table class="table table-bordered">
+      <tr>
+        <th><%= t('proposal.list.table.title')%></th>
+        <th><%= t('proposal.list.table.author')%></th>
+      </tr>
+    
     <% @proposals.each do |proposal| %>
       <tr>
-        <td>
-          <%= link_to proposal.title, url_for(:proposal, :detail, :proposal_id => proposal.id) %>
-        </td>
-        <td>
-          <%= proposal.author %>
-        </td>
+        <td><%= link_to proposal.title, url_for(:proposal, :detail, :proposal_id => proposal.id) %></td>
+        <td><%= proposal.author %></td>
       </tr>
+    
     <% end %>
-  </table>
+    </table>
+  <% end %>
 </div>

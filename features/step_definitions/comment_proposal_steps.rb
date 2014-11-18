@@ -23,7 +23,6 @@ When(/^submitted$/) do
   fill_in('comment[author]', :with => @author)
   fill_in('comment[body]', :with => @body)
   click_button('Enviar')
-
 end
 
 Then(/^the comment is added and listed on the proposal view$/) do

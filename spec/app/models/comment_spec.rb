@@ -13,7 +13,7 @@ describe Comment do
   describe 'initialize' do
     it 'should create a comment' do
 
-      rigth_now = Time.now
+      rigth_now = Time.now.to_date
 
       comment = Comment.new
       comment.author = 'Hachedeeme'
@@ -22,7 +22,7 @@ describe Comment do
 
       expect(comment.author).to eq "Hachedeeme"
       expect(comment.body).to eq "Body"
-      comment.date.should eql? rigth_now
+      expect(comment.date).to eq rigth_now
   	end
   end
 

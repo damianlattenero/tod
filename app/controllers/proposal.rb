@@ -18,7 +18,12 @@ Tod::App.controllers :proposal do
     # validate_fields_size(description, 1)
     # validate_fields_size(author)
 
-    @proposal = Proposal.create(title: title, description: description, author: author, date: Time.now)
+    @proposal = Proposal.create(
+      title: title, 
+      description: description, 
+      author: author, 
+      date: Time.now
+    )
 
     if @proposal.save
       flash[:success] = t('proposal.new.result.success')
@@ -28,7 +33,6 @@ Tod::App.controllers :proposal do
       flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.author_tag'), cant: '3') unless field_length_enough?(author)
       flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.description_tag'), cant: '1') unless field_length_enough?(description, 1)
       flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.title_tag'), cant: '3') unless field_length_enough?(title)
-
       render 'proposal/new'
     end
   end
@@ -55,10 +59,13 @@ Tod::App.controllers :proposal do
     )
 
     if @comment.save
+      flash[:success] = t('proposal.detail.comment_result.success')
       redirect 'proposal/detail?proposal_id=' + proposal_id.to_s
     else
-      flash.now[:error] = 'No se ha podido enviar el comentario'
-      render 'proposal/detail?proposal_id=' + proposal_id.to_s
+      flash[:error] = t('proposal.detail.comment_result.field_too_short', field: t('proposal.detail.form.name_tag'), cant: '3') unless field_length_enough?(author)
+      flash[:error] = t('proposal.detail.comment_result.field_too_short', field: t('proposal.detail.form.comment_tag'), cant: '1') unless field_length_enough?(body, 1)
+      redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
     end
+    
   end
 end

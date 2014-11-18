@@ -6,7 +6,6 @@ require 'rspec/expectations'
 #include Capybara::DSL
 
 # Data base in memory
-DataMapper.setup(:default, 'sqlite::memory:')
 DataMapper.auto_migrate!
 
 #Capybara.default_driver = :selenium
