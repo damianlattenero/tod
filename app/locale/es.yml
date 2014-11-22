@@ -18,9 +18,11 @@ es:
         title_tag: Título
         description_tag: Descripción
         author_tag: Autor
+        tags_tag: Etiquetas
         title_placeholder: "Ej: Super Tema 2016"
         description_placeholder: "Ej: Esta es una linda descripción de propuesta"
         author_placeholder: "Ej: Don Pepito"
+        tags_placeholder: "Ej: Agile, Scrum, Arquitectura de Software"
         send_button: Enviar
         cancel_button: Cancelar
       result:
