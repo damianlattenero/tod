@@ -1,6 +1,6 @@
 # require 'spec_helper'
 require 'rspec'
-require 'data_mapper'
+#require 'data_mapper'
 
 require_relative '../../../app/models/proposal'
 
@@ -12,6 +12,7 @@ describe Proposal do
     it { should respond_to( :author) }
     it { should respond_to( :date) }
     # it { should respond_to( :comments) }
+    # it { should respond_to( :tag_name) }
   end
 
   describe 'initialize' do

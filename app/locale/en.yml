@@ -18,9 +18,11 @@ en:
         title_tag: Title
         description_tag: Description
         author_tag: Author
+        tags_tag: Tags
         title_placeholder: "E.g.: Super Proposal 2016"
         description_placeholder: "E.g.: This is a nice proposal description"
         author_placeholder: "E.g.: Superman"
+        tags_placeholder: "Ej: Agile, Scrum, Software Arquitecture"
         send_button: Send
         cancel_button: Cancel
       result:

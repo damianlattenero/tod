@@ -1,6 +1,7 @@
 Tod::App.controllers :proposal do
   get :new do
     @proposal = Proposal.new
+    #@tag = Tag.new
     render 'proposal/new'
   end
 
@@ -13,6 +14,7 @@ Tod::App.controllers :proposal do
     title = params[:proposal][:title]
     description = params[:proposal][:description]
     author = params[:proposal][:author]
+    #tags = params[:tags]
 
     # validate_fields_size(title)
     # validate_fields_size(description, 1)
@@ -21,11 +23,13 @@ Tod::App.controllers :proposal do
     @proposal = Proposal.create(
       title: title, 
       description: description, 
-      author: author, 
-      date: Time.now
+      author: author,
+      date: Time.now,
+      #tags: tags
     )
 
     if @proposal.save
+      #@proposal.tag!(params[:tags])
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else
