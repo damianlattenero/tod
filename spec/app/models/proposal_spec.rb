@@ -1,6 +1,6 @@
-# require 'spec_helper'
+require 'spec_helper'
 require 'rspec'
-#require 'data_mapper'
+require 'data_mapper'
 
 require_relative '../../../app/models/proposal'
 

@@ -21,7 +21,6 @@ Then(/^proposal is added$/) do
   expect(Proposal.all[0].title).to eq @title
   expect(Proposal.all[0].description).to eq @description
   expect(Proposal.all[0].author).to eq @author_nick
-  #expect(Proposal.all[0].).to eq @tags
 end
 
 Given(/^new proposal$/) do

@@ -4,11 +4,13 @@ require 'capybara/cucumber'
 require 'rspec'
 require 'rspec/expectations'
 #include Capybara::DSL
-
+require 'rubygems'
+require 'dm-core'
+require 'dm-tags'
 # Data base in memory
 DataMapper.auto_migrate!
 
 #Capybara.default_driver = :selenium
 Capybara.app = Tod::App.tap { |app|  }
 
-require_relative '../../app/models/proposal'
+#require_relative '../../app/models/proposal'
