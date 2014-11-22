@@ -13,7 +13,7 @@ Scenario: Submitt a proposal without tagging
   And the proposal has 0 tags
 
 Scenario: Submitt a proposal with one tag
-  Given I add tag "FirstTag"
+  Given I add tag "FirsTtag"
   When submitting
   Then proposal is added
   And the proposal has 1 tags

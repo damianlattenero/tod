@@ -7,13 +7,7 @@ Given(/^no tags added$/) do
 end
 
 Then(/^the proposal has (\d+) tags$/) do |number_of_tags|
-  number = 0
-  Tag.all.each_value do |proposal_list|
-  	if proposal_list.include?(Proposal.all[0]) then
-      number+=1
-    end
-  end
-  expect(number).to be number_of_tags.to_i
+  expect(Proposal.all[3].tags.size).to eq number_of_tags.to_i
 end
 
 Given(/^I add tag "(.*?)"$/) do |tag1|
@@ -21,5 +15,5 @@ Given(/^I add tag "(.*?)"$/) do |tag1|
 end
 
 Then(/^the proposal has tag "(.*?)"$/) do |tag1|
-  expect(Tag.all[tag1]).to include(Proposal.all[0])#.id o .title ???#
+  expect(Proposal.all[3].tag_list).to include(tag1)
 end
