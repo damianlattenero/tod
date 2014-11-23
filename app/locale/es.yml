@@ -45,3 +45,6 @@ es:
         comment_tag: Comentario
         comment_placeholder: "Ej: Este es un hermoso comentario, positivo y constructivo"
         send_button: Enviar
+    search:
+      title: Resultados de búsqueda
+      empty: No se han encontrado resultados
