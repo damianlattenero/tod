@@ -16,7 +16,7 @@
       <tr>
         <td><%= link_to proposal.title, url_for(:proposal, :detail, :proposal_id => proposal.id) %></td>
         <td><%= proposal.author %></td>
-        <td><%= proposal.tag_list %></td>
+        <td><%= proposal.tag_list * " "%></td>
       </tr>
     
     <% end %>
