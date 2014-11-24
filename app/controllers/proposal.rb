@@ -19,10 +19,6 @@ Tod::App.controllers :proposal do
     description = params[:proposal][:description]
     author = params[:proposal][:author]
 
-    # validate_fields_size(title)
-    # validate_fields_size(description, 1)
-    # validate_fields_size(author)
-
     @proposal = Proposal.create(
       title: title, 
       description: description, 
@@ -34,10 +30,18 @@ Tod::App.controllers :proposal do
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else
-      # flash.now[:error] = t('proposal.new.result.error')
-      flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.author_tag'), cant: '3') unless field_length_enough?(author)
-      flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.description_tag'), cant: '1') unless field_length_enough?(description, 1)
-      flash.now[:error] = t('proposal.new.result.field_too_short', field: t('proposal.new.form.title_tag'), cant: '3') unless field_length_enough?(title)
+      notify_new_proposal_field_too_short(
+        'proposal.new.form.author_tag', 3
+      ) unless field_length_enough?(author)
+
+      notify_new_proposal_field_too_short(
+        'proposal.new.form.description_tag', 1
+      ) unless field_length_enough?(description, 1)
+
+      notify_new_proposal_field_too_short(
+        'proposal.new.form.title_tag', 3
+      ) unless field_length_enough?(title)
+
       render 'proposal/new'
     end
   end
@@ -65,12 +69,20 @@ Tod::App.controllers :proposal do
 
     if @comment.save
       flash[:success] = t('proposal.detail.comment_result.success')
-      redirect 'proposal/detail?proposal_id=' + proposal_id.to_s
     else
-      flash[:error] = t('proposal.detail.comment_result.field_too_short', field: t('proposal.detail.form.name_tag'), cant: '3') unless field_length_enough?(author)
-      flash[:error] = t('proposal.detail.comment_result.field_too_short', field: t('proposal.detail.form.comment_tag'), cant: '1') unless field_length_enough?(body, 1)
-      redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+      flash[:danger] = 
+        t('proposal.detail.comment_result.field_too_short',
+          field: t('proposal.detail.form.comment_tag'),
+          cant: 1
+         ) unless field_length_enough?(body, 1)
+
+      flash[:danger] = 
+        t('proposal.detail.comment_result.field_too_short',
+          field: t('proposal.detail.form.name_tag'),
+          cant: 3
+         ) unless field_length_enough?(author)
     end
-    
+
+    redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
   end
 end

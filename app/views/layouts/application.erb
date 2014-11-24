@@ -12,7 +12,7 @@
 
       <div class="container">
         <div>
-          <%= [:error, :warning, :success, :notice].map { 
+          <%= [:danger, :warning, :success, :info].map { 
             |type| flash_tag(
               type, :class => "alert alert-#{type} fade in", :bootstrap => true
             )}.join.html_safe 

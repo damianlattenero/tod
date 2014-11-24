@@ -34,12 +34,13 @@ en:
       table:
         title: Title
         author: Author
+      empty: "Still no proposals, you can add one if you want."
     detail:
       send_by: "Send by: %{author}"
       comment_box_title: "Leave a comment:"
       comment_result:
-        success: "Comment submitted successfully"
-        error: "Comment could not be sent"
+        success: Comment submitted successfully
+        error: Comment could not be sent
         field_too_short: Field %{field} has less than %{cant} letters
       form:
         name_tag: Name
