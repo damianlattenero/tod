@@ -4,8 +4,9 @@
         <h2 class="media-heading">
           <%=@proposal_detail.title%>
         </h2><hr>
-        <p><%=@proposal_detail.description%></p>
+        <p><%=@proposal_detail.description%></p> 
         <small><%=t('proposal.detail.send_by', author: @proposal_detail.author)%></small>
+        <small><%=t('proposal.detail.tags', tags: @proposal_detail.tag_list * " ")%></small>
       </div>
     </div>
 
@@ -19,7 +20,7 @@
         <%= f.label t('proposal.detail.form.name_tag'), class: 'control-label' %>
         <div class="controls">
           <%= f.text_field :author, class: 'form-control', 
-            placeholder: t('proposal.detail.form.name_placeholder'), required: true %>
+            placeholder: t('proposal.detail.form.name_placeholder') %>
         </div>
       </div>
 
@@ -28,7 +29,7 @@
         <div class="controls">
           <%= f.text_area :body, class: 'form-control',
             placeholder: t('proposal.detail.form.comment_placeholder'),
-            rows: '3', required: true %>
+            rows: '3' %>
         </div>
       </div>
 

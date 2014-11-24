@@ -1,25 +1,26 @@
 <div class="container">
-  <h1><%= t('proposal.list.title')%></h1>
+  <h1><%= t('proposal.search.title')%></h1>
 
   <% if @proposals.empty? then %>
-    <tr><%= t('proposal.list.empty')%></tr>
+    <tr><%= t('proposal.search.empty') %></tr>
     
   <% else %>
     <table class="table table-bordered">
+      <thead>
       <tr>
         <th><%= t('proposal.list.table.title')%></th>
         <th><%= t('proposal.list.table.author')%></th>
-        <th><%= t('proposal.list.table.tags')%></th>
       </tr>
-    
+      </thead>
+    <tbody id="results"> 
     <% @proposals.each do |proposal| %>
       <tr>
         <td><%= link_to proposal.title, url_for(:proposal, :detail, :proposal_id => proposal.id) %></td>
         <td><%= proposal.author %></td>
-        <td><%= proposal.tag_list * " "%></td>
       </tr>
     
     <% end %>
     </table>
   <% end %>
+  </tbody>
 </div>

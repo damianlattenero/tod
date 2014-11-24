@@ -1,5 +1,8 @@
 Feature: Adding proposal
 
+Background:
+  Given new proposal page
+
 Scenario: Adding a proposal that complies 
   Given proposal title "Proposal"
   And a description "This is a proposal"
@@ -31,7 +34,8 @@ Scenario: Proposal have duplicated title
   And author nick "Author"
   And submitting
 
-  Given proposal title "Proposal"
+  Given new proposal 
+  And proposal title "Proposal"
   And a description "This is a proposal"
   And author nick "Author"
   And submitting

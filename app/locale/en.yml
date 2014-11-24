@@ -18,9 +18,11 @@ en:
         title_tag: Title
         description_tag: Description
         author_tag: Author
+        tags_tag: Tags
         title_placeholder: "E.g.: Super Proposal 2016"
         description_placeholder: "E.g.: This is a nice proposal description"
         author_placeholder: "E.g.: Superman"
+        tags_placeholder: "Ej: Agile, Scrum, Software Arquitecture"
         send_button: Send
         cancel_button: Cancel
       result:
@@ -32,12 +34,22 @@ en:
       table:
         title: Title
         author: Author
+        tags: Tags
+      empty: "Still no proposals, you can add one if you want."
     detail:
+      tags: "Tags: %{tags}"
       send_by: "Send by: %{author}"
       comment_box_title: "Leave a comment:"
+      comment_result:
+        success: Comment submitted successfully
+        error: Comment could not be sent
+        field_too_short: Field %{field} has less than %{cant} letters
       form:
         name_tag: Name
         name_placeholder: "E.g.: Batman"
         comment_tag: Comment
         comment_placeholder: "E.g.: This is a beautiful comment, positive and constructive"
         send_button: Send
+    search:
+      title: Search results
+      empty: Results have not been found

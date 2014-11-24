@@ -18,9 +18,11 @@ es:
         title_tag: Título
         description_tag: Descripción
         author_tag: Autor
+        tags_tag: Etiquetas
         title_placeholder: "Ej: Super Tema 2016"
         description_placeholder: "Ej: Esta es una linda descripción de propuesta"
         author_placeholder: "Ej: Don Pepito"
+        tags_placeholder: "Ej: Agile, Scrum, Arquitectura de Software"
         send_button: Enviar
         cancel_button: Cancelar
       result:
@@ -32,12 +34,22 @@ es:
       table:
         title: Título
         author: Autor
+        tags: Etiquetas
+      empty: "Aun no hay propuestas, puedes agregar una si deseas"
     detail:
+      tags: "Etiquetas: %{tags}"
       send_by: "Enviada por: %{author}"
       comment_box_title: "Deja un comentario:"
+      comment_result:
+        success: Comentario enviado correctamente
+        error: No se ha podido enviar el comentario
+        field_too_short: El campo %{field} tiene menos de %{cant} letras
       form:
         name_tag: Nombre
         name_placeholder: "Ej: Don Pepito"
         comment_tag: Comentario
         comment_placeholder: "Ej: Este es un hermoso comentario, positivo y constructivo"
         send_button: Enviar
+    search:
+      title: Resultados de búsqueda
+      empty: No se han encontrado resultados

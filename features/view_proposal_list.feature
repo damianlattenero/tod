@@ -16,4 +16,4 @@ Scenario: Ordered proposals
   Given someone add proposal "Tod Proposal"
   And someone add proposal "Tod Proposal 2"
   When I browse the proposal list
-  Then proposal "Tod Proposal" has to be on top of "Tod Proposal 2"
+  Then proposal "Tod Proposal 2" has to be on top of "Tod Proposal"

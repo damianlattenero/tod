@@ -1,4 +1,4 @@
-# require 'spec_helper'
+require 'spec_helper'
 require 'rspec'
 require 'data_mapper'
 
@@ -12,11 +12,12 @@ describe Proposal do
     it { should respond_to( :author) }
     it { should respond_to( :date) }
     # it { should respond_to( :comments) }
+    # it { should respond_to( :tag_name) }
   end
 
   describe 'initialize' do
     it 'should create a proposal' do
-      rigth_now = Time.now
+      rigth_now = Time.now.to_date
 
       proposal = Proposal.new
       proposal.title = 'A title'
@@ -27,7 +28,7 @@ describe Proposal do
       expect(proposal.title).to eq 'A title'
       expect(proposal.description).to eq 'A description'
       expect(proposal.author).to eq 'Hache'
-      proposal.date.should eql? rigth_now
+      expect(proposal.date).to eql rigth_now
     end
 
     # it 'should raise an error when title is "as"' do
