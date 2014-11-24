@@ -31,11 +31,17 @@ Tod::App.controllers :proposal do
       redirect 'proposal/list'
     else
       notify_new_proposal_field_too_short(
-        'proposal.new.form.author_tag', 3) unless field_length_enough?(author)
+        'proposal.new.form.author_tag', 3
+      ) unless field_length_enough?(author)
+
       notify_new_proposal_field_too_short(
-        'proposal.new.form.description_tag', 1) unless field_length_enough?(description, 1)
+        'proposal.new.form.description_tag', 1
+      ) unless field_length_enough?(description, 1)
+
       notify_new_proposal_field_too_short(
-        'proposal.new.form.title_tag', 3) unless field_length_enough?(title)
+        'proposal.new.form.title_tag', 3
+      ) unless field_length_enough?(title)
+
       render 'proposal/new'
     end
   end
@@ -64,12 +70,19 @@ Tod::App.controllers :proposal do
     if @comment.save
       flash[:success] = t('proposal.detail.comment_result.success')
     else
-      notify_comment_field_too_short(
-        'proposal.detail.form.name_tag', 3) unless field_length_enough?(author)
-      notify_comment_field_too_short(
-        'proposal.detail.form.comment_tag', 1) unless field_length_enough?(body, 1)
-        
+      flash[:danger] = 
+        t('proposal.detail.comment_result.field_too_short',
+          field: t('proposal.detail.form.comment_tag'),
+          cant: 1
+         ) unless field_length_enough?(body, 1)
+
+      flash[:danger] = 
+        t('proposal.detail.comment_result.field_too_short',
+          field: t('proposal.detail.form.name_tag'),
+          cant: 3
+         ) unless field_length_enough?(author)
     end
+
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
   end
 end
