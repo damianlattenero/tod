@@ -7,7 +7,7 @@ install:
 
 before_script:
   - "sh -e /etc/init.d/xvfb start"
-  - "rake db:migrate"
+  - "rake dm:auto:migrate"
 #script: PADRINO_ENV=travis padrino rake
 script: PADRINO_ENV=padrino rake
 
