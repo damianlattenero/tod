@@ -35,7 +35,7 @@ es:
         title: Título
         author: Autor
         tags: Etiquetas
-      empty: "Aún no hay propuestas, puedes agregar una si deseas"
+      empty: "Aun no hay propuestas, puedes agregar una si deseas"
     detail:
       tags: "Etiquetas: %{tags}"
       send_by: "Enviada por: %{author}"
