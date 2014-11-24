@@ -19,14 +19,14 @@ Tod::App.controllers :proposal do
     title = params[:proposal][:title]
     description = params[:proposal][:description]
     author = params[:proposal][:author]
-    tags = params[:proposal][:tags]
+    tags = params[:proposal][:tags_list]
 
-    @proposal = Proposal.create(
-      title: title, 
-      description: description, 
-      author: author,
-      date: Time.now,
-    )
+    @proposal = Proposal.new
+    @proposal.title = title
+    @proposal.description = description
+    @proposal.author = author
+    @proposal.date = Time.now
+    @proposal.tag_list = tags.downcase
 
     if @proposal.save
       # @proposal.tag!(params[:proposal][:tags])

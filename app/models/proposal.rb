@@ -1,4 +1,3 @@
-require 'data_mapper'
 require 'rubygems'
 require 'dm-core'
 require 'dm-tags'
