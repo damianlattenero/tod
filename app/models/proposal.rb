@@ -1,4 +1,6 @@
-require 'data_mapper'
+require 'rubygems'
+require 'dm-core'
+require 'dm-tags'
 
 class Proposal
   include DataMapper::Resource
@@ -9,6 +11,8 @@ class Proposal
   property :description, Text,   required: true, :length => 1..500
   property :author,      String, required: true, :length => 3..50
   property :date,        DateTime
+  has_tags_on :tags
+  # has n, :tags, :through => Resource
   # has n,   :comments
 
   def same_title?(a_proposal)
@@ -18,4 +22,11 @@ class Proposal
   def append_author_to_title
     self.title += (" - " + @author)
   end
+
+  # def tag!(tags)
+  #   tags = tags.split(" ").map do |tag|
+  #   Tag.find_or_create_by_label(tag)
+  #   end
+  #   self.tags << tags
+  # end
 end

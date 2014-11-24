@@ -34,8 +34,10 @@ es:
       table:
         title: Título
         author: Autor
-      empty: "Aún no hay propuestas, puedes agregar una si deseas"
+        tags: Etiquetas
+      empty: "Aun no hay propuestas, puedes agregar una si deseas"
     detail:
+      tags: "Etiquetas: %{tags}"
       send_by: "Enviada por: %{author}"
       comment_box_title: "Deja un comentario:"
       comment_result:

@@ -1,6 +1,7 @@
 Tod::App.controllers :proposal do
   get :new do
     @proposal = Proposal.new
+    #@tag = Tag.new
     render 'proposal/new'
   end
 
@@ -10,7 +11,10 @@ Tod::App.controllers :proposal do
   end
 
   post :search do
-    @proposals = Proposal.all(:title.like => "%#{params[:query]}%")
+    title_search = Proposal.all(:title.like => "%#{params[:query]}%")
+    tag_search = Proposal.all(:frozen_tag_list.like => "%#{params[:query]}%")
+    @proposals = merge_search(title_search, tag_search)
+
     render 'proposal/search'
   end
 
@@ -18,15 +22,17 @@ Tod::App.controllers :proposal do
     title = params[:proposal][:title]
     description = params[:proposal][:description]
     author = params[:proposal][:author]
+    tags = params[:proposal][:tags_list]
 
-    @proposal = Proposal.create(
-      title: title, 
-      description: description, 
-      author: author, 
-      date: Time.now
-    )
+    @proposal = Proposal.new
+    @proposal.title = title
+    @proposal.description = description
+    @proposal.author = author
+    @proposal.date = Time.now
+    @proposal.tag_list = tags.downcase
 
     if @proposal.save
+      # @proposal.tag!(params[:proposal][:tags])
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else

@@ -1,5 +1,5 @@
 Given(/^a proposal list page without proposals$/) do
-  Proposal.all.destroy
+  Proposal.destroy!
   expect(Proposal.all).to eq []
 end
 

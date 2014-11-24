@@ -45,6 +45,14 @@ module Tod
         )
       end
 
+      def merge_search(title_search, tag_search)
+        title_search + tag_search
+      end
+
+      def merge_search(title_search, tag_search)
+        title_search + tag_search
+      end
+
     end
 
     helpers ProposalHelper
