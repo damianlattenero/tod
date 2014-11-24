@@ -34,7 +34,9 @@ es:
       table:
         title: Título
         author: Autor
+        tags: Etiquetas
     detail:
+      tags: "Etiquetas: %{tags}"
       send_by: "Enviada por: %{author}"
       comment_box_title: "Deja un comentario:"
       comment_result:

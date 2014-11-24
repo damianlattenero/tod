@@ -4,9 +4,9 @@
         <h2 class="media-heading">
           <%=@proposal_detail.title%>
         </h2><hr>
-        <p><%=@proposal_detail.tag_list%></p>
         <p><%=@proposal_detail.description%></p> 
         <small><%=t('proposal.detail.send_by', author: @proposal_detail.author)%></small>
+        <small><%=t('proposal.detail.tags', tags: @proposal_detail.tag_list)%><//small>
       </div>
     </div>
 
