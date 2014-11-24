@@ -6,8 +6,13 @@ Tod::App.controllers :proposal do
   end
 
   get :list do
-    @proposals = Proposal.all
+    @proposals = Proposal.reverse
     render 'proposal/list'
+  end
+
+  post :search do
+    @proposals = Proposal.all(:title.like => "%#{params[:query]}%")
+    render 'proposal/search'
   end
 
   post :create do
@@ -39,7 +44,7 @@ Tod::App.controllers :proposal do
   get :detail do
     proposal_id = params[:proposal_id]
     @proposal_detail = Proposal.get proposal_id
-    @comments = Comment.all(:proposal_id => proposal_id)
+    @comments = Comment.all(:proposal_id => proposal_id).reverse
     @comment = Comment.new
     render 'proposal/detail'
   end
