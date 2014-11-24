@@ -11,7 +11,10 @@ Tod::App.controllers :proposal do
   end
 
   post :search do
-    @proposals = Proposal.all(:title.like => "%#{params[:query]}%")
+    title_search = Proposal.all(:title.like => "%#{params[:query]}%")
+    tag_search = Proposal.all(:frozen_tag_list.like => "%#{params[:query]}%")
+    @proposals = merge_search(title_search, tag_search)
+
     render 'proposal/search'
   end
 
