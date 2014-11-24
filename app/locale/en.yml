@@ -34,8 +34,10 @@ en:
       table:
         title: Title
         author: Author
+        tags: Tags
       empty: "Still no proposals, you can add one if you want."
     detail:
+      tags: "Tags: %{tags}"
       send_by: "Send by: %{author}"
       comment_box_title: "Leave a comment:"
       comment_result:
