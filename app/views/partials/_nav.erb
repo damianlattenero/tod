@@ -16,7 +16,7 @@
       <div class="navbar-form navbar-right">
         <form method="POST" action="/proposal/search" class="form-search">
           <%= csrf_token_field %>
-          <input id="query" type="text" name="query" class="form-control" placeholder=<%=t('nav.search_placeholder')%> />
+          <input id="query" type="text" name="query" class="form-control" placeholder="<%=t('nav.search_placeholder')%>" />
           <input type="submit" value=<%=t('nav.search_button')%> class="btn btn-primary"/>
         </form>
       </div>

@@ -2,7 +2,7 @@
   <h1><%= t('proposal.list.title')%></h1>
 
   <% if @proposals.empty? then %>
-    <tr>Aun no hay propuestas, puedes agregar una si deseas</tr>
+    <tr><%= t('proposal.list.empty')%></tr>
     
   <% else %>
     <table class="table table-bordered">
