@@ -16,6 +16,10 @@ module Tod
         a_field.length > min_size
       end
 
+      def merge_search(title_search, tag_search)
+        title_search + tag_search
+      end
+
     end
 
     helpers ProposalHelper

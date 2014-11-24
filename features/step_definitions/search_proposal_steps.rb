@@ -1,15 +1,13 @@
-Given(/^added proposal with title "(.*?)"$/) do |title|
-  @proposal = Proposal.create(
-    :title => title,
-    :description => "A proposal description",
-    :author => "An author"
-  )
+Given(/^added proposal with title "(.*?)" and "(.*?)" tags$/) do |title, tags|
+  @proposal = Proposal.new
+  @proposal.title = title
+  @proposal.description = "A proposal description"
+  @proposal.author = "An author"
+  @proposal.date = Time.now
+  @proposal.tag_list = tags.downcase
   @proposal.save
 end
 
-Given(/^with tags "(.*?)"$/) do |tag_query|
-  pending
-end
 
 When(/^I search with "(.*?)"$/) do |query|
   visit '/'
