@@ -9,6 +9,11 @@ Tod::App.controllers :proposal do
     render 'proposal/list'
   end
 
+  post :search do
+    @proposals = Proposal.all(:title.like => "%#{params[:query]}%")
+    render 'proposal/search'
+  end
+
   post :create do
     title = params[:proposal][:title]
     description = params[:proposal][:description]

@@ -12,3 +12,8 @@ DataMapper.auto_migrate!
 Capybara.app = Tod::App.tap { |app|  }
 
 require_relative '../../app/models/proposal'
+
+# Clear test database after each escenario
+After do
+  Proposal.destroy
+end
