@@ -32,6 +32,9 @@ gem 'uglifier', '2.1.1'
 gem 'yui-compressor', '0.9.6'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+gem 'omniauth'
+gem 'omniauth-github', :github => 'intridea/omniauth-github'
+# gem 'omniauth-twitter'
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.4'
