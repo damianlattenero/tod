@@ -7,7 +7,7 @@ PadrinoTasks.use(:database)
 PadrinoTasks.use(:datamapper)
 PadrinoTasks.init
 
-if ['development', 'test', 'travis'].include?(RACK_ENV)
+if ['development', 'test'].include?(RACK_ENV)
 
   require 'bundler/setup'
   require 'rspec/core/rake_task'
