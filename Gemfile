@@ -2,23 +2,13 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 
-# Distribute your app as a gem
-# gemspec
-
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
-
-# Optional JSON codec (faster performance)
-# gem 'oj'
-
 # Project requirements
 gem 'rake'
 
 # Component requirements
 gem 'data_mapper'
 gem 'erubis', '~> 2.7.0'
-gem 'dm-sqlite-adapter'
+gem 'dm-sqlite-adapter', :group => 'test'
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'dm-migrations'
@@ -44,3 +34,6 @@ gem 'guard-rspec'
 gem 'cucumber'
 gem 'travis-yaml'
 gem 'capybara'
+
+# Heroku
+gem 'dm-postgres-adapter', :group => :production
