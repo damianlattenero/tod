@@ -10,7 +10,7 @@ es:
     detail: Tod
     year: 2014
   home:
-    welcome_message: Bienvenido a Tod, tu organizador de conferencias preferido.
+    welcome_message: "Bienvenido a Tod, esperamos esta herramienta te sea de utilidad para organizar las exponencias de tus conferencias. Proveemos de un sistema de fácil manejo teniendo en mente que el público mismo pueda dar feedback de cuáles son los temas que más le llaman la atención y más desean ir a ver en tu conferencia. Diviértete!"
   proposal:
     new:
       title: Nueva Propuesta
