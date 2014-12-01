@@ -1,3 +1,5 @@
+require 'iconv'
+
 Tod::App.controllers :proposal do
   get :new do
     @proposal = Proposal.new
@@ -10,13 +12,10 @@ Tod::App.controllers :proposal do
   end
 
   post :search do
-    title_search = Proposal.all(:title.like => "%#{params[:query]}%")
-    tag_search = Proposal.all(:frozen_tag_list.like => "%#{params[:query]}%")
-    @proposals = merge_search(title_search, tag_search)
-
+    @proposals = search("#{params[:query]}").uniq
     render 'proposal/search'
   end
-
+    
   post :create do
     title = params[:proposal][:title]
     description = params[:proposal][:description]
