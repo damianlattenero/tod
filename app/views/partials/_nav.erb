@@ -14,8 +14,7 @@
         <li><%= link_to t('nav.proposal_list'), url_for(:proposal, :list) %></li>
       </ul>
 
-
-      <% @user = User.get(session[:user_id]) %>
+      <% @user = session[:user] %>
       <% if @user %>
         <ul class="nav navbar-nav">
           <li><%= t('user.logged') + ': ' + @user.name %></li>
@@ -23,7 +22,7 @@
         </ul>
       <% else %>
         <ul class="nav navbar-nav">
-          <li><%= link_to t('user.log_in'), url_for('auth/github') %></li>
+          <li><%= link_to t('user.log_in'), url_for(:auth, :github) %></li>
         </ul>
       <% end %>
 
