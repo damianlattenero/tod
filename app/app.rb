@@ -7,6 +7,20 @@ module Tod
 
     enable :sessions
 
+    use OmniAuth::Builder do
+      if 'production'.eql? ENV['RACK_ENV']
+        #production
+        provider :github,
+          '6d9a195e9accb672f03a',
+          'd7a942d41ce07f4ba04a47e04bc8a41fd896f26e'
+      else
+        #development, test
+        provider :github,
+          'e30e91ed48d24ed4f1a6',
+          'f6416573448abd04dca24aaa19434b4c1b6a561b'
+      end
+    end
+
     ##
     # Caching support.
     #

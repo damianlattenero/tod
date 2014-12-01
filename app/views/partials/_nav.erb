@@ -13,6 +13,19 @@
       <ul class="nav navbar-nav">
         <li><%= link_to t('nav.proposal_list'), url_for(:proposal, :list) %></li>
       </ul>
+
+      <% @user = session[:user] %>
+      <% if @user %>
+        <ul class="nav navbar-nav">
+          <li><%= t('user.logged') + ': ' + @user.name %></li>
+          <li><%= link_to t('user.log_out'), url_for(:auth, :log_out) %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to t('user.log_in'), url_for(:auth, :github) %></li>
+        </ul>
+      <% end %>
+
       <div class="navbar-form navbar-right">
         <form method="POST" action="/proposal/search" class="form-search">
           <%= csrf_token_field %>
