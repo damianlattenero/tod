@@ -7,6 +7,10 @@ module Tod
 
     enable :sessions
 
+    error 404 do
+      render 'errors/404'
+    end
+
     use OmniAuth::Builder do
       if 'production'.eql? ENV['RACK_ENV']
         #production

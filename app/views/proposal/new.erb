@@ -4,34 +4,48 @@
   <% form_for(@proposal, '/proposal/create', html: { class: 'form' }) do |f| %>
     <fieldset>
       <div class="form-group">
-        <%= f.label t('proposal.new.form.title_tag'), class: 'control-label' %>
+        <%= f.label t('proposal.new.form.title_tag'),
+          class: 'control-label'
+        %>
         <div class="controls">
           <%= f.text_field :title, class: 'form-control', 
-            placeholder: t('proposal.new.form.title_placeholder')%>
+            placeholder: t('proposal.new.form.title_placeholder'),
+            autofocus: 'true'
+          %>
         </div>
       </div>
 
       <div class="form-group">
-        <%= f.label t('proposal.new.form.description_tag'), class: 'control-label' %>
+        <%= f.label t('proposal.new.form.description_tag'),
+          class: 'control-label'
+        %>
         <div class="controls">
           <%= f.text_area :description, class: 'form-control',
             placeholder: t('proposal.new.form.description_placeholder'),
-            rows: '3'%>
+            rows: '3'
+          %>
         </div>
       </div>
 
       <div class="form-group">
         <% if session[:user] %>
           <div class="controls">
-            <%= f.label t('proposal.new.form.author_tag'), class: 'control-label' %>
-            <%= f.label session[:user].name, class: 'control-label' %>
-            <%= f.hidden_field :author, value: session[:user].name %>
+            <%= f.label t('proposal.new.form.author_tag'),
+              class: 'control-label'
+            %>
+            <%= f.text_field :author, class: 'form-control', 
+              value: session[:user].name,
+              readonly: 'readonly'
+            %>
           </div>
         <% else %>
-          <%= f.label t('proposal.new.form.author_tag'), class: 'control-label' %>
+          <%= f.label t('proposal.new.form.author_tag'),
+            class: 'control-label'
+          %>
           <div class="controls">
             <%= f.text_field :author, class: 'form-control', 
-              placeholder: t('proposal.new.form.author_placeholder')%>
+              placeholder: t('proposal.new.form.author_placeholder')
+            %>
           </div>
         <% end %>
       </div>
@@ -42,13 +56,19 @@
         <%= f.label t('proposal.new.form.tags_tag'), class: 'control-label' %>
         <div class="controls">
           <%= f.text_field :tags_list, class: 'form-control',
-            placeholder: t('proposal.new.form.tags_placeholder')%>
+            placeholder: t('proposal.new.form.tags_placeholder')
+          %>
         </div>
       </div>
 
       <div class="form-actions">
-        <%= f.submit t('proposal.new.form.send_button'), class: 'btn btn-primary' %>
-        <%= link_to t('proposal.new.form.cancel_button'), url(:proposal, :new), :class => "btn btn-default" %>
+        <%= f.submit t('proposal.new.form.send_button'),
+          class: 'btn btn-primary'
+        %>
+        <%= link_to t('proposal.new.form.cancel_button'),
+          url(:proposal, :new),
+          :class => "btn btn-default"
+        %>
       </div>
 
   <% end %> 
