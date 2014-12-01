@@ -33,7 +33,5 @@ end
 
 Then(/^the second proposal should have title "(.*?)"$/) do |new_title|
   @proposal = Proposal.all[1]
-  @proposal.append_author_to_title
-  @proposal.save
   Proposal.all[1].title.should eq new_title
 end
