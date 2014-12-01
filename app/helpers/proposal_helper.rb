@@ -45,16 +45,29 @@ module Tod
         )
       end
 
-      def merge_search(title_search, tag_search)
-        title_search + tag_search
+      def search (query)
+        text = query.to_s.downcase.strip.split.uniq
+        if text.include?("+") && text.size > 1 then
+          text.delete("+")
+          first_word = text.delete_at(0)
+          title_tag_search = Proposal.all(:title.like => "%#{first_word}%") | 
+          Proposal.all(:frozen_tag_list.like => "%#{first_word}%")
+          text.each do |word|
+            title_tag_search = title_tag_search & 
+            (Proposal.all(:title.like => "%#{word}%") | 
+            Proposal.all(:frozen_tag_list.like => "%#{word}%"))
+          end
+        else
+          title_tag_search = []
+          text.each do |word|
+            title_tag_search = title_tag_search | 
+            (Proposal.all(:title.like => "%#{word}%") | 
+            Proposal.all(:frozen_tag_list.like => "%#{word}%"))
+          end
+        end
+        title_tag_search
       end
-
-      def merge_search(title_search, tag_search)
-        title_search + tag_search
-      end
-
     end
-
     helpers ProposalHelper
   end
 end
