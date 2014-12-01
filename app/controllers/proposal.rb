@@ -28,6 +28,10 @@ Tod::App.controllers :proposal do
     @proposal.date = Time.now
     @proposal.tag_list = params[:proposal][:tags_list].downcase
 
+    if Proposal.first(:title => title)
+      @proposal.append_author_to_title
+    end
+
     if @proposal.save
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
