@@ -22,7 +22,7 @@
         </ul>
       <% else %>
         <ul class="nav navbar-nav">
-          <li><%= link_to t('user.log_in'), url_for(:auth, :github) %></li>
+          <button class="btn btn-github"><i class="fa fa-github"></i><%= link_to t('user.log_in'), url_for(:auth, :github) %></button>
         </ul>
       <% end %>
 
