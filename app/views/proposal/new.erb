@@ -23,12 +23,22 @@
       </div>
 
       <div class="form-group">
-        <%= f.label t('proposal.new.form.author_tag'), class: 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :author, class: 'form-control', 
-            placeholder: t('proposal.new.form.author_placeholder')%>
-        </div>
+        <% if session[:user] %>
+          <div class="controls">
+            <%= f.label t('proposal.new.form.author_tag'), class: 'control-label' %>
+            <%= f.label session[:user].name, class: 'control-label' %>
+            <%= f.hidden_field :author, value: session[:user].name %>
+          </div>
+        <% else %>
+          <%= f.label t('proposal.new.form.author_tag'), class: 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :author, class: 'form-control', 
+              placeholder: t('proposal.new.form.author_placeholder')%>
+          </div>
+        <% end %>
       </div>
+
+      <%= f.hidden_field :date, value: Time.now %>
 
       <div class="form-group">
         <%= f.label t('proposal.new.form.tags_tag'), class: 'control-label' %>
