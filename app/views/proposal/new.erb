@@ -26,8 +26,10 @@
         <% if session[:user] %>
           <div class="controls">
             <%= f.label t('proposal.new.form.author_tag'), class: 'control-label' %>
-            <%= f.label session[:user].name, class: 'control-label' %>
-            <%= f.hidden_field :author, value: session[:user].name %>
+            <%= f.text_field :author, class: 'form-control', 
+              value: session[:user].name,
+              readonly: 'readonly'
+            %>
           </div>
         <% else %>
           <%= f.label t('proposal.new.form.author_tag'), class: 'control-label' %>
