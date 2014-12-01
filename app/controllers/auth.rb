@@ -6,7 +6,7 @@ Tod::App.controllers :auth do
 	    @user = User.new_from_omniauth(omniauth) if @user.nil?
 
 	    # save @user into your session to say he's authenticated
-	    session[:user_id] = @user.id
+	    session[:user] = @user
 
 	    redirect url("/")
 	end
@@ -16,8 +16,13 @@ Tod::App.controllers :auth do
 	    redirect url("/")
 	end
 
+	get :github do
+		redirect url("/")
+		redirect url("/auth/github")
+	end
+
 	get :log_out do
-		session[:user_id] = nil
+		session[:user] = nil
 		redirect url("/")
 	end
 end
