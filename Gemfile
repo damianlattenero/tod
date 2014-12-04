@@ -2,23 +2,13 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 
-# Distribute your app as a gem
-# gemspec
-
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
-
-# Optional JSON codec (faster performance)
-# gem 'oj'
-
 # Project requirements
 gem 'rake'
 
 # Component requirements
 gem 'data_mapper'
 gem 'erubis', '~> 2.7.0'
-gem 'dm-sqlite-adapter'
+gem 'dm-sqlite-adapter', :group => 'test'
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'dm-migrations'
@@ -32,6 +22,9 @@ gem 'uglifier', '2.1.1'
 gem 'yui-compressor', '0.9.6'
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+gem 'omniauth'
+gem 'omniauth-github', :github => 'intridea/omniauth-github'
+# gem 'omniauth-twitter'
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.4'
@@ -44,3 +37,6 @@ gem 'guard-rspec'
 gem 'cucumber'
 gem 'travis-yaml'
 gem 'capybara'
+
+# Heroku
+gem 'dm-postgres-adapter', :group => :production

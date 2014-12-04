@@ -5,7 +5,6 @@ migration 2, :create_comments do
       column :author, DataMapper::Property::String, :length => 255
       column :body, DataMapper::Property::Text
       column :date, DataMapper::Property::DateTime
-      column :proposal_id, DataMapper::Property::Integer
     end
   end
 

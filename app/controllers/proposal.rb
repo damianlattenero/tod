@@ -1,7 +1,8 @@
+require 'iconv'
+
 Tod::App.controllers :proposal do
   get :new do
     @proposal = Proposal.new
-    #@tag = Tag.new
     render 'proposal/new'
   end
 
@@ -11,28 +12,27 @@ Tod::App.controllers :proposal do
   end
 
   post :search do
-    title_search = Proposal.all(:title.like => "%#{params[:query]}%")
-    tag_search = Proposal.all(:frozen_tag_list.like => "%#{params[:query]}%")
-    @proposals = merge_search(title_search, tag_search)
-
+    @proposals = search("#{params[:query]}").uniq
     render 'proposal/search'
   end
-
+    
   post :create do
     title = params[:proposal][:title]
     description = params[:proposal][:description]
     author = params[:proposal][:author]
-    tags = params[:proposal][:tags_list]
 
     @proposal = Proposal.new
     @proposal.title = title
     @proposal.description = description
     @proposal.author = author
     @proposal.date = Time.now
-    @proposal.tag_list = tags.downcase
+    @proposal.tag_list = params[:proposal][:tags_list].downcase
+
+    if Proposal.first(:title => title)
+      @proposal.append_author_to_title
+    end
 
     if @proposal.save
-      # @proposal.tag!(params[:proposal][:tags])
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else
@@ -61,17 +61,12 @@ Tod::App.controllers :proposal do
   end
 
   post :comment do
-    puts(params[:comment])
     author = params[:comment][:author]
-    body = params[:comment][:body]
+    body   = params[:comment][:body]
     proposal_id = params[:comment][:proposal_id]
 
-    @comment = Comment.create(
-      author: author,
-      body: body,
-      proposal_id: proposal_id,
-      date: Time.now
-    )
+    @comment = Comment.new params[:comment]
+    @comment.date = Time.now
 
     if @comment.save
       flash[:success] = t('proposal.detail.comment_result.success')

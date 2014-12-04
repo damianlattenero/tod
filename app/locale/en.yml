@@ -10,7 +10,11 @@ en:
     detail: Tod
     year: 2014
   home:
-    welcome_message: Welcome to Tod, your favorite conference organizer.
+    welcome_message: "Welcome to Tod, we hope you find this tool useful for organizing your conferences talks. We provide a user-friendly system having in mind that the public itself can five feedback on what the topics that attracted them most attention and want to go see you conference at. Have fun!"
+  user:
+    log_in: Log in with GitHub
+    log_out: Log out
+    logged: Logged in as 
   proposal:
     new:
       title: New Proposal

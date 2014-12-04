@@ -1,11 +1,21 @@
-require 'bundler/setup'
+require 'thor'
 require 'padrino-core/cli/rake'
-require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new
+RACK_ENV = ENV['RACK_ENV'] ||= 'test' unless defined?(RACK_ENV)
 
 PadrinoTasks.use(:database)
 PadrinoTasks.use(:datamapper)
 PadrinoTasks.init
 
-task :default => :spec
+if ['development', 'test'].include?(RACK_ENV)
+
+  require 'bundler/setup'
+  require 'rspec/core/rake_task'
+  require 'cucumber/rake/task'
+
+  RSpec::Core::RakeTask.new
+  Cucumber::Rake::Task.new
+
+  task :default => [:spec, :cucumber]
+
+end

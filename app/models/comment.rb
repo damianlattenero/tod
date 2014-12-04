@@ -8,8 +8,7 @@ class Comment
   property :author,      String, required: true, :length => 3..50
   property :body,        Text,   required: true, :length => 1..500
   property :date,        DateTime
-  property :proposal_id, Integer
-  # belongs_to :proposal
+  belongs_to :proposal
 
   def post
   	self.author + " " +  self.date.to_s + " " + self.body
