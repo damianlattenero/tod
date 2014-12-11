@@ -15,8 +15,8 @@ module Tod
       if 'production'.eql? ENV['RACK_ENV']
         #production
         provider :github,
-          '6d9a195e9accb672f03a',
-          'd7a942d41ce07f4ba04a47e04bc8a41fd896f26e'
+          ENV['GITHUB_ID'],
+          ENV['GITHUB_SECRET']
       else
         #development, test
         provider :github,
