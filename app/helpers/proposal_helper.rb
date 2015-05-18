@@ -22,7 +22,7 @@ module Tod
 
       def notify_on_field_too_short(event, field, minAmount)
         notify_error(
-          t(event, 
+          t(event,
              field: t(field),
              cant: minAmount
            )
@@ -50,18 +50,18 @@ module Tod
         if text.include?("+") && text.size > 1 then
           text.delete("+")
           first_word = text.delete_at(0)
-          title_tag_search = Proposal.all(:title.like => "%#{first_word}%") | 
+          title_tag_search = Proposal.all(:title.like => "%#{first_word}%") |
           Proposal.all(:frozen_tag_list.like => "%#{first_word}%")
           text.each do |word|
-            title_tag_search = title_tag_search & 
-            (Proposal.all(:title.like => "%#{word}%") | 
+            title_tag_search = title_tag_search &
+            (Proposal.all(:title.like => "%#{word}%") |
             Proposal.all(:frozen_tag_list.like => "%#{word}%"))
           end
         else
           title_tag_search = []
           text.each do |word|
-            title_tag_search = title_tag_search | 
-            (Proposal.all(:title.like => "%#{word}%") | 
+            title_tag_search = title_tag_search |
+            (Proposal.all(:title.like => "%#{word}%") |
             Proposal.all(:frozen_tag_list.like => "%#{word}%"))
           end
         end

@@ -3,7 +3,7 @@ Feature: Adding proposal
 Background:
   Given new proposal page
 
-Scenario: Adding a proposal that complies 
+Scenario: Adding a proposal that complies
   Given proposal title "Proposal"
   And a description "This is a proposal"
   And author nick "Author"
@@ -34,7 +34,7 @@ Scenario: Proposal have duplicated title
   And author nick "Author"
   And submitting
 
-  Given new proposal 
+  Given new proposal
   And proposal title "Proposal"
   And a description "This is a proposal"
   And author nick "Author"

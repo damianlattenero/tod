@@ -11,6 +11,6 @@ class Comment
   belongs_to :proposal
 
   def post
-  	self.author + " " +  self.date.to_s + " " + self.body
+    self.author + " " + self.date.to_s + " " + self.body
   end
 end

@@ -14,7 +14,7 @@ en:
   user:
     log_in: Log in with GitHub
     log_out: Log out
-    logged: Logged in as 
+    logged: Logged in as
   proposal:
     new:
       title: New Proposal

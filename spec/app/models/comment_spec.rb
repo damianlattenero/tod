@@ -23,7 +23,7 @@ describe Comment do
       expect(comment.author).to eq "Hachedeeme"
       expect(comment.body).to eq "Body"
       expect(comment.date).to eq rigth_now
-  	end
+    end
   end
 
 end

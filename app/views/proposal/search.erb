@@ -3,7 +3,6 @@
 
   <% if @proposals.empty? then %>
     <tr><%= t('proposal.search.empty') %></tr>
-    
   <% else %>
     <table class="table table-bordered">
       <thead>
@@ -13,14 +12,14 @@
         <th><%= t('proposal.list.table.tags')%></th>
       </tr>
       </thead>
-    <tbody id="results"> 
+    <tbody id="results">
     <% @proposals.each do |proposal| %>
       <tr>
         <td><%= link_to proposal.title, url_for(:proposal, :detail, :proposal_id => proposal.id) %></td>
         <td><%= proposal.author %></td>
         <td><%= proposal.tag_list * " "%></td>
       </tr>
-    
+
     <% end %>
     </table>
   <% end %>

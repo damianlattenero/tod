@@ -21,5 +21,6 @@ class Proposal
   def append_author_to_title
     self.title += (" - " + @author)
   end
-  
+
 end
+

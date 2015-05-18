@@ -8,7 +8,7 @@
           class: 'control-label'
         %>
         <div class="controls">
-          <%= f.text_field :title, class: 'form-control', 
+          <%= f.text_field :title, class: 'form-control',
             placeholder: t('proposal.new.form.title_placeholder'),
             autofocus: 'true'
           %>
@@ -33,7 +33,7 @@
             <%= f.label t('proposal.new.form.author_tag'),
               class: 'control-label'
             %>
-            <%= f.text_field :author, class: 'form-control', 
+            <%= f.text_field :author, class: 'form-control',
               value: session[:user].name,
               readonly: 'readonly'
             %>
@@ -43,7 +43,7 @@
             class: 'control-label'
           %>
           <div class="controls">
-            <%= f.text_field :author, class: 'form-control', 
+            <%= f.text_field :author, class: 'form-control',
               placeholder: t('proposal.new.form.author_placeholder')
             %>
           </div>
@@ -71,6 +71,6 @@
         %>
       </div>
 
-  <% end %> 
+  <% end %>
 
 </div>

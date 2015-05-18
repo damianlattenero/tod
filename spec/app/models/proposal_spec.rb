@@ -58,12 +58,12 @@ describe Proposal do
 
   describe 'same_title' do
     it 'should be true' do
-      proposal1 = Proposal.new 
+      proposal1 = Proposal.new
       proposal1.title = 'A title'
       proposal1.description = 'A description1'
       proposal1.author = 'An author1'
 
-      proposal2 = Proposal.new 
+      proposal2 = Proposal.new
       proposal2.title = 'A title'
       proposal2.description = 'A description2'
       proposal2.author = 'An author2'
@@ -72,7 +72,7 @@ describe Proposal do
     end
 
     it 'should be false' do
-      proposal1 = Proposal.new 
+      proposal1 = Proposal.new
       proposal1.title = 'A title1'
       proposal1.description = 'A description1'
       proposal1.author = 'An author1'
@@ -87,7 +87,7 @@ describe Proposal do
   end
 
   describe 'append_author_to_title' do
-    it 'should have the title "A title - An author" when the title is "A title" 
+    it 'should have the title "A title - An author" when the title is "A title"
         and author is "An author"' do
       proposal = Proposal.new
       proposal.title = 'A title'

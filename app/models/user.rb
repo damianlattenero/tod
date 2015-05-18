@@ -22,7 +22,7 @@ class User
     user.role = 'user'
     user.email = omniauth["info"]["email"]
     user.provider = 'github'
-  user.save!
+    user.save!
     user
   end
 

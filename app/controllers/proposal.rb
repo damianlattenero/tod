@@ -15,7 +15,7 @@ Tod::App.controllers :proposal do
     @proposals = search("#{params[:query]}").uniq
     render 'proposal/search'
   end
-    
+
   post :create do
     title = params[:proposal][:title]
     description = params[:proposal][:description]
@@ -71,13 +71,13 @@ Tod::App.controllers :proposal do
     if @comment.save
       flash[:success] = t('proposal.detail.comment_result.success')
     else
-      flash[:danger] = 
+      flash[:danger] =
         t('proposal.detail.comment_result.field_too_short',
           field: t('proposal.detail.form.comment_tag'),
           cant: 1
          ) unless field_length_enough?(body, 1)
 
-      flash[:danger] = 
+      flash[:danger] =
         t('proposal.detail.comment_result.field_too_short',
           field: t('proposal.detail.form.name_tag'),
           cant: 3
