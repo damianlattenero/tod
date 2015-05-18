@@ -16,11 +16,11 @@ class User
   end
 
   def self.new_from_omniauth(omniauth)
-    user = User.new
-    user.uid  = omniauth["uid"]
-    user.name = omniauth["info"]["nickname"]
-    user.role = 'user'
-    user.email = omniauth["info"]["email"]
+    user          = User.new
+    user.uid      = omniauth["uid"]
+    user.name     = omniauth["info"]["nickname"]
+    user.role     = 'user'
+    user.email    = omniauth["info"]["email"]
     user.provider = 'github'
     user.save!
     user

@@ -17,16 +17,16 @@ Tod::App.controllers :proposal do
   end
 
   post :create do
-    title = params[:proposal][:title]
+    title       = params[:proposal][:title]
     description = params[:proposal][:description]
-    author = params[:proposal][:author]
+    author      = params[:proposal][:author]
 
-    @proposal = Proposal.new
-    @proposal.title = title
+    @proposal             = Proposal.new
+    @proposal.title       = title
     @proposal.description = description
-    @proposal.author = author
-    @proposal.date = Time.now
-    @proposal.tag_list = params[:proposal][:tags_list].downcase
+    @proposal.author      = author
+    @proposal.date        = Time.now
+    @proposal.tag_list    = params[:proposal][:tags_list].downcase
 
     if Proposal.first(:title => title)
       @proposal.append_author_to_title
@@ -53,19 +53,19 @@ Tod::App.controllers :proposal do
   end
 
   get :detail do
-    proposal_id = params[:proposal_id]
+    proposal_id      = params[:proposal_id]
     @proposal_detail = Proposal.get proposal_id
-    @comments = Comment.all(:proposal_id => proposal_id).reverse
-    @comment = Comment.new
+    @comments        = Comment.all(:proposal_id => proposal_id).reverse
+    @comment         = Comment.new
     render 'proposal/detail'
   end
 
   post :comment do
-    author = params[:comment][:author]
-    body   = params[:comment][:body]
-    proposal_id = params[:comment][:proposal_id]
+    author        = params[:comment][:author]
+    body          = params[:comment][:body]
+    proposal_id   = params[:comment][:proposal_id]
 
-    @comment = Comment.new params[:comment]
+    @comment      = Comment.new params[:comment]
     @comment.date = Time.now
 
     if @comment.save
