@@ -1,7 +1,3 @@
-require 'spec_helper'
-require 'rspec'
-require 'data_mapper'
-
 require_relative '../../../app/models/proposal'
 
 describe Proposal do
@@ -11,8 +7,8 @@ describe Proposal do
     it { should respond_to( :description) }
     it { should respond_to( :author) }
     it { should respond_to( :date) }
-    # it { should respond_to( :comments) }
-    # it { should respond_to( :tag_name) }
+    it { should respond_to( :comments) }
+    it { should respond_to( :tags) }
   end
 
   describe 'initialize' do
@@ -31,6 +27,7 @@ describe Proposal do
       expect(proposal.date).to eql rigth_now
     end
 
+    # TODO - to validate
     # it 'should raise an error when title is "as"' do
     #   proposal = Proposal.new
     #   proposal.title = 'as'
