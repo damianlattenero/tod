@@ -14,7 +14,7 @@ end
 Given(/^someone add proposal "(.*?)"$/) do |proposal|
    Proposal.create(
     :title       => proposal,
-    :description => "proposal description test", 
+    :description => "proposal description test",
     :author      => "a test author"
   ).save
 end
@@ -28,3 +28,4 @@ end
 Then(/^proposal "(.*?)" has to be on top of "(.*?)"$/) do |proposal1, proposal2|
   expect(page.body).to match /#{proposal1}.*#{proposal2}/m
 end
+

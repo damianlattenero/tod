@@ -35,3 +35,4 @@ Then(/^the second proposal should have title "(.*?)"$/) do |new_title|
   @proposal = Proposal.all[1]
   Proposal.all[1].title.should eq new_title
 end
+

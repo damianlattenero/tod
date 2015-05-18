@@ -17,3 +17,4 @@ end
 Then(/^the proposal has tag "(.*?)"$/) do |tag1|
   expect(Proposal.all[0].tag_list).to include(tag1)
 end
+

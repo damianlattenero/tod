@@ -8,7 +8,6 @@ Given(/^added proposal with title "(.*?)" and "(.*?)" tags$/) do |title, tags|
   @proposal.save
 end
 
-
 When(/^I search with "(.*?)"$/) do |query|
   visit '/'
   fill_in('query', :with => query)

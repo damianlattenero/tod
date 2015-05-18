@@ -1,5 +1,3 @@
-# require 'rspec'
-
 require_relative '../../../app/models/comment'
 
 describe Comment do
