@@ -1,4 +1,4 @@
-#Tod [![Build Status](https://travis-ci.org/cravacuore/tod.svg?branch=master)](https://travis-ci.org/cravacuore/tod)
+#Tod [![Build Status](https://travis-ci.org/EIS-Tod/tod.svg?branch=master)](https://travis-ci.org/cravacuore/tod)
 
 Sistema para la organización de propuestas en conferencias.
 
