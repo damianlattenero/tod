@@ -1,7 +1,6 @@
-[![Build Status](https://travis-ci.org/EIS-Tod/tod.svg?branch=master)](https://travis-ci.org/cravacuore/tod)
-[![Stories in Backlog](https://badge.waffle.io/EIS-Tod/tod.png?label=backlog&title=Backlog)](http://waffle.io/EIS-Tod/tod)
+[![Build Status](https://travis-ci.org/EIS-Tod/tod.svg?branch=develop)](https://travis-ci.org/cravacuore/tod)
 [![Stories in Ready](https://badge.waffle.io/EIS-Tod/tod.png?label=ready&title=Ready)](http://waffle.io/EIS-Tod/tod)
-[![Stories in Done](https://badge.waffle.io/EIS-Tod/tod.png?label=done&title=Done)](http://waffle.io/EIS-Tod/tod)
+[![Stories in Done](https://badge.waffle.io/EIS-Tod/tod.png?label=in%20progress&title=In Progress)](http://waffle.io/EIS-Tod/tod)
 
 
 #Tod 
