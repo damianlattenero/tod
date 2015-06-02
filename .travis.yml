@@ -14,7 +14,7 @@ rvm:
 
 branches:
   only:
-    - master 
+    - master
     - develop
 
 notifications:
@@ -22,3 +22,4 @@ notifications:
     - alvarez.ariel.work@gmail.com
     - javierperini90@gmail.com
     - rubini.marcelo@gmail.com
+    - cravacuore24@gmail.com
