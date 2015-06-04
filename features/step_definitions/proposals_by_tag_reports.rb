@@ -2,7 +2,7 @@ Given(/^a revisor user$/) do
   @revisor= User.new
   @revisor.name= "Un nombre"
   @revisor.email= "revisor@tod.com"
-  @revisor.role= "revisor"
+  @revisor.role= Role.new(:revisor)
   @revisor.save
 end
 
