@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative '../mappers/role_mapper'
 require_relative 'role'
 
 class User
@@ -8,7 +9,7 @@ class User
   property :id, Serial
   property :name, String
   property :email, String
-  property :role, Role, :default  => 'user'
+  property :role, RoleMapper, :default  => Role.new
   property :uid, String
   property :provider, String
 

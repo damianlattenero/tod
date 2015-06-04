@@ -1,19 +1,19 @@
-require 'data_mapper'
+class Role
 
-class Role < DataMapper::Property::String
+  def initialize(rolename=:user)
+    @rolename = rolename
+  end
+
   def is_user?
-    self.to_s.equal? Role.roles.user
+    @rolename.equal? :user
   end
 
   def is_revisor?
-    self.to_s.equal? Role.roles.revisor
+    @rolename.equal? :revisor
   end
 
-  def custom?
-    true
+  def to_s
+    @rolename.to_s
   end
 
-  def self.roles;
-    {:user => 'user', :revisor => 'revisor', :admin => 'admin'}
-  end
 end

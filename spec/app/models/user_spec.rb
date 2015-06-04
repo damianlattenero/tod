@@ -12,7 +12,7 @@ RSpec.describe User do
 
   describe 'initialize' do
     it 'should have default role set to user' do
-      expect(User.new.role).to eq 'user'
+      expect(User.new.role.is_user?).to eq true
     end
   end
 
