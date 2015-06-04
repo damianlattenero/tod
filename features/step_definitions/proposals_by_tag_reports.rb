@@ -2,46 +2,51 @@ Given(/^a revisor user$/) do
   @revisor= User.new
   @revisor.name= "Un nombre"
   @revisor.email= "revisor@tod.com"
-  @revisor.email= "revisor"
+  @revisor.role= "revisor"
   @revisor.save
-  visit 'proposal/new'
 end
 
 Given(/^there are (\d+) proposals with tag "([^"]*)" only$/) do |cant_prop, tag|
   for i in 1..cant_prop.to_i
-    fill_in 'proposal[title]', :with => i.to_s+"-a title"
-    fill_in 'proposal[author]', :with => i.to_s+"-a author"
-    fill_in('proposal[tags_list]', :with => tag)
-    click_button('Enviar')
+    proposal = Proposal.new
+    proposal.title = i.to_s+"-a title"
+    proposal.description = "A proposal description"
+    proposal.author = i.to_s+"An author"
+    proposal.tag_list = tag.downcase
+    proposal.save
   end
 end
 
 Given(/^there are (\d+) proposals with tag "(.*?)" and "(.*?)"$/) do |cant_prop, tag1, tag2|
   tag_list= tag1+" "+tag2
   for i in 0...cant_prop.to_i
-    fill_in 'proposal[title]', :with => i.to_s+"-a title"
-    fill_in 'proposal[author]', :with => i.to_s+"-a author"
-    fill_in('proposal[tags_list]', :with =>tag_list)
-    click_button('Enviar')
+    proposal = Proposal.new
+    proposal.title = i.to_s+"-a title"
+    proposal.description = "A proposal description"
+    proposal.author = i.to_s+"An author"
+    proposal.tag_list = tag_list.downcase
+    proposal.save
   end
 end
 
 When(/^a revisor user visits reports page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/report/page'
 end
 
 When(/^selects proposals by tag report$/) do
-  pending # express the regexp above with the code you wish you had
+  find('#tab-report-tag').click
 end
 
-When(/^selects tag "(.*?)"$/) do|arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^selects tag "(.*?)"$/) do|tag|
+  visit '/report/page'
+  fill_in('consulta', :with => tag)
+  click_button('buscar-tag')
 end
 
-Then(/^(\d+) proposals with tag "(.*?)" are listed$/) do |arg1,arg2|
-  pending # express the regexp above with the code you wish you had
+Then(/^(\d+) proposals with tag market are listed$/) do |cantidad|
+  actual_order = page.all('tbody#results-tag tr').size
+   actual_order.should eq cantidad.to_i
 end
-
 
 When(/^no tag is selected$/) do
   pending # express the regexp above with the code you wish you had

@@ -5,6 +5,7 @@ es:
     new_proposal:       Nueva Propuesta
     proposal_list:      Lista de propuestas
     search_placeholder: Búsqueda
+    report:             Reportes
     search_button:      Buscar
   footer:
     detail: Tod
@@ -57,3 +58,8 @@ es:
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
+  report:
+     title:                Reportes
+     text:                 Busqueda propuestas por tag
+     tag_placeholder:      "Ej: Tag"
+     button:               buscar-tag
