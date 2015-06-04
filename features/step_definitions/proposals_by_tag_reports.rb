@@ -43,9 +43,10 @@ When(/^selects tag "(.*?)"$/) do|tag|
   click_button('buscar-tag')
 end
 
-Then(/^(\d+) proposals with tag market are listed$/) do |cantidad|
+Then(/^(\d+) proposals with tag "(.*?)" are listed$/) do |cantidad, tag|
   actual_order = page.all('tbody#results-tag tr').size
-   actual_order.should eq cantidad.to_i
+  expect(actual_order).to eq cantidad.to_i
+  expect(page).to have_content(tag)
 end
 
 When(/^no tag is selected$/) do

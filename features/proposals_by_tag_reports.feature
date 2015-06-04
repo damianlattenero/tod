@@ -10,13 +10,13 @@ Feature: Proposals By Tag Report
     When a revisor user visits reports page
     And   selects proposals by tag report
     And   selects tag "market"
-    Then 2 proposals with tag market are listed
+    Then 2 proposals with tag "market" are listed
 
-  #Scenario: revisor user filters health proposals
-   # When a revisor user visits reports page
-    #And   selects proposals by tag report
-    #And   selects tag "health"
-    #Then 10 proposals with tag "health" are listed
+  Scenario: revisor user filters health proposals
+    When a revisor user visits reports page
+    And   selects proposals by tag report
+    And   selects tag "health"
+    Then 10 proposals with tag "health" are listed
 
 
   #Scenario: revisor user applies no filter
