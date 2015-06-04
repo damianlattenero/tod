@@ -19,8 +19,8 @@ Feature: Proposals By Tag Report
     Then 10 proposals with tag "health" are listed
 
 
-  #Scenario: revisor user applies no filter
-   # When a revisor user visits reports page
-    #And   selects proposals by tag report
-    #And   no tag is selected
-    #Then 12 proposals are listed
+  Scenario: revisor user applies no filter
+    When a revisor user visits reports page
+    And   selects proposals by tag report
+    And   no tag is selected
+    Then 12 proposals are listed

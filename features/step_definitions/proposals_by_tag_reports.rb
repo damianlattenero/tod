@@ -50,11 +50,12 @@ Then(/^(\d+) proposals with tag "(.*?)" are listed$/) do |cantidad, tag|
 end
 
 When(/^no tag is selected$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button('buscar-tag')
 end
 
-Then(/^(\d+) proposals are listed$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^(\d+) proposals are listed$/) do |cantidad|
+  actual_order = page.all('tbody#results-tag tr').size
+  expect(actual_order).to eq cantidad.to_i
 end
 
 
