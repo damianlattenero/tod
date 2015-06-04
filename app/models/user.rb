@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative 'role'
 
 class User
   include DataMapper::Resource
@@ -7,7 +8,7 @@ class User
   property :id, Serial
   property :name, String
   property :email, String
-  property :role, String
+  property :role, Role, :default  => 'user'
   property :uid, String
   property :provider, String
 
@@ -19,7 +20,6 @@ class User
     user          = User.new
     user.uid      = omniauth["uid"]
     user.name     = omniauth["info"]["nickname"]
-    user.role     = 'user'
     user.email    = omniauth["info"]["email"]
     user.provider = 'github'
     user.save!
