@@ -4,9 +4,9 @@ Feature: Proposals Quantity Report
     Given a revisor user
     Given there are 5 proposals
 
-  #Scenario: revisor user can see report section
-    #When a revisor user visits reports url
-    #Then reports page is displayed
+  Scenario: revisor user can see report section
+    When a revisor user visits reports url
+    Then reports page is displayed
 
   #Scenario: revisor user can see quantity report
     #When a revisor user visits reports page
@@ -15,4 +15,4 @@ Feature: Proposals Quantity Report
 
   #Scenario: non revisor user cannot see report section
    # When a non-revisor user visits reports page
-   #Then a not-found page is displayed
+    #Then a not-found page is displayed

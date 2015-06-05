@@ -1,13 +1,20 @@
-Given(/^there are (\d+) proposals$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^there are (\d+) proposals$/) do |cant_prop|
+  for i in 1..cant_prop.to_i
+    proposal = Proposal.new
+    proposal.title = i.to_s+"-a title"
+    proposal.description = "-A proposal description"
+    proposal.author = i.to_s+"-An author"
+    proposal.tag_list = i.to_s+"-Tag"
+    proposal.save
+    end
 end
 
 When(/^a revisor user visits reports url$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/report/page'
 end
 
 Then(/^reports page is displayed$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content("Reportes")
 end
 
 And(/^selects quantity report$/) do
@@ -19,9 +26,9 @@ Then(/^quantity report is displayed with quantity (\d+)$/) do |arg1|
 end
 
 When(/^a non\-revisor user visits reports page$/) do
-  pending # express the regexp above with the code you wish you had
+  pending
 end
 
 Then(/^a not\-found page is displayed$/) do
-  pending # express the regexp above with the code you wish you had
+pending
 end
