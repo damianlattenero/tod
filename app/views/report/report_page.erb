@@ -3,7 +3,7 @@
 
   <ul class="nav nav-tabs" role="tablist">
     <li class="active" ><a id="tab-report-tag" data-toggle="tab" href="#tag">Tag</a></li>
-    <li><a data-toggle="tab" href="#sectionB">Section B</a></li>
+    <li><a id="tab-report-quantity" data-toggle="tab" href="#quantity">Cantidad</a></li>
   </ul>
 
   <div class="tab-content">
@@ -39,8 +39,8 @@
         </tbody>
   </div>
 
-    <div id="sectionB" class="tab-pane fade">
-      <h3>Section B</h3>
+    <div id="quantity" class="tab-pane fade">
+      <h3> <%=t('report.quantity')%><%=@cantidad%> </h3>
     </div>
   </div>
 </div>

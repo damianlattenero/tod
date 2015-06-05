@@ -18,11 +18,11 @@ Then(/^reports page is displayed$/) do
 end
 
 And(/^selects quantity report$/) do
-  pending # express the regexp above with the code you wish you had
+  find('#tab-report-quantity').click
 end
 
-Then(/^quantity report is displayed with quantity (\d+)$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^quantity report is displayed with quantity (\d+)$/) do |cantidad|
+  expect(page).to have_content(cantidad)
 end
 
 When(/^a non\-revisor user visits reports page$/) do

@@ -2,6 +2,8 @@ require 'iconv'
 
 Tod::App.controllers :report do
   get :page  do
+    @cantidad = search_tag(" ").uniq
+    @cantidad= @cantidad.size
     render 'report/report_page'
   end
 
