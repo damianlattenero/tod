@@ -28,9 +28,8 @@ class User
   end
 
   def self.new_user(email)
-    user = User.new
+    user       = User.new
     user.email = email
-    user.role = Role.new :user
     user.save!
     user
   end
