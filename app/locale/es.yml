@@ -16,6 +16,8 @@ es:
     log_in:  Iniciar sesión con GitHub
     log_out: Cerrar sesión
     logged:  Conectado como
+  admin:
+    roles: Asignacion de Roles
   proposal:
     new:
       title: Nueva Propuesta
