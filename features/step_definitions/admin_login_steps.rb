@@ -1,5 +1,7 @@
-Given(/^a user with mail "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+# encoding: utf-8
+Given(/^a user with mail "(.*?)"$/) do |mail|
+  User.new_user mail
+  expect(User.get(1).email).to eq mail
 end
 
 When(/^logging in$/) do
