@@ -1,5 +1,8 @@
 <div class="container">
-  <h1><%= t('report.title')%></h1>
+  <% if @user then %>
+      <div class="alert alert-danger " role="alert"><strong><%= t('report.fail') %></strong></div>
+  <% else %>
+      <h1><%= t('report.title')%></h1>
   <ul class="nav nav-tabs" role="tablist">
     <li class="active" ><a id="tab-report-tag" data-toggle="tab" href="#tag">Tag</a></li>
     <li><a id="tab-report-quantity" data-toggle="tab" href="#quantity">Cantidad</a></li>
@@ -40,4 +43,5 @@
       <h4> <%=t('report.quantity')%> <span class="badge"> <%= Proposal.count %></span></h4>
     </div>
   </div>
+  <% end %>
 </div>

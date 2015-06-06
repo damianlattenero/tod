@@ -13,6 +13,6 @@ Feature: Proposals Quantity Report
     And  selects quantity report
     Then quantity report is displayed with quantity 5
 
-  #Scenario: non revisor user cannot see report section
-   # When a non-revisor user visits reports page
-    #Then a not-found page is displayed
+  Scenario: non revisor user cannot see report section
+    When a non-revisor user visits reports page
+    Then a not-found page is displayed

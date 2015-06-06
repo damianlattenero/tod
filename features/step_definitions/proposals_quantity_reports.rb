@@ -18,6 +18,7 @@ Then(/^reports page is displayed$/) do
 end
 
 And(/^selects quantity report$/) do
+  visit '/report/page'
   find('#tab-report-quantity').click
 end
 
@@ -26,9 +27,14 @@ Then(/^quantity report is displayed with quantity (\d+)$/) do |cantidad|
 end
 
 When(/^a non\-revisor user visits reports page$/) do
-  pending
+  @revisor= User.new
+  @revisor.name= "User"
+  @revisor.email= "User@tod.com"
+  @revisor.role= Role.new
+  @revisor.save
+  visit '/report/page'
 end
 
 Then(/^a not\-found page is displayed$/) do
-pending
+  expect(page).to have_content("Acceso Restringido")
 end
