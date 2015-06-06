@@ -35,5 +35,9 @@ class User
     user
   end
 
+  def set_admin
+    @role = Role.new :admin
+  end
+
 end
 

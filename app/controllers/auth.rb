@@ -5,6 +5,10 @@ Tod::App.controllers :auth do
     @user = User.find_uid(omniauth["uid"])
     @user = User.new_from_omniauth(omniauth) if @user.nil?
 
+    if @user.email == request.env["admin.email"]
+      @user.set_admin
+    end
+
     # save @user into your session to say he's authenticated
     session[:user] = @user
 
