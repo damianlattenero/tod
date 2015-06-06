@@ -5,12 +5,13 @@ Tod::App.controllers :auth do
     @user = User.find_uid(omniauth["uid"])
     @user = User.new_from_omniauth(omniauth) if @user.nil?
 
-    if @user.email == request.env["admin.email"]
-      @user.set_admin
-    end
-
     # save @user into your session to say he's authenticated
     session[:user] = @user
+
+    # validates session user mail and sets admin role
+    if logged_user_admin?
+      set_admin_role
+    end
 
     redirect url("/")
   end

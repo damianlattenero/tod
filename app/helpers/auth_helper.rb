@@ -3,11 +3,15 @@
 module Tod
   class App
     module AuthHelper
-      # def simple_helper_method
-      # ...
-      # end
-    end
 
+      def logged_user_admin?
+        session[:user].is_admin?
+      end
+
+      def set_admin_role
+        session[:user].set_admin
+      end
+    end
     helpers AuthHelper
   end
 end
