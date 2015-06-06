@@ -5,7 +5,6 @@ Scenario: user with admin email logs in as admin
   When  logging in
   Then  he should be logged as admin
 
-@wip
 Scenario: user without admin email is not logged in as admin
   Given a user with mail "not-admin@mail.com"
   When  logging in
