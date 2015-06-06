@@ -5,7 +5,8 @@ Given(/^a user with mail "(.*?)"$/) do |mail|
 end
 
 When(/^logging in$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/'
+  click_link('Iniciar sesión con GitHub')
 end
 
 Then(/^he should be logged as admin$/) do
