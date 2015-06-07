@@ -12,8 +12,15 @@ class Role
     @rolename.equal? :revisor
   end
 
+  def is_admin?
+    @rolename.equal? :admin
+  end
+
   def to_s
     @rolename.to_s
   end
 
+  def is(sym)
+    @rolename.equal? sym
+  end
 end

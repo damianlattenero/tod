@@ -4,13 +4,23 @@ module Tod
   class App
     module AuthHelper
 
-      def logged_user_admin?
-        session[:user].is_admin?
+      def with_role(*roles, &block)
+
+        if session[:user] && roles.any?{ |r| session[:user].role.is r }
+          block.call
+        else
+          status 401 #Unauthorized
+          body 'No tiene los permisos necesarios'
+        end
+
       end
 
-      def set_admin_role
-        session[:user].set_admin
+      def set_as_admin_if_eligible
+        if session[:user].name == 'AlvarezAriel'
+          session[:user].set_admin
+        end
       end
+
     end
     helpers AuthHelper
   end
