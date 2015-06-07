@@ -11,9 +11,11 @@ When(/^logging in$/) do
 end
 
 Then(/^he should not be logged as admin$/) do
-  expect(User.first(:email => @mail)).not_to eq (Role.new :admin)
+  user = User.first(:email => @mail)
+  expect(AdminManager.is_admin user).to eq false
 end
 
 Then(/^he should be logged as admin$/) do
-  pending
+  user = User.first(:email => @mail)
+  expect(AdminManager.is_admin user).to eq true
 end
