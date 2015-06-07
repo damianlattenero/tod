@@ -26,7 +26,7 @@
           <li><%= link_to t('user.log_out'), url_for(:auth, :log_out) %></li>
         </ul>
       <% else %>
-        <ul class="nav navbar-nav navbar-right">
+        <ul id="git-id" class="nav navbar-nav navbar-right">
           <li><%= link_to t('user.log_in'), url_for(:auth, :github) %></li>
         </ul>
       <% end %>
