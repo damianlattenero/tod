@@ -35,7 +35,7 @@ class User
   end
 
   def set_admin
-    @role = Role.new :admin
+    self.update!(:role => Role.new(:admin) )
   end
 
 end

@@ -16,9 +16,7 @@ module Tod
       end
 
       def set_as_admin_if_eligible
-        if session[:user].name == 'AlvarezAriel'
-          session[:user].set_admin
-        end
+        AdminManager.instance.set_as_admin_if_eligible session[:user]
       end
 
     end
