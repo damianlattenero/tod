@@ -16,7 +16,7 @@ en:
     log_out: Log out
     logged:  Logged in as
   admin:
-    roles: Asignacion de Roles
+    roles: Role Assignation
   proposal:
     new:
       title: New Proposal
