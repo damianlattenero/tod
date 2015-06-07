@@ -16,7 +16,7 @@ module Tod
       end
 
       def set_as_admin_if_eligible
-        AdminManager.instance.set_as_admin_if_eligible session[:user]
+        AdminManager.set_as_admin_if_eligible session[:user]
       end
 
     end
