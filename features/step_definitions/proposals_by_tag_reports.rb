@@ -1,12 +1,17 @@
 Given(/^a revisor user$/) do
+  visit '/'
   @revisor= User.new
   @revisor.name= "Un nombre"
   @revisor.email= "revisor@tod.com"
   @revisor.role= Role.new(:revisor)
-  @revisor.save
+  @revisor.save!
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:user] = OmniAuth::AuthHash.new({:provider => 'github',
+                                                             :uid => @revisor.uid})
+  find('#git-id').click
 end
 
-Given(/^there are (\d+) proposals with tag "([^"]*)" only$/) do |cant_prop, tag|
+Given(/^there are (\d+) proposals with tag "([^"]*)" only$/) do |cant_prop,tag|
   for i in 1..cant_prop.to_i
     proposal = Proposal.new
     proposal.title = i.to_s+"-a title"
