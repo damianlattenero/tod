@@ -11,11 +11,15 @@ class AdminManager
   end
 
   def self.is_admin(some_user)
-    some_user && AdminManager.instance.admin_email == some_user.name
+    some_user && AdminManager.instance.admin_email == some_user.email
+  end
+
+  def self.set_admin_email(email)
+    AdminManager.instance.admin_email = email
   end
 
   def self.set_admin_name(name)
-    AdminManager.instance.admin_email = name
+    AdminManager.instance.admin_name = name
   end
 
 end

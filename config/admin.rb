@@ -1,7 +1,7 @@
 # Strategies for obtaining Admin user
 
 case Padrino.env
-  when :development then AdminManager.set_admin_name 'AlvarezAriel'
-  when :production  then AdminManager.set_admin_name  ENV['ADMIN_USERNAME']
-  when :test        then AdminManager.set_admin_name  'admin'
+  when :development then AdminManager.set_admin_email 'admin@mail.com'
+  when :production  then AdminManager.set_admin_email ENV['ADMIN_USEREMAIL']
+  when :test        then AdminManager.set_admin_email 'admin@mail.com'
 end
