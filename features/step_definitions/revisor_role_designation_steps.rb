@@ -1,4 +1,6 @@
+# encoding: UTF-8
 Given(/^an admin user$/) do
+  visit '/'
   @admin       = User.new
   @admin.name  = 'Admin'
   @admin.email = 'admin@mail.com'
@@ -11,6 +13,7 @@ Given(/^an admin user$/) do
         :uid => @admin.uid
   })
   expect(User.first(:email => 'admin@mail.com')).not_to eq nil
+  click_link('Iniciar sesión con GitHub')
 end
 
 Given(/^a regular user$/) do
