@@ -4,7 +4,7 @@
   <% if @users.empty? then %>
     <tr><%= t('admin.roles.empty') %></tr>
   <% else %>
-  <table class="table table-bordered">
+  <table class="table table-bordered roles-table">
 
     <tr>
       <th><%= t('admin.roles.user_name')%></th>
@@ -14,10 +14,13 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
-        <td><%=  %></td>
+        <td>
+          <input type="checkbox" name="vehicle" value="<%= user.uid %>"/>
+        </td>
       </tr>
     <% end %>
 
   </table>
   <% end %>
+
 </div>
