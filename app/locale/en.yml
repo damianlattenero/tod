@@ -4,6 +4,8 @@ en:
     home_link:          Home
     new_proposal:       New Proposal
     proposal_list:      Proposal list
+    report:             Reports
+    roles:              Roles
     search_placeholder: Looking for something?
     search_button:      Search
   footer:
@@ -16,7 +18,11 @@ en:
     log_out: Log out
     logged:  Logged in as
   admin:
-    roles: Role Assignation
+    roles:
+      title:      Role Assignment
+      user_name:  User
+      is_revisor: Is Revisor
+      empty:      No registered users
   proposal:
     new:
       title: New Proposal
