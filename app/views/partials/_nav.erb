@@ -19,11 +19,13 @@
 
       <% @user = session[:user] %>
       <% if @user %>
+
         <% if @user.role.is_admin? %>
           <ul class="nav navbar-nav">
             <li><%= link_to t('admin.roles'), url_for(:admin, :roles) %></li>
           </ul>
         <% end %>
+
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to t('user.log_out'), url_for(:auth, :log_out) %></li>
         </ul>
