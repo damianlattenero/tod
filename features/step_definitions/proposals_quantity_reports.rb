@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 Given(/^there are (\d+) proposals$/) do |cant_prop|
   for i in 1..cant_prop.to_i
     proposal = Proposal.new
@@ -27,11 +29,7 @@ Then(/^quantity report is displayed with quantity (\d+)$/) do |cantidad|
 end
 
 When(/^a non\-revisor user visits reports page$/) do
-  @revisor= User.new
-  @revisor.name= "User"
-  @revisor.email= "User@tod.com"
-  @revisor.role= Role.new
-  @revisor.save
+  click_link('Cerrar sesión')
   visit '/report/page'
 end
 

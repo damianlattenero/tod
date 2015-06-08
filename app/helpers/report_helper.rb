@@ -4,10 +4,10 @@ module Tod
   class App
     module ReportHelper
       def user_is_revisor?()
-        user = User.last
-        if user.nil?
-          return false
+        if session[:user].nil?
+         return false
         end
+        user= session[:user]
         user= user.role
         user.to_s == "revisor"
       end
