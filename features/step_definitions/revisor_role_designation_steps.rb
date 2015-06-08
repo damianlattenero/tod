@@ -14,7 +14,9 @@ Given(/^an admin user$/) do
 end
 
 Given(/^a regular user$/) do
-  pending # express the regexp above with the code you wish you had
+  @user = User.new_user 'user@tod.com'
+  @user.save!
+  expect(User.first(:email => 'user@tod.com')).not_to eq nil
 end
 
 When(/^admin designates regular user as revisor$/) do
