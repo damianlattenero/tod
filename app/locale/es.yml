@@ -4,8 +4,9 @@ es:
     home_link:          Inicio
     new_proposal:       Nueva Propuesta
     proposal_list:      Lista de propuestas
-    search_placeholder: Búsqueda
     report:             Reportes
+    roles:              Roles
+    search_placeholder: Búsqueda
     search_button:      Buscar
   footer:
     detail: Tod
@@ -17,7 +18,11 @@ es:
     log_out: Cerrar sesión
     logged:  Conectado como
   admin:
-    roles: Asignacion de Roles
+    roles:
+      title:      Asignacion de Roles
+      user_name:  Usuario
+      is_revisor: Es Revisor
+      empty:      No hay usuarios registrados
   proposal:
     new:
       title: Nueva Propuesta
