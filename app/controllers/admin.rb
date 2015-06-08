@@ -1,7 +1,8 @@
 Tod::App.controllers :admin do
-  get :roles, :map => '/roles' do
-  	@users = User.reverse
-    render 'admin/roles'
+  get :roles, :map => '/roles' do with_revisor_role{
+      @users = User.reverse
+      render 'admin/roles'
+    }
   end
 
   get :remove_role, :params => [ :uid ] do

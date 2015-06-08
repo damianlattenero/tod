@@ -4,9 +4,9 @@ module Tod
   class App
     module AuthHelper
 
-      def with_role(*roles, &block)
+      def with_revisor_role(&block)
 
-        if session[:user] && roles.any?{ |r| session[:user].role.is r }
+        if session[:user] && session[:user].role.is_admin?
           block.call
         else
           status 401 #Unauthorized
