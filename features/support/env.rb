@@ -19,5 +19,6 @@ require_relative '../../app/models/proposal'
 After do
   Proposal.destroy!
   Comment.destroy!
+  User.destroy!
 end
 
