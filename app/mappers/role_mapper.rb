@@ -20,7 +20,7 @@ module DataMapper
       end
 
       def load(value)
-        Role.new(value)
+        Role.new(value.to_sym)
       end
 
       def dump(value)

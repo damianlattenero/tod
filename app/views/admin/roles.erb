@@ -15,7 +15,11 @@
       <tr>
         <td><%= user.name %></td>
         <td>
-          <input type="checkbox" name="vehicle" value="<%= user.uid %>"/>
+          <input class="<%=user.role.is_revisor?%>" type="checkbox"
+                 <% if user.role.is_revisor?%>
+                    checked
+                 <%end%>
+          name="revisor_<%= user.uid %>" value="<%= user.uid %>"/>
         </td>
       </tr>
     <% end %>

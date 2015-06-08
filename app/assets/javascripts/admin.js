@@ -1,16 +1,19 @@
-function giveRevisorRole(uid){
-    console.log("give to " + uid);
-}
-
-function removeRevisorRole(uid){
+function changeRevisorRole(uid, url){
     jQuery.ajax({
-        url: '/admin/remove_role',
+        url: url,
         data:'uid='+uid,
         success:  function(){
             console.log('success!');
         }
     });
-    console.log("remove " + uid);
+}
+
+function giveRevisorRole(uid){
+    changeRevisorRole(uid, '/admin/asign_role')
+}
+
+function removeRevisorRole(uid){
+    changeRevisorRole(uid, '/admin/remove_role')
 }
 
 function onRoleClick(){
