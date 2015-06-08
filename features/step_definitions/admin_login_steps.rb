@@ -1,12 +1,21 @@
 # encoding: utf-8
 Given(/^a user with mail "(.*?)"$/) do |mail|
+
   @mail = mail
-  User.new_user @mail
-  expect(User.first(:email => @mail)).not_to eq nil
+  @user = User.new_user @mail
+  @user.name = 'Albus'
+  @user.save!
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(
+      {
+          :provider => 'github',
+          :uid => @user.uid
+      }
+  )
+  visit '/'
 end
 
 When(/^logging in$/) do
-  visit '/'
   click_link('Iniciar sesión con GitHub')
 end
 
