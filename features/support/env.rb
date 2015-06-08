@@ -12,6 +12,7 @@ DataMapper.auto_migrate!
 
 #Capybara.default_driver = :selenium
 Capybara.app = Tod::App.tap { |app|  }
+Capybara.default_wait_time = 10
 
 require_relative '../../app/models/proposal'
 
