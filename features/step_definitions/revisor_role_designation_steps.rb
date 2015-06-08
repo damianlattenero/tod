@@ -1,5 +1,16 @@
 Given(/^an admin user$/) do
-  pending # express the regexp above with the code you wish you had
+  @admin       = User.new
+  @admin.name  = 'Admin'
+  @admin.email = 'admin@mail.com'
+  @admin.role  = Role.new :admin
+  @admin.save!
+  logger.debug "CREATED admin with UID=#{@admin.uid}"
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+        :provider => 'github',
+        :uid => @admin.uid
+  })
+  expect(User.first(:email => 'admin@mail.com')).not_to eq nil
 end
 
 Given(/^a regular user$/) do
