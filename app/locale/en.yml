@@ -59,3 +59,12 @@ en:
     search:
       title: Search results
       empty: Results have not been found
+  report:
+     title:                Reports
+     text:                 Search proposed by tag
+     tag_placeholder:      "Ej: Tag"
+     button:               search-tag
+     button_quantity:      Quantity
+     quantity:             "The amount of total proposals are "
+     fail:                 Restricted access
+     tag:                  Tag
