@@ -13,9 +13,6 @@
       <ul class="nav navbar-nav">
         <li><%= link_to t('nav.proposal_list'), url_for(:proposal, :list) %></li>
       </ul>
-      <ul class="nav navbar-nav">
-        <li><%= link_to t('nav.report'), url_for(:report, :page) %></li>
-      </ul>
 
       <% @user = session[:user] %>
       <% if @user %>
@@ -23,6 +20,12 @@
         <% if @user.role.is_admin? %>
           <ul class="nav navbar-nav">
             <li><%= link_to t('nav.roles'), url_for(:admin, :roles) %></li>
+          </ul>
+        <% end %>
+
+        <% if @user.role.is_revisor? %>
+          <ul class="nav navbar-nav">
+            <li><%= link_to t('nav.report'), url_for(:report, :page) %></li>
           </ul>
         <% end %>
 
