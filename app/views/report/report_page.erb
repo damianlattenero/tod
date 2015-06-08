@@ -12,12 +12,11 @@
       <div class="tab-content">
         <div id="tag" class="tab-pane fade in active">
           <div class="navbar-form navbar-left">
-            </br>
-            <p><%= t('report.text')%></p>
+            <h4><%= t('report.text')%></h4>
             <form method="POST" action="/report/search" class="form-search">
               <%= csrf_token_field %>
               <input id="consulta-id" type="text" name="consulta" class="form-control" placeholder="<%=t('report.tag_placeholder')%>" />
-              <input type="submit" class="btn btn-primary" value= <%= t('report.button')%> />
+              <input id="button-tag" type="submit" class="btn btn-primary" value= <%= t('report.button')%> />
             </form>
           </div>
           <%if @proposals.present? then %>
@@ -43,6 +42,7 @@
         </div>
 
         <div id="quantity" class="tab-pane fade">
+          </br>
           <h4> <%=t('report.quantity')%> <span class="badge"> <%= Proposal.count %></span></h4>
         </div>
       </div>

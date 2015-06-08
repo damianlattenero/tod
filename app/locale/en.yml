@@ -63,7 +63,7 @@ en:
      title:                Reports
      text:                 Search proposed by tag
      tag_placeholder:      "Ej: Tag"
-     button:               search-tag
+     button:               Search
      button_quantity:      Quantity
      quantity:             "The amount of total proposals are "
      fail:                 Restricted access

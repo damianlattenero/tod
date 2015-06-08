@@ -50,7 +50,7 @@ end
 When(/^selects tag "(.*?)"$/) do|tag|
   visit '/report/page'
   fill_in('consulta', :with => tag)
-  click_button('buscar-tag')
+  find('#button-tag').click
 end
 
 Then(/^(\d+) proposals with tag "(.*?)" are listed$/) do |cantidad, tag|
@@ -60,7 +60,7 @@ Then(/^(\d+) proposals with tag "(.*?)" are listed$/) do |cantidad, tag|
 end
 
 When(/^no tag is selected$/) do
-  click_button('buscar-tag')
+  find('#button-tag').click
 end
 
 Then(/^(\d+) proposals are listed$/) do |cantidad|

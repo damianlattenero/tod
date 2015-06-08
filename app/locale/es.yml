@@ -62,9 +62,9 @@ es:
       empty: No se han encontrado resultados
   report:
      title:                Reportes
-     text:                 Busqueda propuestas por tag
+     text:                 Busqueda de propuestas por tag
      tag_placeholder:      "Ej: Tag"
-     button:               buscar-tag
+     button:               Buscar
      button_quantity:      Cantidad
      quantity:             "La cantidad de propuestas totales son "
      fail:                 Acceso Restringido
