@@ -11,7 +11,7 @@ class AdminManager
   end
 
   def self.is_admin(some_user)
-    true #some_user && AdminManager.instance.admin_email == some_user.email
+    some_user && AdminManager.instance.admin_email == some_user.email
   end
 
   def self.set_admin_email(email)
