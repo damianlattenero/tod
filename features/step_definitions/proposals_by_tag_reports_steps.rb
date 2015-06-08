@@ -44,7 +44,7 @@ When(/^a revisor user visits reports page$/) do
 end
 
 When(/^selects proposals by tag report$/) do
-  click_link('Tag')
+  find('#tab-report-tag').click
 end
 
 When(/^selects tag "(.*?)"$/) do|tag|
