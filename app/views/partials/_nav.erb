@@ -22,7 +22,7 @@
 
         <% if @user.role.is_admin? %>
           <ul class="nav navbar-nav">
-            <li><%= link_to t('admin.roles'), url_for(:admin, :roles) %></li>
+            <li><%= link_to t('nav.roles'), url_for(:admin, :roles) %></li>
           </ul>
         <% end %>
 
