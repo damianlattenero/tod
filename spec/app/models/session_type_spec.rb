@@ -19,5 +19,9 @@ RSpec.describe Session do
     it 'should not be presentation if initialized with :workshop' do
       expect(Session.new(:workshop).is_presentation?).to eq false
     end
+
+    it 'should not be workshop if initialized with :presentation' do
+      expect(Session.new(:presentation).is_workshop?).to eq false
+    end
   end
 end
