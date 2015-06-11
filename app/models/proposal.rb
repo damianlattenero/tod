@@ -1,7 +1,8 @@
 require 'rubygems'
 require 'dm-core'
 require 'dm-tags'
-
+require_relative '../mappers/session_mapper'
+require_relative 'session'
 class Proposal
   include DataMapper::Resource
 
@@ -10,6 +11,7 @@ class Proposal
   property :title,       String, required: true, :length => 3..50
   property :description, Text,   required: true, :length => 1..500
   property :author,      String, required: true, :length => 3..50
+  property :session,    SessionMapper, :default  => Session.new(:presentation)
   property :date,        DateTime
   has n,   :comments
   has_tags_on :tags
@@ -21,6 +23,11 @@ class Proposal
   def append_author_to_title
     self.title += (" - " + @author)
   end
+
+  def set_session(session)
+    self.update!(:session => Session.new(session) )
+  end
+
 
 end
 
