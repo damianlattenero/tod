@@ -4,7 +4,7 @@ class Session
   end
 
   def is_workshop?
-
+    @session.equal? :workshop
   end
 
   def is_presentation?
