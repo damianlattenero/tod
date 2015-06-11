@@ -1,8 +1,5 @@
 class Session
-  def initialize()
-  end
-
-  def set_session(session_name)
+  def initialize(session_name)
     @session = session_name
   end
 
@@ -11,6 +8,7 @@ class Session
   end
 
   def is_presentation?
+    @session.equal? :presentation
   end
 
   def is_empty?
