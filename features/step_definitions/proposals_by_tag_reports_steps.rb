@@ -68,6 +68,8 @@ Then(/^(\d+) proposals are listed$/) do |cantidad|
   expect(actual_order).to eq cantidad
 end
 
+
+
 Transform /^(\d+)$/ do |number|
   number.to_i
 end
