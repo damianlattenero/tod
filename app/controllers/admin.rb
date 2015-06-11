@@ -1,6 +1,6 @@
 Tod::App.controllers :admin do
   get :roles, :map => '/roles' do with_revisor_role{
-      @users = User.reverse
+      @users = User.all(:role.not => "admin" )
       render 'admin/roles'
     }
   end
