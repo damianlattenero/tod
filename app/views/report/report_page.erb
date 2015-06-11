@@ -20,11 +20,12 @@
                     <input id="button-tag" type="submit" class="btn btn-primary" value= <%= t('report.button')%> />
                   </span>
                 </div>
-              <h4> <%=t('report.quantity_search')%> <span class="badge"> <%= @quantity_search %></span></h4>
 
             </form>
           </label>
           <%if @proposals.present? then %>
+              <h4> <%=t('report.quantity_search')%> <span class="badge"> <%= @quantity_search %></span></h4>
+
               <table class="table table-bordered">
                 <thead>
                 <tr>
