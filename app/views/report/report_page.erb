@@ -8,17 +8,20 @@
         <li class="active" ><a id="tab-report-tag" data-toggle="tab" href="#tag"> <%= t('report.tag')%> </a></li>
         <li><a id="tab-report-quantity" data-toggle="tab" href="#quantity"> <%= t('report.button_quantity')%> </a></li>
       </ul>
-
       <div class="tab-content">
-        <div id="tag" class="tab-pane fade in active">
-          <div class="navbar-form navbar-left">
+        <div id="tag" class="tab-pane fade in active ">
+          <label class="left">
             <h4><%= t('report.text')%></h4>
             <form method="POST" action="/report/search" class="form-search">
               <%= csrf_token_field %>
-              <input id="consulta-id" type="text" name="consulta" class="form-control" placeholder="<%=t('report.tag_placeholder')%>" />
-              <input id="button-tag" type="submit" class="btn btn-primary" value= <%= t('report.button')%> />
+              <div class="col-lg-3 input-group">
+                  <input id="consulta-id" type="text" name="consulta" class="form-control" placeholder="<%=t('report.tag_placeholder')%>" />
+                  <span class="input-group-btn">
+                    <input id="button-tag" type="submit" class="btn btn-primary" value= <%= t('report.button')%> />
+                  </span>
+                </div>
             </form>
-          </div>
+          </label>
           <%if @proposals.present? then %>
               <table class="table table-bordered">
                 <thead>

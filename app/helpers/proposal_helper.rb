@@ -69,23 +69,26 @@ module Tod
       end
 
       def search_tag (query)
+
         text = query.to_s.downcase.strip.split.uniq
         if text.include?("+") && text.size > 1 then
           text.delete("+")
           first_word = text.delete_at(0)
           title_tag_search = Proposal.all(:frozen_tag_list.like => "%#{first_word}%")
           text.each do |word|
-            return title_tag_search = title_tag_search & Proposal.all(:frozen_tag_list.like => "%#{word}%")
+            title_tag_search = title_tag_search & Proposal.all(:frozen_tag_list.like => "%#{word}%")
           end
         else
           title_tag_search = []
           text.each do |word|
             title_tag_search = title_tag_search |
                     Proposal.all(:frozen_tag_list.like => "%#{word}%")
-           return title_tag_search
           end
         end
-         Proposal.all
+        if title_tag_search.size== 0
+          title_tag_search= Proposal.all
+        end
+        title_tag_search
       end
     end
     helpers ProposalHelper
