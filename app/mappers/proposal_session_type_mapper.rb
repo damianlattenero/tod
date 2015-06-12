@@ -1,9 +1,9 @@
-require_relative '../models/type'
+require_relative '../models/proposal_session_type'
 require 'dm-core'
 
 module DataMapper
   class Property
-    class SessionMapper < String
+    class ProposalSessionTypeMapper < String
 
       length 20
 
@@ -12,7 +12,7 @@ module DataMapper
       end
 
       def primitive?(value)
-        value.kind_of?(::Type)
+        value.kind_of?(::ProposalSessionType)
       end
 
       def valid?(value, negated = false)
@@ -20,7 +20,7 @@ module DataMapper
       end
 
       def load(value)
-        Type.new(value.to_sym)
+        ProposalSessionType.new(value.to_sym)
       end
 
       def dump(value)

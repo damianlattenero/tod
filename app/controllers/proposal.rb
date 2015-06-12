@@ -28,7 +28,7 @@ Tod::App.controllers :proposal do
     @proposal.author      = author
     @proposal.date        = Time.now
     @proposal.tag_list    = params[:proposal][:tags_list].downcase
-    @proposal.type        =  Type.new(type)
+    @proposal.type        =  ProposalSessionType.new(type)
 
 
     if Proposal.first(:title => title)
