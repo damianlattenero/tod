@@ -37,6 +37,7 @@ en:
         tags_placeholder:        "Ej: Agile, Scrum, Software Arquitecture"
         send_button:             Send
         cancel_button:           Cancel
+        type:                    Type
         select_1:                "workshop"
         select_2:                "presentation"
       result:

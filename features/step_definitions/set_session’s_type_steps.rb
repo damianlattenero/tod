@@ -1,19 +1,27 @@
+# encoding: UTF-8
 Given(/^an author user$/) do
-  pending # express the regexp above with the code you wish you had
+  @user = User.new
+  @user.name = 'normal'
+  @user.uid = 2
+  @user.email = 'common@user.red'
+  @user.save!
+  visit '/proposal/new'
 end
 
 When(/^an author creates a proposal$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in 'proposal[title]', :with => "title"
+  fill_in 'proposal[author]', :with => "author_nick"
+  fill_in 'proposal[description]', :with => "description"
 end
 
 And(/^submits$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button('Enviar')
 end
 
 And(/^he selects "(.*?)" as session’s type$/) do |tipo|
-  pending # express the regexp above with the code you wish you had
+  select tipo, from:'proposal[type]'
 end
 
 Then(/^session’s type for proposal should be "(.*?)"$/) do |tipo|
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content(tipo)
 end

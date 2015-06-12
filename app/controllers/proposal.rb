@@ -20,7 +20,7 @@ Tod::App.controllers :proposal do
     title       = params[:proposal][:title]
     description = params[:proposal][:description]
     author      = params[:proposal][:author]
-    type     = params[:proposal][:favorite_color]
+    type     = params[:proposal][:type]
 
     @proposal             = Proposal.new
     @proposal.title       = title

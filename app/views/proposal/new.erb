@@ -60,7 +60,8 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.select(:favorite_color, :options => [t('proposal.new.form.select_1'), t('proposal.new.form.select_2')], :class => 'form-control') %>
+        <%= f.label t('proposal.new.form.type'), class: 'control-label' %>
+        <%= f.select(:type, :options => [t('proposal.new.form.select_1'), t('proposal.new.form.select_2')], :class => 'form-control') %>
       </div>
       <div class="form-actions">
         <%= f.submit t('proposal.new.form.send_button'),
