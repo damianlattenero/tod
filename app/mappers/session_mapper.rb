@@ -1,4 +1,4 @@
-require_relative '../models/session'
+require_relative '../models/type'
 require 'dm-core'
 
 module DataMapper
@@ -12,7 +12,7 @@ module DataMapper
       end
 
       def primitive?(value)
-        value.kind_of?(::Session)
+        value.kind_of?(::Type)
       end
 
       def valid?(value, negated = false)
@@ -20,7 +20,7 @@ module DataMapper
       end
 
       def load(value)
-        Session.new(value.to_sym)
+        Type.new(value.to_sym)
       end
 
       def dump(value)

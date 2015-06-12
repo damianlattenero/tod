@@ -37,6 +37,8 @@ es:
         tags_placeholder:        "Ej: Agile, Scrum, Arquitectura de Software"
         send_button:             Enviar
         cancel_button:           Cancelar
+        select_1:                "taller"
+        select_2:                "presentacion"
       result:
         success:         Propuesta enviada correctamente
         error:           No se ha podido enviar la propuesta
@@ -47,6 +49,7 @@ es:
         title:  Título
         author: Autor
         tags:   Etiquetas
+        type:   Tipo
       empty: "Aun no hay propuestas, puedes agregar una si deseas"
     detail:
       tags:              "Etiquetas: %{tags}"

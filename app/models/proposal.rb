@@ -2,7 +2,7 @@ require 'rubygems'
 require 'dm-core'
 require 'dm-tags'
 require_relative '../mappers/session_mapper'
-require_relative 'session'
+require_relative 'type'
 class Proposal
   include DataMapper::Resource
 
@@ -11,7 +11,7 @@ class Proposal
   property :title,       String, required: true, :length => 3..50
   property :description, Text,   required: true, :length => 1..500
   property :author,      String, required: true, :length => 3..50
-  property :session,    SessionMapper, :default  => Session.new(:presentation)
+  property :type,    SessionMapper, :default  => Type.new(:presentation)
   property :date,        DateTime
   has n,   :comments
   has_tags_on :tags
@@ -25,7 +25,7 @@ class Proposal
   end
 
   def set_session(session)
-    self.update!(:session => Session.new(session) )
+    self.update!(:session => Type.new(session) )
   end
 
 

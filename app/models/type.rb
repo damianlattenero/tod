@@ -1,4 +1,4 @@
-class Session
+class Type
   def initialize(session_name)
     @session = session_name
   end
@@ -18,5 +18,6 @@ class Session
   def to_s
     @session.to_s
   end
+  attr_reader :session
 
 end
