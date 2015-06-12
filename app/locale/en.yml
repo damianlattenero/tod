@@ -72,5 +72,6 @@ en:
      button:               Search
      button_quantity:      Quantity
      quantity:             "The amount of total proposals are "
+     quantity_search:      "The amount of proposals sought by tag"
      fail:                 Restricted access
      tag:                  Tag

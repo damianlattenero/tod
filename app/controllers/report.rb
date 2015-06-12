@@ -10,6 +10,7 @@ Tod::App.controllers :report do
   post :search do
     @query=params[:consulta]
     @proposals = search_tag("#{@query}").uniq
+    @quantity_search = @proposals.size
     render 'report/report_page'
   end
 end
