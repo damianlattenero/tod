@@ -1,5 +1,6 @@
 class Type
-  def initialize(session_name)
+
+  def initialize(session_name=:presentation)
     @session = session_name
   end
 
@@ -11,13 +12,8 @@ class Type
     @session.equal? :presentation
   end
 
-  def is_empty?
-
-  end
-
   def to_s
     @session.to_s
   end
-  attr_reader :session
 
 end

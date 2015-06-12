@@ -2,9 +2,8 @@ require_relative '../../../app/models/type'
 
 RSpec.describe Type do
   describe 'model' do
-    it { should respond_to( :is_presentation?) }
-    it { should respond_to( :is_workshop?) }
-    it { should respond_to( :is_empty?) }
+    it { should respond_to(:is_presentation?) }
+    it { should respond_to(:is_workshop?) }
   end
 
   describe 'initialize' do

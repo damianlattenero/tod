@@ -28,7 +28,7 @@ describe Proposal do
     end
 
     it 'should have default session set to presentation' do
-      expect(Proposal.new.session.is_presentation?).to eq true
+      expect(Proposal.new.type.is_presentation?).to eq true
     end
 
     # TODO - to validate
