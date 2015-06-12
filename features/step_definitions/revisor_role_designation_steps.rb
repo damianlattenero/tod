@@ -41,13 +41,21 @@ end
 
 When(/^admin removes revisor privileges from user$/) do
   click_link('Roles')
-  uncheck("revisor_#{@user.uid}")
+  find("#revisor_#{@revisor.uid}").click
 end
 
 Then(/^regular user should be revisor$/) do
-  expect(find("[@checked]").value).to eq @user.uid
+  expect(find("#revisor_#{@user.uid}[checked]").value).to eq @user.uid
 end
 
 Then(/^revisor should now be a regular user$/) do
-  expect(has_xpath?("//*[@checked]")).to be false
+  expect(page).to have_no_selector("#revisor_#{@user.uid}[checked]")
+end
+
+Then(/^he should see a role designated notification$/) do
+  expect(page).to have_css('.toast-message', text: 'El usuario es ahora revisor')
+end
+
+Then(/^he should see a role revoked notification$/) do
+  expect(page).to have_css('.toast-message', text: 'El el revisor es ahora un usuario regular')
 end

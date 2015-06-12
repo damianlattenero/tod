@@ -4,10 +4,9 @@ before_install: gem install bundler --pre
 
 bundler_args: --without development staging production
 
-before_script:
-  - "sh -e /etc/init.d/xvfb start"
-
-script: RACK_ENV=test bundle exec padrino rake
+script:
+  - RACK_ENV=test
+  - xvfb-run bundle exec padrino rake
 
 rvm:
   - 1.9.3-p547
