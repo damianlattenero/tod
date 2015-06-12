@@ -57,5 +57,5 @@ Then(/^he should see a role designated notification$/) do
 end
 
 Then(/^he should see a role revoked notification$/) do
-  pending
+  expect(page).to have_css('.toast-message', text: 'El el revisor es ahora un usuario regular')
 end
