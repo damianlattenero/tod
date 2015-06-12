@@ -51,3 +51,11 @@ end
 Then(/^revisor should now be a regular user$/) do
   expect(has_xpath?("//*[@checked]")).to be false
 end
+
+Then(/^he should see a role designated notification$/) do
+  pending
+end
+
+Then(/^he should see a role revoked notification$/) do
+  pending
+end
