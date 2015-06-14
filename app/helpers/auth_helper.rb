@@ -4,7 +4,7 @@ module Tod
   class App
     module AuthHelper
 
-      def with_revisor_role(&block)
+      def with_admin_role(&block)
 
         if session[:user] && session[:user].role.is_admin?
           block.call

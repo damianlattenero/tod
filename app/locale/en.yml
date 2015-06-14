@@ -23,6 +23,10 @@ en:
       user_name:  User
       is_revisor: Is Revisor
       empty:      No registered users
+    conference:
+      title:                  Conference Settings
+      revisions_per_proposal: Revisions per proposal
+      save:                   Save Changes
   proposal:
     new:
       title: New Proposal

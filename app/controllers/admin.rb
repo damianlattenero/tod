@@ -1,8 +1,13 @@
 Tod::App.controllers :admin do
-  get :roles, :map => '/roles' do with_revisor_role{
+  get :roles, :map => '/roles' do with_admin_role{
       @users = User.all(:role.not => "admin" )
       render 'admin/roles'
     }
+  end
+
+  get :roles, :map => '/conference' do with_admin_role{
+    render 'admin/conference'
+  }
   end
 
   get :remove_role, :params => [ :uid ] do
