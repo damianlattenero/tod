@@ -12,8 +12,8 @@ When(/^a revisor user visit proposal list$/) do
   visit '/proposal/list'
 end
 
-When(/^selects a proposal$/) do
-  pending # express the regexp above with the code you wish you had
+And(/^selects a proposal$/) do
+  visit 'proposal/detail?proposal_id=' + @proposal.id.to_s
 end
 
 When(/^clicks on Evaluate a proposal$/) do
