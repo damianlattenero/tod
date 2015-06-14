@@ -5,13 +5,13 @@ Tod::App.controllers :admin do
     }
   end
 
-  get :conference, :map => '/conference' do with_admin_role{
+  get :conference, :map => '/admin/conference' do with_admin_role{
     @conference = Conference.first_or_create
     render 'admin/conference'
   }
   end
 
-  post :conference, :map => '/conference/update' do with_admin_role {
+  post :conference, :map => '/admin/conference' do with_admin_role {
     reviews_per_proposal = params[:conference][:reviews_per_proposal]
     @conference = Conference.first_or_create
     @conference.reviews_per_proposal = reviews_per_proposal

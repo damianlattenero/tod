@@ -1,5 +1,5 @@
 When(/^an admin user visits admin page$/) do
-  pending
+  visit '/admin/conference'
 end
 
 Then(/^amount of evaluations required should display (\d+) as default$/) do |number|
@@ -7,9 +7,11 @@ Then(/^amount of evaluations required should display (\d+) as default$/) do |num
 end
 
 And(/^changes the amount of evaluations for a proposal to (\d+)$/) do |number|
-  pending
+  fill_in 'conference[reviews_per_proposal]', :with => number
+  click_button 'Guardar Cambios'
 end
 
 Then(/^a success message is displayed with quantity (\d+)$/) do |number|
-  pending
+  expect(page).to have_css('.alert-success', text: 'Cambios guardados exitosamente')
+  find_field('conference[reviews_per_proposal]').value.should eq "#{number}"
 end
