@@ -1,5 +1,11 @@
 And(/^a proposal he did not evaluate yet$/) do
-  pending # express the regexp above with the code you wish you had
+  @proposal = Proposal.create(
+    :title       => "proposal for evaluation",
+    :description => "proposal for evaluation description test",
+    :author      => "a test author who likes to be evaluated"
+  )
+  @proposal.save
+  expect(@proposal.evaluations).to be_empty
 end
 
 When(/^a revisor user visit proposal list$/) do

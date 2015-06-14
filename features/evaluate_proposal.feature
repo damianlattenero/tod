@@ -2,7 +2,7 @@ Feature: Evaluate a proposal
 
 Background:
   Given a revisor user
-  And   and proposal he did not evaluate yet
+  And   a proposal he did not evaluate yet
 
 Scenario: revisor evaluates a proposal with opinion "Aceptación Debil"
   When a revisor user visit proposal list
