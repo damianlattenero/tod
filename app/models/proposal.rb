@@ -12,6 +12,7 @@ class Proposal
   property :author,      String, required: true, :length => 3..50
   property :date,        DateTime
   has n,   :comments
+  has n,   :evaluations
   has_tags_on :tags
 
   def same_title?(a_proposal)
@@ -23,4 +24,3 @@ class Proposal
   end
 
 end
-
