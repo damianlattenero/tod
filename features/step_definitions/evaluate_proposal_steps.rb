@@ -21,7 +21,7 @@ And(/^selects a proposal$/) do
 end
 
 When(/^clicks "(.*?)" button$/) do |button_label|
-  click_button('Evaluar')
+  find('#evaluate_btn').click
 end
 
 When(/^evaluates its with opinion "(.*?)"$/) do |opinion|

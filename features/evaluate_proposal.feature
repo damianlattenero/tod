@@ -12,6 +12,7 @@ Scenario: revisor evaluates a proposal with opinion "Aceptación Debil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Aceptacion Debil" should be displayed
 
+@wip
 Scenario: revisor evaluates a proposal with opinion "Rechazo Debil"
   When a revisor user visit proposal list
   And  selects a proposal
@@ -19,7 +20,7 @@ Scenario: revisor evaluates a proposal with opinion "Rechazo Debil"
   And  evaluates its with opinion "Rechazo Débil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Debil" should be displayed
-
+@wip
 Scenario: revisor evaluates a proposal with opinion "Aceptación Fuerte"
   When a revisor user visit proposal list
   And  selects a proposal
@@ -27,7 +28,7 @@ Scenario: revisor evaluates a proposal with opinion "Aceptación Fuerte"
   And  evaluates its with opinion "Aceptación Fuerte"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Aceptacion Fuerte" should be displayed
-
+@wip
 Scenario: revisor evaluates a proposal with opinion "Rechazo Fuerte"
   When a revisor user visit proposal list
   And  selects a proposal
@@ -35,7 +36,7 @@ Scenario: revisor evaluates a proposal with opinion "Rechazo Fuerte"
   And  evaluates its with opinion "Rechazo Fuerte"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
-
+@wip
 Scenario: falling evaluates submission when opinion is empty
   When a revisor user visit proposal list
   And  selects a proposal
@@ -43,7 +44,7 @@ Scenario: falling evaluates submission when opinion is empty
   And  evaluates its with opinion " "
   And  leaves a valid comment
   Then it should raise a no opinion selected
-
+@wip
 Scenario: revisor evaluates a proposal when comment has three words
   When a revisor user visit proposal list
   And  selects a proposal
@@ -51,7 +52,7 @@ Scenario: revisor evaluates a proposal when comment has three words
   And  evaluates its with opinion "Rechazo Fuerte"
   And  comments "A great comment"
   Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
-
+@wip
 Scenario: falling evaluates submission when comment has two words
   When a revisor user visit proposal list
   And  selects a proposal
@@ -59,7 +60,7 @@ Scenario: falling evaluates submission when comment has two words
   And  evaluates its with opinion "Rechazo Fuerte"
   And  comments "Poor comment"
   Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
-
+@wip
 Scenario: revisor user cannot evaluate a proposal multiple times
   When a revisor user visit proposal list
   And  selects a proposal

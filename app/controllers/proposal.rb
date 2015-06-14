@@ -86,4 +86,7 @@ Tod::App.controllers :proposal do
 
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
   end
+
+  post :evaluate do
+  end
 end
