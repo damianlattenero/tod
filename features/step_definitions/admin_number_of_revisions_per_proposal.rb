@@ -3,7 +3,7 @@ When(/^an admin user visits admin page$/) do
 end
 
 Then(/^amount of evaluations required should display (\d+) as default$/) do |number|
-  pending
+  find_field('conference[reviews_per_proposal]').value.should eq "#{number}"
 end
 
 And(/^changes the amount of evaluations for a proposal to (\d+)$/) do |number|
