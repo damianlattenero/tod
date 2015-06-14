@@ -3,9 +3,10 @@ es:
   nav:
     home_link:          Inicio
     new_proposal:       Nueva Propuesta
-    proposal_list:      Lista de propuestas
+    proposal_list:      Propuestas
     report:             Reportes
     roles:              Roles
+    admin:              Admin
     search_placeholder: Búsqueda
     search_button:      Buscar
   footer:

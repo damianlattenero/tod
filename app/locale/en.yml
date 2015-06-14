@@ -6,6 +6,7 @@ en:
     proposal_list:      Proposal list
     report:             Reports
     roles:              Roles
+    admin:              Admin
     search_placeholder: Looking for something?
     search_button:      Search
   footer:
