@@ -12,6 +12,13 @@
           <%=t('proposal.detail.tags', tags: @proposal_detail.tag_list * " ")%>
         </small>
       </div>
+      <% @user = session[:user] %>
+      <% if @user.role.is_revisor? %>
+        <div class="media-evaluation" align="left">
+            <p><%=t('proposal.evaluation.has_not')%></p>
+            <a id="evaluate_btn" class="btn btn-primary btn-large" href="<%= url(:proposal, :evaluate) %>"> <%=t('proposal.evaluation.eval_button')%></a>
+        </div>
+      <% end %>
     </div>
 
   <hr>
