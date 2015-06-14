@@ -3,9 +3,10 @@ es:
   nav:
     home_link:          Inicio
     new_proposal:       Nueva Propuesta
-    proposal_list:      Lista de propuestas
+    proposal_list:      Propuestas
     report:             Reportes
     roles:              Roles
+    admin:              Admin
     search_placeholder: Búsqueda
     search_button:      Buscar
   footer:
@@ -23,6 +24,11 @@ es:
       user_name:  Usuario
       is_revisor: Es Revisor
       empty:      No hay usuarios registrados
+    conference:
+      title:                  Configuración de Conferencia
+      revisions_per_proposal: Revisiones por propuesta
+      save:                   Guardar Cambios
+      success:                Cambios guardados exitosamente
   proposal:
     new:
       title: Nueva Propuesta
