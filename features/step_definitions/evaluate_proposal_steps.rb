@@ -9,7 +9,7 @@ And(/^a proposal he did not evaluate yet$/) do
 end
 
 When(/^a revisor user visit proposal list$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/proposal/list'
 end
 
 When(/^selects a proposal$/) do
