@@ -1,23 +1,27 @@
 And(/^a proposal he did not evaluate yet$/) do
-  @proposal = Proposal.create(
-    :title       => "proposal for evaluation",
-    :description => "proposal for evaluation description test",
-    :author      => "a test author who likes to be evaluated"
-  )
-  @proposal.save
+  visit '/proposal/new'
+  page.should have_content('Nueva Propuesta')
+  fill_in 'proposal[title]', :with => "Proposal for comment"
+  fill_in 'proposal[description]', :with => "Proposal for evaluation description test"
+  fill_in 'proposal[author]', :with => "a test author who likes evaluations"
+  click_button('Enviar')
+  page.should have_content('Propuesta enviada correctamente')
+  @proposal = Proposal.all[0]
   expect(@proposal.evaluations).to be_empty
 end
 
 When(/^a revisor user visit proposal list$/) do
   visit '/proposal/list'
+  page.should have_content('Lista de Propuestas')
 end
 
 And(/^selects a proposal$/) do
-  visit 'proposal/detail?proposal_id=' + @proposal.id.to_s
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
+  page.should have_content('Proposal for evaluation')
 end
 
-When(/^clicks on Evaluate a proposal$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^clicks "(.*?)" button$/) do |button_label|
+  click_button('Evaluar')
 end
 
 When(/^evaluates its with opinion "(.*?)"$/) do |opinion|
@@ -41,10 +45,6 @@ When(/^comments "(.*?)"$/) do |comment|
 end
 
 Then(/^evaluation confirmation with opinion "(.*?)" is displayed$/) do |opinion|
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^clicks "(.*?)" button$/) do |button_label|
   pending # express the regexp above with the code you wish you had
 end
 

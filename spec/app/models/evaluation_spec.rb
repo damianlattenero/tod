@@ -11,11 +11,11 @@ describe Evaluation do
     it 'should create a evaluation' do
 
       comment = Evaluation.new
-      comment.evaluator = 'Hachedeeme'
-      comment.comment = 'Body'
+      comment.evaluator = 'Evaluator'
+      comment.comment = 'A free text comment'
 
-      expect(comment.evaluator).to eq "Hachedeeme"
-      expect(comment.comment).to eq "Body"
+      expect(comment.evaluator).to eq "Evaluator"
+      expect(comment.comment).to eq "A free text comment"
     end
   end
 
