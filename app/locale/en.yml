@@ -27,6 +27,7 @@ en:
       title:                  Conference Settings
       revisions_per_proposal: Revisions per proposal
       save:                   Save Changes
+      success:                Conference Successfully Updated
   proposal:
     new:
       title: New Proposal

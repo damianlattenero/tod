@@ -27,6 +27,7 @@ es:
       title:                  Configuración de Conferencia
       revisions_per_proposal: Revisiones por propuesta
       save:                   Guardar Cambios
+      success:                Cambios guardados exitosamente
   proposal:
     new:
       title: Nueva Propuesta
