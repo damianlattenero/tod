@@ -1,6 +1,6 @@
 Tod::App.controllers :admin do
   get :roles, :map => '/roles' do with_admin_role{
-      @users = User.all(:role.not => "admin" )
+      @users = User.all(:role.not => 'admin')
       render 'admin/roles'
     }
   end
