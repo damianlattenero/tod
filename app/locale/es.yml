@@ -68,12 +68,17 @@ es:
       form:
         opinion_box_tag: "A continuacion, seleccione un dictamen y deje un comentario sobre le dictamen:"
         opinions:
-          weakly_a:   Debilmente Aceptada
-          strongly_a: Fuertemente Aceptada
-          weakly_r:   Debilmente Rechazada
-          strongly_r: Fuertemente Aceptada
-        comment_tag: Comentario
+          weakly_a:   Aceptacion Debil
+          strongly_a: Aceptacion Fuerte
+          weakly_r:   Rechazo Debil
+          strongly_r: Rechazo Fuerte
+        comment_tag:         Comentario
         comment_placeholder: "Ej: La propuesta es interesante"
+        send_button:         Enviar
+        results:
+          success:             "Propuesta evaluada correctamente: %{opinion}"
+          error:               No se ha podido evaluar la propuesta
+          field_too_short:     "El campo %{field} tiene menos de %{cant} palabras"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
