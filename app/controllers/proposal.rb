@@ -57,6 +57,7 @@ Tod::App.controllers :proposal do
     @proposal_detail = Proposal.get proposal_id
     @comments        = Comment.all(:proposal_id => proposal_id).reverse
     @comment         = Comment.new
+    @evaluation      = Evaluation.new
     render 'proposal/detail'
   end
 
@@ -88,5 +89,27 @@ Tod::App.controllers :proposal do
   end
 
   post :evaluate do
+    evaluator   = params[:evaluation][:evaluator]
+    opinion     = params[:evaluation][:opinion]
+    body        = params[:evaluation][:evaluation_body]
+    proposal_id = params[:evaluation][:proposal_id]
+
+    @evaluation.evaluator   = evaluator
+    @evaluation.opinion     = opinion
+    @evaluation.comment     = body
+    @evaluation.proposal_id = proposal_id
+
+    if @evaluation.save
+      flash[:success] = t('proposal.evaluation.form.results.success',
+                          opinion: opinion)
+    else
+      flash[:danger] =
+        t('proposal.evaluation.form.results.field_too_short',
+          field: t('proposal.evaluation.form.comment_tag'),
+          cant: 3
+         ) unless field_length_enough?(body, 3)
+    end
+
+    redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
   end
 end
