@@ -50,7 +50,7 @@ When(/^visits the proposal detail$/) do
 end
 
 Then(/^should not be able to evaluate the proposal$/) do
-  page.should_not have_content 'seleccione dictamen'
+  page.should_not have_content 'seleccione un dictamen'
   page.should_not have_content 'Evaluar'
 end
 
