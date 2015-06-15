@@ -1,19 +1,24 @@
-function changeRevisorRole(uid, url){
+function changeRevisorRole(uid, url, successCallback){
     jQuery.ajax({
         url: url,
         data:'uid='+uid,
-        success:  function(){
-            console.log('success!');
+        success:  successCallback(),
+        error: function(){
+            toastr.error('Action not completed', 'Error')
         }
     });
 }
 
 function giveRevisorRole(uid){
-    changeRevisorRole(uid, '/admin/asign_role')
+    changeRevisorRole(uid, '/admin/asign_role', function(){
+        toastr.success('El usuario es ahora revisor', 'Rol Modificado')
+    });
 }
 
 function removeRevisorRole(uid){
-    changeRevisorRole(uid, '/admin/remove_role')
+    changeRevisorRole(uid, '/admin/remove_role', function(){
+        toastr.success('El el revisor es ahora un usuario regular', 'Rol Modificado')
+    });
 }
 
 function onRoleClick(){

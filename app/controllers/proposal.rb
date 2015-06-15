@@ -20,6 +20,7 @@ Tod::App.controllers :proposal do
     title       = params[:proposal][:title]
     description = params[:proposal][:description]
     author      = params[:proposal][:author]
+    type     = params[:proposal][:type]
 
     @proposal             = Proposal.new
     @proposal.title       = title
@@ -27,6 +28,8 @@ Tod::App.controllers :proposal do
     @proposal.author      = author
     @proposal.date        = Time.now
     @proposal.tag_list    = params[:proposal][:tags_list].downcase
+    @proposal.type        =  ProposalSessionType.new(type)
+
 
     if Proposal.first(:title => title)
       @proposal.append_author_to_title
