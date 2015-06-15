@@ -65,7 +65,7 @@ es:
     evaluation:
       has_not: ""
       form:
-        opinion_box_tag:     "A continuacion, seleccione un dictamen y deje un comentario sobre el dictamen:"
+        opinion_box_tag:     "A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:"
         opinions:
           weakly_a:   Aceptación Débil
           strongly_a: Aceptación Fuerte

@@ -40,15 +40,18 @@ When(/^comments "(.*?)"$/) do |comment|
 end
 
 When(/^evaluates proposal$/) do
-  pending # express the regexp above with the code you wish you had
+  select opinion, from: "evaluation_opinion"
+  fill_in 'evaluation[evaluation_body]', :with => @valid_comment
+  click_button('Evaluar')
 end
 
 When(/^visits the proposal detail$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
 end
 
 Then(/^should not be able to evaluate the proposal$/) do
-  pending # express the regexp above with the code you wish you had
+  page.should_not have_content 'A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:'
+  page.should_not have_content 'Evaluar'
 end
 
 Then(/^it should display "(.*?)"$/) do |msg|
