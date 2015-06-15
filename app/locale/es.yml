@@ -63,6 +63,7 @@ es:
         comment_placeholder: "Ej: Este es un hermoso comentario, positivo y constructivo"
         send_button:         Enviar
     evaluation:
+      has_not: ""
       form:
         opinion_box_tag:     "A continuacion, seleccione un dictamen y deje un comentario sobre el dictamen:"
         opinions:
@@ -74,9 +75,9 @@ es:
         comment_placeholder: "Ej: La propuesta es interesante"
         send_button:         Evaluar
         results:
-          success:             "Propuesta evaluada correctamente: %{opinion}"
-          error:               No se ha podido evaluar la propuesta
-          field_too_short:     "El campo %{field} tiene menos de %{cant} palabras"
+          success:      "Propuesta evaluada correctamente: %{opinion}"
+          error:        No se ha podido evaluar la propuesta
+          words_enough: "El campo %{field} tiene menos de %{cant} palabras"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados

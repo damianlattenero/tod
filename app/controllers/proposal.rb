@@ -104,10 +104,12 @@ Tod::App.controllers :proposal do
                           opinion: opinion)
     else
       flash[:danger] =
-        t('proposal.evaluation.form.results.field_too_short',
+        t('proposal.evaluation.form.results.words_enough',
           field: t('proposal.evaluation.form.comment_tag'),
           cant: 3
-         ) unless comment_words_enough?(body, 3)
+         ) unless words_enough?(body, 3)
+
+      render 'proposal/new'
     end
 
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
