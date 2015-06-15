@@ -45,10 +45,10 @@ Scenario: falling evaluates submission when comment has two words
   And  evaluates it with opinion "Rechazo Fuerte"
   And  comments "Poor comment"
   Then it should display "El campo Comentario tiene menos de 3 palabras"
-@wip
-Scenario: revisor user cannot evaluate a proposal multiple times
-  When a revisor user visit proposal list
-  And  selects a proposal
-  And  evaluates proposal
-  And  visits the proposal detail
-  Then should not be able to evaluate the proposal
+
+#Scenario: revisor user cannot evaluate a proposal multiple times
+#  When a revisor user visit proposal list
+#  And  selects a proposal
+#  And  evaluates proposal
+#  And  visits the proposal detail
+#  Then should not be able to evaluate the proposal

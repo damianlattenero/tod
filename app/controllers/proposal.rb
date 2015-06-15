@@ -95,7 +95,7 @@ Tod::App.controllers :proposal do
 
     @evaluation = Evaluation.new
     @evaluation.evaluator   = session[:user].name
-    @evaluation.opinion     = opinion
+    @evaluation.opinion     = EvaluationOpinion.new(opinion.to_sym)
     @evaluation.comment     = body
     @evaluation.proposal_id = proposal_id
 

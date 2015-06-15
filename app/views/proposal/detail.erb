@@ -19,7 +19,6 @@
           <hr>
           <% if !@proposal_detail.evaluated_by? @user.name %>
             <div class="media-evaluation">
-              <h3 class="evaluation-heading"><%=t('proposal.evaluation.has_not')%></h3>
             <br>
             <div class="well">
               <h4><%=t('proposal.evaluation.form.opinion_box_tag')%></h4>

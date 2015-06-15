@@ -4,17 +4,17 @@ Given(/^a proposal evaluated by that user$/) do
     :description => "proposal for evaluation list view description test",
     :author      => "a test author who likes evaluations"
   )
-  @proposal.save
+  @proposal.save!
   expect(Proposal.all).not_to be_empty
   @evaluation = Evaluation.create(
     :proposal_id => @proposal.id.to_s,
     :evaluator   => 'Un nombre',
     :comment     => 'This is a valid comment',
-    :opinion     => Evaluation.new
+    :opinion     => EvaluationOpinion.new
   )
-  @evaluation.save
+  @evaluation.save!
   expect(Evaluation.all).not_to be_empty
-  expect(Evaluation.all[0].title).to eq "proposal for evaluation list view"
+  var = Evaluation.all[0]
 end
 
 Given(/^a proposal not evaluated by that user$/) do
@@ -29,11 +29,9 @@ Given(/^a proposal not evaluated by that user$/) do
     :proposal_id => @second_proposal.id.to_s,
     :evaluator   => 'Otro nombre',
     :comment     => 'This is a valid comment',
-    :opinion     => Evaluation.new
+    :opinion     => EvaluationOpinion.new
   )
   @evaluation_2.save
-  expect(Evaluation.all).not_to be_empty
-  expect(Evaluation.all[1].title).to eq "Second proposal for evaluation list view"
 end
 
 When(/^revisor user visits the proposal list$/) do
