@@ -31,20 +31,20 @@ Scenario: revisor evaluates a proposal with opinion "Rechazo Fuerte"
   And  evaluates it with opinion "Rechazo Fuerte"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
-@wip
+
 Scenario: revisor evaluates a proposal when comment has three words
   When a revisor user visit proposal list
   And  selects a proposal
   And  evaluates it with opinion "Rechazo Fuerte"
   And  comments "A great comment"
-  Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
+  Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
 @wip
 Scenario: falling evaluates submission when comment has two words
   When a revisor user visit proposal list
   And  selects a proposal
   And  evaluates it with opinion "Rechazo Fuerte"
   And  comments "Poor comment"
-  Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
+  Then it should display "El campo comentario tiene menos de 3 palabras"
 @wip
 Scenario: revisor user cannot evaluate a proposal multiple times
   When a revisor user visit proposal list
