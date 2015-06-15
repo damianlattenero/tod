@@ -44,8 +44,8 @@ es:
         send_button:             Enviar
         cancel_button:           Cancelar
         type:                    Tipo
-        select_1:                "taller"
-        select_2:                "presentacion"
+        select_1:                "Taller"
+        select_2:                "Presentacion"
       result:
         success:         Propuesta enviada correctamente
         error:           No se ha podido enviar la propuesta
@@ -77,11 +77,11 @@ es:
       empty: No se han encontrado resultados
   report:
      title:                Reportes
-     text:                 Busqueda de propuestas por tag
+     text:                 Búsqueda  de propuestas por tag
      tag_placeholder:      "Ej: Tag"
      button:               Buscar
      button_quantity:      Cantidad
      quantity:             "La cantidad de propuestas totales son "
-     quantity_search:      "La cantidad de propuestas buscadas por tag "
+     quantity_search:      La cantidad de propuestas encontradas por tag "%{tags}" fueron
      fail:                 Acceso Restringido
      tag:                  Tag
