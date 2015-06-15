@@ -7,11 +7,9 @@ Background:
 Scenario: revisor evaluates a proposal with opinion "Aceptación Debil"
   When a revisor user visit proposal list
   And  selects a proposal
-  And  clicks "Evaluar" button
   And  evaluates its with opinion "Aceptación Debil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Aceptacion Debil" should be displayed
-
 @wip
 Scenario: revisor evaluates a proposal with opinion "Rechazo Debil"
   When a revisor user visit proposal list
@@ -36,14 +34,6 @@ Scenario: revisor evaluates a proposal with opinion "Rechazo Fuerte"
   And  evaluates its with opinion "Rechazo Fuerte"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
-@wip
-Scenario: falling evaluates submission when opinion is empty
-  When a revisor user visit proposal list
-  And  selects a proposal
-  And  clicks "Evaluar" button
-  And  evaluates its with opinion " "
-  And  leaves a valid comment
-  Then it should raise a no opinion selected
 @wip
 Scenario: revisor evaluates a proposal when comment has three words
   When a revisor user visit proposal list
