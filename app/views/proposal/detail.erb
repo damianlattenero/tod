@@ -17,7 +17,7 @@
       <% if @user %>
         <% if @user.role.is_revisor? %>
           <hr>
-          <% # if !@proposal.evaluated_by? @user.name %>
+          <% if !@proposal_detail.evaluated_by? @user.name %>
             <div class="media-evaluation">
               <h3 class="evaluation-heading"><%=t('proposal.evaluation.has_not')%></h3>
             <br>
@@ -26,11 +26,11 @@
               <% form_for(@evaluation, '/proposal/evaluate', html: { class: 'form' }) do |f| %>
                 <fieldset>
                 <div class="form-group">
-                  <%= f.select(:opinion, :options => [ 
+                  <%= f.select(:opinion, :options => [
                     t('proposal.evaluation.form.opinions.weakly_a'),
-                    t('proposal.evaluation.form.opinions.strongly_a'), 
-                    t('proposal.evaluation.form.opinions.weakly_r'), 
-                    t('proposal.evaluation.form.opinions.strongly_r') 
+                    t('proposal.evaluation.form.opinions.strongly_a'),
+                    t('proposal.evaluation.form.opinions.weakly_r'),
+                    t('proposal.evaluation.form.opinions.strongly_r')
                     ], :class => 'form-control') %>
                 </div>
 
@@ -60,7 +60,7 @@
               <a class="btn btn-large btn-primary">
                 <%= t('proposal.evaluation.eval_button')%>
               </a>
-          <% # end # proposal.evaluated_by? %>
+          <% end # proposal.evaluated_by? %>
         <% end # user.is_revisor? %>
       <% end # @user%>
   </div>
