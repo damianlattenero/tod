@@ -34,16 +34,9 @@ Then(/^evaluation confirmation with opinion "(.*?)" should be displayed$/) do |o
   page.should have_content 'Propuesta evaluada correctamente: ' + opinion
 end
 
-Then(/^it should raise a no opinion selected$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
 When(/^comments "(.*?)"$/) do |comment|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^evaluation confirmation with opinion "(.*?)" is displayed$/) do |opinion|
-  pending # express the regexp above with the code you wish you had
+  fill_in 'evaluation[evaluation_body]', :with => comment
+  click_button('Evaluar')
 end
 
 When(/^evaluates proposal$/) do
