@@ -94,22 +94,19 @@ Tod::App.controllers :proposal do
     proposal_id = params[:evaluation][:proposal_id]
 
     @evaluation = Evaluation.new
-    @evaluation.evaluator   = session[:user]
+    @evaluation.evaluator   = session[:user].name
     @evaluation.opinion     = opinion
     @evaluation.comment     = body
     @evaluation.proposal_id = proposal_id
 
     if @evaluation.save
-      flash[:success] = t('proposal.evaluation.form.results.success',
-                          opinion: opinion)
+      flash[:success] = t('proposal.evaluation.form.results.success', opinion: opinion)
     else
       flash[:danger] =
         t('proposal.evaluation.form.results.words_enough',
           field: t('proposal.evaluation.form.comment_tag'),
           cant: 3
          ) unless words_enough?(body, 3)
-
-      render 'proposal/new'
     end
 
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s

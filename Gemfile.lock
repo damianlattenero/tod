@@ -199,7 +199,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    psych (2.0.6)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -241,8 +240,6 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    travis-yaml (0.1.0)
-      psych (~> 2.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -288,6 +285,8 @@ DEPENDENCIES
   rake
   rspec
   therubyracer
-  travis-yaml
   uglifier (= 2.1.1)
   yui-compressor (= 0.9.6)
+
+BUNDLED WITH
+   1.10.3

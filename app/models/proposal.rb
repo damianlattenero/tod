@@ -24,7 +24,7 @@ class Proposal
   end
 
   def evaluated_by?(username)
-    @evaluations.any? do |evaluation|
+    self.evaluations.any? do |evaluation|
       evaluation.evaluator == username
     end
   end
