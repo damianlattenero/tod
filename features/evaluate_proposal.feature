@@ -4,57 +4,53 @@ Background:
   Given a revisor user
   And   a proposal he did not evaluate yet
 
-Scenario: revisor evaluates a proposal with opinion "Aceptación Debil"
+Scenario: revisor evaluates a proposal with opinion 'Aceptación Debil'
   When a revisor user visit proposal list
   And  selects a proposal
-  And  evaluates its with opinion "Aceptación Debil"
+  And  evaluates it with opinion "Aceptación Débil"
   And  leaves a valid comment
-  Then evaluation confirmation with opinion "Aceptacion Debil" should be displayed
+  Then evaluation confirmation with opinion "Aceptación Débil" should be displayed
 @wip
 Scenario: revisor evaluates a proposal with opinion "Rechazo Debil"
   When a revisor user visit proposal list
   And  selects a proposal
   And  clicks "Evaluar" button
-  And  evaluates its with opinion "Rechazo Débil"
+  And  evaluates it with opinion "Rechazo Débil"
   And  leaves a valid comment
-  Then evaluation confirmation with opinion "Rechazo Debil" should be displayed
+  Then evaluation confirmation with opinion "Rechazo Débil" should be displayed
 @wip
 Scenario: revisor evaluates a proposal with opinion "Aceptación Fuerte"
   When a revisor user visit proposal list
   And  selects a proposal
   And  clicks "Evaluar" button
-  And  evaluates its with opinion "Aceptación Fuerte"
+  And  evaluates it with opinion "Aceptación Fuerte"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Aceptacion Fuerte" should be displayed
 @wip
 Scenario: revisor evaluates a proposal with opinion "Rechazo Fuerte"
   When a revisor user visit proposal list
   And  selects a proposal
-  And  clicks "Evaluar" button
-  And  evaluates its with opinion "Rechazo Fuerte"
+  And  evaluates it with opinion "Rechazo Fuerte"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
 @wip
 Scenario: revisor evaluates a proposal when comment has three words
   When a revisor user visit proposal list
   And  selects a proposal
-  And  clicks "Evaluar" button
-  And  evaluates its with opinion "Rechazo Fuerte"
+  And  evaluates it with opinion "Rechazo Fuerte"
   And  comments "A great comment"
   Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
 @wip
 Scenario: falling evaluates submission when comment has two words
   When a revisor user visit proposal list
   And  selects a proposal
-  And  clicks "Evaluar" button
-  And  evaluates its with opinion "Rechazo Fuerte"
+  And  evaluates it with opinion "Rechazo Fuerte"
   And  comments "Poor comment"
   Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
 @wip
 Scenario: revisor user cannot evaluate a proposal multiple times
   When a revisor user visit proposal list
   And  selects a proposal
-  And  clicks "Evaluar" button
   And  evaluates proposal
   And  visits the proposal detail
   Then should not be able to evaluate the proposal
