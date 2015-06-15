@@ -65,6 +65,15 @@ es:
     evaluation:
       has_not:     Esta propuesta no tiene revisiones
       eval_button: Evaluar
+      form:
+        opinion_box_tag: "A continuacion, seleccione un dictamen y deje un comentario sobre le dictamen:"
+        opinions:
+          weakly_a:   Debilmente Aceptada
+          strongly_a: Fuertemente Aceptada
+          weakly_r:   Debilmente Rechazada
+          strongly_r: Fuertemente Aceptada
+        comment_tag: Comentario
+        comment_placeholder: "Ej: La propuesta es interesante"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
