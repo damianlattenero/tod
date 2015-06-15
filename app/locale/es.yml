@@ -68,9 +68,9 @@ es:
       form:
         opinion_box_tag: "A continuacion, seleccione un dictamen y deje un comentario sobre le dictamen:"
         opinions:
-          weakly_a:   Aceptacion Debil
-          strongly_a: Aceptacion Fuerte
-          weakly_r:   Rechazo Debil
+          weakly_a:   Aceptación Débil
+          strongly_a: Aceptación Fuerte
+          weakly_r:   Rechazo Débil
           strongly_r: Rechazo Fuerte
         comment_tag:         Comentario
         comment_placeholder: "Ej: La propuesta es interesante"
