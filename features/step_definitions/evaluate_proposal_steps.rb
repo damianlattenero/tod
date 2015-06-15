@@ -40,7 +40,7 @@ When(/^comments "(.*?)"$/) do |comment|
 end
 
 When(/^evaluates proposal$/) do
-  select opinion, from: "evaluation_opinion"
+  select 'Rechazo Fuerte', from: 'evaluation_opinion'
   fill_in 'evaluation[evaluation_body]', :with => @valid_comment
   click_button('Evaluar')
 end
