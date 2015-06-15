@@ -114,4 +114,11 @@ Tod::App.controllers :proposal do
 
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
   end
+
+  get :evaluations do
+    proposal_id      = params[:proposal_id]
+    @evaluations     = Evaluation.all(:proposal_id => proposal_id).reverse
+
+    render 'proposal/evaluations'
+  end
 end
