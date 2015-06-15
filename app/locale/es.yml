@@ -74,7 +74,7 @@ es:
           strongly_r: Rechazo Fuerte
         comment_tag:         Comentario
         comment_placeholder: "Ej: La propuesta es interesante"
-        send_button:         Enviar
+        send_button:         Evaluar
         results:
           success:             "Propuesta evaluada correctamente: %{opinion}"
           error:               No se ha podido evaluar la propuesta
