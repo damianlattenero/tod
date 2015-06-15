@@ -20,12 +20,8 @@ And(/^selects a proposal$/) do
   page.should have_content('Proposal for evaluation')
 end
 
-#When(/^clicks "(.*?)" button$/) do |button_label|
-#  find('#evaluate_btn').click
-#end
-
-When(/^evaluates its with opinion "(.*?)"$/) do |opinion|
-  pending # express the regexp above with the code you wish you had
+When(/^evaluates it with opinion "(.*?)"$/) do |opinion|
+  select opinion, from: "evaluation_opinion"
 end
 
 When(/^leaves a valid comment$/) do
