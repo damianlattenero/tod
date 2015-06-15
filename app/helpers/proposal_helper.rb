@@ -16,6 +16,10 @@ module Tod
         a_field.length >= min_size
       end
 
+      def comment_words_enough?(a_field, min_size = 3)
+        a_field.split.size >= min_size
+      end
+
       def notify_error(msg)
         flash.now[:danger] = msg
       end

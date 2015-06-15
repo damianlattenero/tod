@@ -89,12 +89,12 @@ Tod::App.controllers :proposal do
   end
 
   post :evaluate do
-    evaluator   = params[:evaluation][:evaluator]
     opinion     = params[:evaluation][:opinion]
     body        = params[:evaluation][:evaluation_body]
     proposal_id = params[:evaluation][:proposal_id]
 
-    @evaluation.evaluator   = evaluator
+    @evaluation = Evaluation.new
+    @evaluation.evaluator   = session[:user]
     @evaluation.opinion     = opinion
     @evaluation.comment     = body
     @evaluation.proposal_id = proposal_id
@@ -107,7 +107,7 @@ Tod::App.controllers :proposal do
         t('proposal.evaluation.form.results.field_too_short',
           field: t('proposal.evaluation.form.comment_tag'),
           cant: 3
-         ) unless field_length_enough?(body, 3)
+         ) unless comment_words_enough?(body, 3)
     end
 
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
