@@ -17,7 +17,8 @@
       <% if @user %>
         <% if @user.role.is_revisor? %>
           <hr>
-          <% if false #!@proposal.evaluated_by? @user.name %>
+          <% if !@proposal.evaluated_by? @user.name %>
+
             <div class="media-evaluation">
               <h3 class="evaluation-heading"><%=t('proposal.evaluation.has_not')%></h3>
             <br>

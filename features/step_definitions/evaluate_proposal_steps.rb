@@ -21,7 +21,7 @@ And(/^selects a proposal$/) do
 end
 
 When(/^evaluates it with opinion "(.*?)"$/) do |opinion|
-  select opinion, from: "evaluation_opinion"
+  select opinion, from: 'evaluation_opinion'
 end
 
 When(/^leaves a valid comment$/) do
