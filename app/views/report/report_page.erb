@@ -24,7 +24,7 @@
             </form>
           </label>
           <%if @proposals.present? then %>
-              <h4> <%=t('report.quantity_search')%> <span class="badge"> <%= @quantity_search %></span></h4>
+              <h4> <%=t('report.quantity_search', tags:@query )%> <span class="badge"> <%= @quantity_search %></span></h4>
 
               <table class="table table-bordered">
                 <thead>

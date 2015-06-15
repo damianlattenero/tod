@@ -5,11 +5,11 @@ Feature: Set session’s type
 
   Scenario: author selects presentation for his proposal
     When an author creates a proposal
-    And    he selects "presentacion" as sessions type
-    And    submits
-    Then  sessions type for proposal should be "presentacion"
+    And   he selects "Presentacion" as sessions type
+    And   submits
+    Then  sessions type for proposal should be "Presentacion"
 
   Scenario: author selects "taller" for his proposal
-    And    he selects "taller" as sessions type
-    And    submits
-    Then  sessions type for proposal should be "taller"
+    And   he selects "Taller" as sessions type
+    And   submits
+    Then  sessions type for proposal should be "Taller"
