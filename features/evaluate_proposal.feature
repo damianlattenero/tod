@@ -17,14 +17,13 @@ Scenario: revisor evaluates a proposal with opinion "Rechazo Debil"
   And  evaluates it with opinion "Rechazo Débil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Débil" should be displayed
-@wip
+
 Scenario: revisor evaluates a proposal with opinion "Aceptación Fuerte"
   When a revisor user visit proposal list
   And  selects a proposal
-  And  clicks "Evaluar" button
   And  evaluates it with opinion "Aceptación Fuerte"
   And  leaves a valid comment
-  Then evaluation confirmation with opinion "Aceptacion Fuerte" should be displayed
+  Then evaluation confirmation with opinion "Aceptación Fuerte" should be displayed
 @wip
 Scenario: revisor evaluates a proposal with opinion "Rechazo Fuerte"
   When a revisor user visit proposal list
