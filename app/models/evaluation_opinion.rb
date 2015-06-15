@@ -1,6 +1,6 @@
 class EvaluationOpinion
 
-  def initialize(opinion=:strongly_agreed)
+  def initialize(opinion=:weakly_agreed)
     @opinion = opinion
   end
 

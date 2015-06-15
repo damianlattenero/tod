@@ -1,4 +1,5 @@
 require 'data_mapper'
+require_relative '../mappers/opinion_mapper'
 require_relative 'evaluation_opinion'
 
 class Evaluation
@@ -8,6 +9,7 @@ class Evaluation
   property :id,          Serial
   property :evaluator,   String, required: true, :length => 3..50
   property :comment,     Text,   required: true, :length => 1..500
+  property :opinion,     EvaluationOpinionMapper, :default  => EvaluationOpinion.new
   belongs_to :proposal
 
 end
