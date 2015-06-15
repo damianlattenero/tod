@@ -63,6 +63,7 @@ es:
         comment_placeholder: "Ej: Este es un hermoso comentario, positivo y constructivo"
         send_button:         Enviar
     evaluation:
+      has_not:     Esta propuesta no tiene evaluaciones
       eval_button: Ver Evaluaciones
       form:
         opinion_box_tag:     "A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:"
