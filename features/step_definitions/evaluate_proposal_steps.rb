@@ -21,7 +21,7 @@ And(/^selects a proposal$/) do
 end
 
 When(/^evaluates it with opinion "(.*?)"$/) do |opinion|
-  select opinion, from: "evaluation_opinion"
+  select opinion, from: 'evaluation_opinion'
 end
 
 When(/^leaves a valid comment$/) do
@@ -50,7 +50,7 @@ When(/^visits the proposal detail$/) do
 end
 
 Then(/^should not be able to evaluate the proposal$/) do
-  page.should_not have_content 'A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:'
+  page.should_not have_content 'seleccione dictamen'
   page.should_not have_content 'Evaluar'
 end
 
