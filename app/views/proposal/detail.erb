@@ -57,7 +57,7 @@
               <% end %>
             </div>
             <% else %>
-              <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluations) %>">
+              <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluations) %>?proposal_id=<%=@proposal_detail.id %>">
                 <%= t('proposal.evaluation.eval_button')%>
               </a>
           <% end # proposal.evaluated_by? %>

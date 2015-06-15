@@ -114,6 +114,7 @@ Tod::App.controllers :proposal do
 
   get :evaluations do
     proposal_id      = params[:proposal_id]
+    logger.debug "PROPOSAL EVALUATIONS FOR #{ params[:proposal_id]}"
     @proposal_detail = Proposal.get proposal_id
     @evaluations     = Evaluation.all(:proposal_id => proposal_id).reverse
 
