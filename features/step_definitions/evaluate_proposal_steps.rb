@@ -50,3 +50,7 @@ end
 Then(/^should not be able to evaluate the proposal$/) do
   pending # express the regexp above with the code you wish you had
 end
+
+Then(/^it should display "(.*?)"$/) do |msg|
+  page.should have_content msg
+end

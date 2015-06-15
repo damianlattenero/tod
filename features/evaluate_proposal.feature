@@ -38,7 +38,7 @@ Scenario: revisor evaluates a proposal when comment has three words
   And  evaluates it with opinion "Rechazo Fuerte"
   And  comments "A great comment"
   Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
-@wip
+
 Scenario: falling evaluates submission when comment has two words
   When a revisor user visit proposal list
   And  selects a proposal
