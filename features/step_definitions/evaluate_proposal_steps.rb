@@ -25,11 +25,13 @@ When(/^evaluates it with opinion "(.*?)"$/) do |opinion|
 end
 
 When(/^leaves a valid comment$/) do
-  pending # express the regexp above with the code you wish you had
+  @valid_comment = "This is a valid comment"
+  fill_in 'evaluation[evaluation_body]', :with => @valid_comment
+  click_button('Evaluar')
 end
 
 Then(/^evaluation confirmation with opinion "(.*?)" should be displayed$/) do |opinion|
-  pending # express the regexp above with the code you wish you had
+  page.should have_content 'Propuesta evaluada correctamente: ' + opinion
 end
 
 Then(/^it should raise a no opinion selected$/) do
