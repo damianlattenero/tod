@@ -17,7 +17,7 @@
       <% if @user %>
         <% if @user.role.is_revisor? %>
           <hr>
-          <% if !@proposal.evaluated_by? @user.name %>
+          <% if false #!@proposal.evaluated_by? @user.name %>
             <div class="media-evaluation">
               <h3 class="evaluation-heading"><%=t('proposal.evaluation.has_not')%></h3>
             <br>
@@ -57,7 +57,7 @@
               <% end %>
             </div>
             <% else %>
-              <a class="btn btn-large btn-primary">
+              <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluations) %>">
                 <%= t('proposal.evaluation.eval_button')%>
               </a>
           <% end # proposal.evaluated_by? %>
