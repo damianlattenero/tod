@@ -10,7 +10,7 @@ module Tod
           block.call
         else
           status 401 #Unauthorized
-          body 'No tiene los permisos necesarios'
+          body  t('admin.conference.fail')
         end
 
       end
