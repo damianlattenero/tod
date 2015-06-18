@@ -1,25 +1,27 @@
 <div class="container">
-  <div class = "media">
-      <div class="media-body">
-        <div>
-          <h2 class="media-heading">
-            <%=@proposal_detail.title%>
-          </h2>
-              <button id="proposal-send-email-<%=@proposal_detail.id%>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
-                <%= t('proposal.email.notify_result') %>
-              </button>
-        </div>
-
-
-        <hr>
-        <p><%=@proposal_detail.description%></p>
-        <small>
-          <%=t('proposal.detail.send_by', author: @proposal_detail.author)%>
-        </small>
-        <small>
-          <%=t('proposal.detail.tags', tags: @proposal_detail.tag_list * " ")%>
-        </small>
+  <div class="media">
+    <div class="media-body">
+      <div>
+        <h2 class="media-heading">
+          <%= @proposal_detail.title %>
+        </h2>
+        <% if @has_enough_evaluations %>
+            <button id="proposal-send-email-<%= @proposal_detail.id %>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
+              <%= t('proposal.email.notify_result') %>
+            </button>
+        <% end %>
       </div>
+
+
+      <hr>
+      <p><%= @proposal_detail.description %></p>
+      <small>
+        <%= t('proposal.detail.send_by', author: @proposal_detail.author) %>
+      </small>
+      <small>
+        <%= t('proposal.detail.tags', tags: @proposal_detail.tag_list * " ") %>
+      </small>
+    </div>
 
     <% @user = session[:user] %>
     <% if @user %>
@@ -62,15 +64,16 @@
                                          class: 'btn btn-primary'
                             %>
                           </div>
+                        </fieldset>
                     <% end %>
                   </div>
             <% else %>
                 <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluations) %>?proposal_id=<%= @proposal_detail.id %>">
                   <%= t('proposal.evaluation.eval_button') %>
                 </a>
-            <% end # proposal.evaluated_by?  %>
-        <% end # user.is_revisor?  %>
-    <% end # @user %>
+            <% end # proposal.evaluated_by?   %>
+        <% end # user.is_revisor?   %>
+    <% end # @user  %>
     </div>
 
     <hr>
@@ -123,20 +126,22 @@
                            class: 'btn btn-primary'
               %>
             </div>
+          </fieldset>
       <% end %>
     </div>
 
     <hr>
-    <% for @comment in @comments %>
+    <% for comment in @comments %>
         <div class="media">
           <div class="media-body">
             <h4 class="media-heading">
-              <%= @comment.author %>
-              <small><%= @comment.date.strftime('%c') %></small>
+              <%= comment.author %>
+              <small><%= comment.date.strftime('%c') %></small>
             </h4>
-            <%= @comment.body %>
+            <%= comment.body %>
           </div>
         </div>
     <% end %>
 
   </div>
+</div>

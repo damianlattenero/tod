@@ -66,8 +66,15 @@ Tod::App.controllers :proposal do
   end
 
   get :revision_email, :params => [ :proposal_id ] do
-    proposal_id = params[:proposal_id]
-
+    proposal = Proposal.get params[:proposal_id]
+    user = User.first(:name => proposal.author)
+    if user
+      TodMailer.send_mail(
+          user.email,
+          "Results for: #{proposal.title}",
+          Evaluation.all(:proposal_id => params[:proposal_id]).map { |e| e.to_paragraph + '\n'}
+      )
+    end
   end
 
   post :comment do
