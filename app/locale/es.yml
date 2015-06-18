@@ -92,6 +92,8 @@ es:
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
+    email:
+      notify_result: Notificar resultado
   report:
      title:                Reportes
      text:                 Búsqueda  de propuestas por tag

@@ -75,6 +75,8 @@ en:
     search:
       title: Search results
       empty: Results have not been found
+    email:
+      notify_result: Notify result
   report:
      title:                Reports
      text:                 Search proposed by tag

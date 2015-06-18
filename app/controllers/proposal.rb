@@ -61,7 +61,13 @@ Tod::App.controllers :proposal do
     @comments        = Comment.all(:proposal_id => proposal_id).reverse
     @comment         = Comment.new
     @evaluation      = Evaluation.new
+    @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first.reviews_per_proposal.to_i
     render 'proposal/detail'
+  end
+
+  get :revision_email, :params => [ :proposal_id ] do
+    proposal_id = params[:proposal_id]
+
   end
 
   post :comment do
