@@ -7,6 +7,7 @@ Scenario: Adding a proposal that complies
   Given proposal title "Proposal"
   And a description "This is a proposal"
   And author nick "Author"
+  And email "author@tod.com"
   When submitting
   Then proposal is added
 
@@ -40,3 +41,28 @@ Scenario: Proposal have duplicated title
   And author nick "Author"
   And submitting
   Then the second proposal should have title "Proposal - Author"
+
+  Scenario: Failing proposal submission when email is empty
+    Given proposal title "Proposal"
+    And a description "This is a proposal"
+    And author nick "Author"
+    And email " "
+    And submitting
+    Then it should raise an error
+
+  Scenario: Failing proposal submission when email is wrong spelled
+    Given proposal title "Proposal"
+    And a description "This is a proposal"
+    And author nick "Author"
+    And email "authormail.com"
+    And submitting
+    Then it should raise an error
+    When retry with "author.com"
+    And submitting
+    Then it should raise an error
+    When retry with "@mail.com"
+    And submitting
+    Then it should raise an error
+    When retry with "author@mail"
+    And submitting
+    Then it should raise an error

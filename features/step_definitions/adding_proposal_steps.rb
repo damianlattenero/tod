@@ -36,3 +36,11 @@ Then(/^the second proposal should have title "(.*?)"$/) do |new_title|
   Proposal.all[1].title.should eq new_title
 end
 
+And(/^email "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^retry with "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
