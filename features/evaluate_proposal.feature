@@ -2,7 +2,7 @@ Feature: Evaluate a proposal
 
 Background:
   Given a revisor user
-  And   and proposal he did not evaluate yet
+  And   a proposal he did not evaluate yet
 
 # seleccion de dictamenes con un dropdown
 Scenario: revisor evaluates a proposal with opinion Aceptación Débil
@@ -13,7 +13,7 @@ Scenario: revisor evaluates a proposal with opinion Aceptación Débil
   When evaluates it with opinion "Aceptación Débil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Aceptación Débil" is displayed
-
+@wip
 Scenario: revisor evaluates a proposal with opinion Aceptación Fuerte
   When a revisor user visit proposal list
   And  selects a proposal
@@ -22,7 +22,7 @@ Scenario: revisor evaluates a proposal with opinion Aceptación Fuerte
   When evaluates it with opinion "Aceptación Débil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Aceptación Débil" is displayed
-
+@wip
 Scenario: revisor evaluates a proposal with opinion Rechazo Débil
   When a revisor user visit proposal list
   And  selects a proposal
@@ -31,7 +31,7 @@ Scenario: revisor evaluates a proposal with opinion Rechazo Débil
   When evaluates it with opinion "Rechazo Débil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Débil" is displayed
-
+@wip
 Scenario: revisor evaluates a proposal with opinion Rechazo Fuerte
   When a revisor user visit proposal list
   And  selects a proposal
@@ -42,6 +42,7 @@ Scenario: revisor evaluates a proposal with opinion Rechazo Fuerte
   Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
 
 # cantidad de palabras minimas en el comentario = 3
+@wip
 Scenario: revisor evaluates a proposal and leaves a three words comment
   When a revisor user visit proposal list
   And  selects a proposal
@@ -50,7 +51,7 @@ Scenario: revisor evaluates a proposal and leaves a three words comment
   When evaluates it with opinion  "Aceptación Fuerte"
   And  comments it with comment "This is a valid comment"
   Then evaluation confirmation with opinion "Aceptación Fuerte" is displayed
-
+@wip
 Scenario: failing evaluation, revisor leaves a two words comment
   When a revisor user visit proposal list
   And  selects a proposal
@@ -59,7 +60,7 @@ Scenario: failing evaluation, revisor leaves a two words comment
   When evaluates it with opinion  "Rechazo Fuerte"
   And  comments it with comment "This not"
   Then should see "El campo Comentario tiene menos de tres palabras"
-
+@wip
 Scenario: failing evaluation, revisor leaves an empty comment
   When a revisor user visit proposal list
   And  selects a proposal
@@ -70,6 +71,7 @@ Scenario: failing evaluation, revisor leaves an empty comment
   Then should see "El campo Comentario tiene menos de tres palabras"
 
 # revisiones multiples de una propuesta
+@wip
 Scenario: revisor user cannot evaluate a proposal multiple times
   When a revisor user visit proposal list
   And  selects a proposal
