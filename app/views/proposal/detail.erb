@@ -5,11 +5,9 @@
           <h2 class="media-heading">
             <%=@proposal_detail.title%>
           </h2>
-          <% if @has_enough_evaluations %>
               <button id="proposal-send-email-<%=@proposal_detail.id%>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
                 <%= t('proposal.email.notify_result') %>
               </button>
-          <% end %>
         </div>
 
 

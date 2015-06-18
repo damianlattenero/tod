@@ -44,7 +44,7 @@ function onSendRevisionsMail(proposalId){
         data:'proposal_id='+proposalId,
         success:  function(){
             //proposalButton.hide(); //in case we want to send only one email
-            toastr.success('El email ha sido enviado correctamente', 'Resultado Enviado')
+            toastr.success('Mail enviado correctamente', 'Resultado Enviado')
         },
         error: [toastError, function(){
             proposalButton.prop('disabled', false);

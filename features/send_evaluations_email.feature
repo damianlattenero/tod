@@ -5,6 +5,7 @@ Feature: Poder enviar resultados al autor de una propuesta con al menos tres rev
     And a proposal "A" with 3 revisions
     And a proposal "B" with 2 revisions
 
+  @javascript
   Scenario:  the proposal does have three revisions and should show "notificar resultado" button
     When an admin user visits proposal "A" details
     And    the proposal does have 3 revisions
