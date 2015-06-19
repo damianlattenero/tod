@@ -29,18 +29,20 @@ Scenario: Failing proposal submission when author is wrong
   And author nick " "
   Then it should raise an error
 
-#Scenario: Proposal have duplicated title
-  #Given proposal title "Proposal"
-  #And a description "This is a proposal"
-  #And author nick "Author"
-  #And submitting
+Scenario: Proposal have duplicated title
+  Given proposal title "Proposal"
+  And a description "This is a proposal"
+  And author nick "Author"
+  And email "author@tod.com"
+  And submitting
 
-  #Given new proposal
-  #And proposal title "Proposal"
-  #And a description "This is a proposal"
-  #And author nick "Author"
-  #And submitting
-  #Then the second proposal should have title "Proposal - Author"
+  Given new proposal
+  And proposal title "Proposal"
+  And a description "This is a proposal"
+  And author nick "Author"
+  And email "author@tod.com"
+  And submitting
+  Then the second proposal should have title "Proposal - Author"
 
   #Scenario: Failing proposal submission when email is empty
    # Given proposal title "Proposal"
