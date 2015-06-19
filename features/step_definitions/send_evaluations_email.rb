@@ -13,12 +13,13 @@ When(/^an admin user visits proposal "([^"]*)" details$/) do |title|
   visit "/proposal/detail?proposal_id=#{proposal.id}"
 end
 
-And(/^the proposal does have (\d+) revisions$/) do |arg|
-#   already explicit on background
-end
+Then(/^should( not)? see the "([^"]*)" button$/) do |visibility, button_label|
+  if visibility
+    expect(page).not_to have_content(button_label)
+  else
+    expect(page).to have_content(button_label)
+  end
 
-Then(/^should see the "([^"]*)" button$/) do |button_label|
-  expect(page).to have_css("button[id^='proposal-send-email']")
 end
 
 When(/^clicks on  "([^"]*)" button$/) do |button_label|
