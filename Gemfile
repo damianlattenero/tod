@@ -28,6 +28,7 @@ gem 'omniauth-github', :github => 'intridea/omniauth-github'
 
 # Padrino Stable Gem
 gem 'padrino', '0.12.4'
+gem 'rest-client'
 
 # Test requirements
 gem 'rspec', :group => 'test'
