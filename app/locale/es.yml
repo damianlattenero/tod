@@ -37,11 +37,13 @@ es:
         title_tag:               Título
         description_tag:         Descripción
         author_tag:              Autor
+        mail_tag:                Email
         tags_tag:                Etiquetas
         title_placeholder:       "Ej: Super Tema 2016"
         description_placeholder: "Ej: Esta es una linda descripción de propuesta"
         author_placeholder:      "Ej: Don Pepito"
         tags_placeholder:        "Ej: Agile, Scrum, Arquitectura de Software"
+        mail_placeholder:        "Ej: Ejemplo@dominio.com"
         send_button:             Enviar
         cancel_button:           Cancelar
         type:                    Tipo
@@ -93,6 +95,8 @@ es:
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
+    error:
+      mail_error:    "Email ingresado incorrectamente"
   report:
      title:                Reportes
      text:                 Búsqueda  de propuestas por tag

@@ -11,6 +11,7 @@ class Proposal
   property :title,       String, required: true, :length => 3..50
   property :description, Text,   required: true, :length => 1..500
   property :author,      String, required: true, :length => 3..50
+  property :email,       String, required: true, :format => :email_address
   property :type,    ProposalSessionTypeMapper, :default  => ProposalSessionType.new(:presentation)
   property :date,        DateTime
   has n,   :comments

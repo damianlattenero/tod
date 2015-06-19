@@ -35,13 +35,15 @@ en:
       title: New Proposal
       form:
         title_tag:               Title
+        mail_tag:                Email
         description_tag:         Description
         author_tag:              Author
         tags_tag:                Tags
         title_placeholder:       "E.g.: Super Proposal 2016"
         description_placeholder: "E.g.: This is a nice proposal description"
         author_placeholder:      "E.g.: Superman"
-        tags_placeholder:        "Ej: Agile, Scrum, Software Arquitecture"
+        tags_placeholder:        "E.g: Agile, Scrum, Software Arquitecture"
+        mail_placeholder:        "E.g: Example@domain.com"
         send_button:             Send
         cancel_button:           Cancel
         type:                    Type
@@ -76,6 +78,8 @@ en:
     search:
       title: Search results
       empty: Results have not been found
+    error:
+      mail_error:    "mail misspelled"
   report:
      title:                Reports
      text:                 Search proposed by tag

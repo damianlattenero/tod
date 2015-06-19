@@ -21,6 +21,7 @@ Then(/^proposal is added$/) do
   expect(Proposal.all[0].title).to eq @title
   expect(Proposal.all[0].description).to eq @description
   expect(Proposal.all[0].author).to eq @author_nick
+  expect(Proposal.all[0].email).to eq @mail
 end
 
 Given(/^new proposal$/) do
@@ -28,7 +29,7 @@ Given(/^new proposal$/) do
 end
 
 Then(/^it should raise an error$/) do
-  expect { Proposal.new(@title, @description, @author) }.to raise_error
+  expect { Proposal.new(@title, @description, @author, @mail) }.to raise_error
 end
 
 Then(/^the second proposal should have title "(.*?)"$/) do |new_title|
@@ -36,11 +37,13 @@ Then(/^the second proposal should have title "(.*?)"$/) do |new_title|
   Proposal.all[1].title.should eq new_title
 end
 
-And(/^email "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+And(/^email "(.*?)"$/) do |mail|
+  @mail=mail
+  fill_in 'proposal[mail]', :with => @mail
 end
 
-When(/^retry with "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^retry with "(.*?)"$/) do |mail|
+  @mail=mail
+  fill_in 'proposal[mail]', :with => @mail
 end
 
