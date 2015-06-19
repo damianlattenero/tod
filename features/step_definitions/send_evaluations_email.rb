@@ -35,6 +35,7 @@ def create_proposal(title)
   proposal.title = title
   proposal.description = 'A proposal description'
   proposal.author = 'Admin'
+  proposal.email  = 'some@email.com'
   proposal.save!
   proposal
 end

@@ -78,7 +78,7 @@ Tod::App.controllers :proposal do
     proposal = Proposal.get params[:proposal_id]
     begin
       TodMailer.send_mail(
-          User.first(:name => proposal.author).email,
+          proposal.email,
           "Results for: #{proposal.title}",
           Evaluation.all(:proposal_id => params[:proposal_id]).map { |e| e.to_paragraph + '\n'}
       )
