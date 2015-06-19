@@ -23,11 +23,11 @@ Scenario: Failing proposal submission when description is wrong
   And author nick "Author"
   Then it should raise an error
 
-#Scenario: Failing proposal submission when author is wrong
- # Given proposal title "Proposal"
-  #And a description "This is a proposal"
-  #And author nick " "
-  #Then it should raise an error
+Scenario: Failing proposal submission when author is wrong
+  Given proposal title "Proposal"
+  And a description "This is a proposal"
+  And author nick " "
+  Then it should raise an error
 
 #Scenario: Proposal have duplicated title
   #Given proposal title "Proposal"
