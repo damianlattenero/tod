@@ -1,6 +1,6 @@
 
 function toastError(){
-    toastr.error('Action not completed', 'Error')
+    toastr.error('Acción no completada', 'Error')
 }
 
 function changeRevisorRole(uid, url, successCallback){

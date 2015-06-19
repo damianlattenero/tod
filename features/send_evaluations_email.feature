@@ -16,3 +16,11 @@ Feature: Poder enviar resultados al autor de una propuesta con al menos tres rev
   Scenario: the proposal does have two revisions but should not show "notificar resultado" button
     When an admin user visits proposal "B" details
     Then  should not see the "Notificar Resultado" button
+
+  @javascript
+  Scenario:  Notification with error message when mail could not be sent
+    When an admin user visits proposal "A" details
+    Then  should see the "Notificar resultado" button
+    When  mailing does not work
+    And   clicks on  "Notificar resultado" button
+    Then  it should display  "Acción no completada"

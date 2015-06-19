@@ -34,7 +34,7 @@ def create_proposal(title)
   proposal = Proposal.new
   proposal.title = title
   proposal.description = 'A proposal description'
-  proposal.author = 'An author'
+  proposal.author = 'Admin'
   proposal.save!
   proposal
 end
@@ -47,4 +47,8 @@ def create_evaluation(proposal, name)
   evaluation.proposal_id = proposal.id
   evaluation.save!
   evaluation
+end
+
+When(/^mailing does not work$/) do
+  TodMailer.before_send { raise 'Mailer not working' }
 end
