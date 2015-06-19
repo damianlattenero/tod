@@ -97,6 +97,8 @@ es:
       empty: No se han encontrado resultados
     error:
       mail_error:    "Email ingresado incorrectamente"
+    email:
+      notify_result: Notificar resultado
   report:
      title:                Reportes
      text:                 Búsqueda  de propuestas por tag

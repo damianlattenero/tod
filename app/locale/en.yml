@@ -80,6 +80,8 @@ en:
       empty: Results have not been found
     error:
       mail_error:    "mail misspelled"
+    email:
+      notify_result: Notify result
   report:
      title:                Reports
      text:                 Search proposed by tag
