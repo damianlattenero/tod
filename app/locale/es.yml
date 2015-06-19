@@ -1,7 +1,7 @@
 es:
   title: TOD - Organizador de conferencias
   nav:
-    home_link:          Inicio
+    home_link:          Tod
     new_proposal:       Nueva Propuesta
     proposal_list:      Propuestas
     report:             Reportes
@@ -20,7 +20,7 @@ es:
     logged:  Conectado como
   admin:
     roles:
-      title:      Asignacion de Roles
+      title:      Asignación de Roles
       user_name:  Usuario
       is_revisor: Es Revisor
       empty:      No hay usuarios registrados
@@ -29,6 +29,7 @@ es:
       revisions_per_proposal: Revisiones por propuesta
       save:                   Guardar Cambios
       success:                Cambios guardados exitosamente
+      fail:                   Acceso Restringido
   proposal:
     new:
       title: Nueva Propuesta
@@ -45,7 +46,7 @@ es:
         cancel_button:           Cancelar
         type:                    Tipo
         select_1:                "Taller"
-        select_2:                "Presentacion"
+        select_2:                "Presentación"
       result:
         success:         Propuesta enviada correctamente
         error:           No se ha podido enviar la propuesta

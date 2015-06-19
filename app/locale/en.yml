@@ -1,7 +1,7 @@
 en:
   title: TOD - Conference organizer
   nav:
-    home_link:          Home
+    home_link:          Tod
     new_proposal:       New Proposal
     proposal_list:      Proposal list
     report:             Reports
@@ -29,6 +29,7 @@ en:
       revisions_per_proposal: Revisions per proposal
       save:                   Save Changes
       success:                Conference Successfully Updated
+      fail:                   Restricted access
   proposal:
     new:
       title: New Proposal
