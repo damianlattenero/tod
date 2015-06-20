@@ -52,7 +52,7 @@ es:
         select_2:                "Presentación"
         audience_1:              Inicial
         audience_2:              Practicante
-        audience_3:              Avanzado
+        audience_3:              Avanzada
       result:
         success:         Propuesta enviada correctamente
         error:           No se ha podido enviar la propuesta
