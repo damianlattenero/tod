@@ -70,7 +70,7 @@ Tod::App.controllers :proposal do
     @comments        = Comment.all(:proposal_id => proposal_id).reverse
     @comment         = Comment.new
     @evaluation      = Evaluation.new
-    @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first.reviews_per_proposal.to_i
+    @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first_or_create.reviews_per_proposal.to_i
     render 'proposal/detail'
   end
 
