@@ -14,12 +14,16 @@ RSpec.describe Audience do
       expect(Audience.new(:initial).is_initial?).to eq true
     end
 
-    it 'should not be initial if initialized with :practicing' do
-      expect(Audience.new(:practicing).is_initial?).to eq false
+    it 'should not be initial if initialized with :other' do
+      expect(Audience.new(:other).is_initial?).to eq false
     end
 
     it 'should is_practicing if initialized with :practicing' do
       expect(Audience.new(:practicing).is_practicing?).to eq true
+    end
+
+    it 'should not be practicing if initialized with :other' do
+      expect(Audience.new(:other).is_practicing?).to eq false
     end
   end
 
