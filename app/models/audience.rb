@@ -13,7 +13,7 @@ class Audience
   end
 
   def is_advanced?
+    @audience.equal? :advanced
   end
-
 
 end
