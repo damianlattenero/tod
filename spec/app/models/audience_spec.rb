@@ -9,5 +9,11 @@ RSpec.describe Audience do
     it { should respond_to(:is_advanced?) }
   end
 
+  describe 'initialize' do
+    it 'should is_initial if initialized with :initial' do
+      expect(Audience.new(:initial).is_initial?).to eq true
+    end
+
+  end
 
 end
