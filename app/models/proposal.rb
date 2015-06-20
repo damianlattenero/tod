@@ -13,6 +13,7 @@ class Proposal
   property :author,      String, required: true, :length => 3..50
   property :email,       String, required: true, :format => :email_address
   property :type,    ProposalSessionTypeMapper, :default  => ProposalSessionType.new(:presentation)
+  property :audience,    AudienceMapper, :default  => Audience.new(:inicial)
   property :date,        DateTime
   has n,   :comments
   has n,   :evaluations
