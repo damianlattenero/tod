@@ -16,4 +16,8 @@ class Audience
     @audience.equal? :advanced
   end
 
+  def to_s
+    @audience.to_s
+  end
+
 end
