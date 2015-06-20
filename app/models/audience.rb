@@ -9,6 +9,7 @@ class Audience
   end
 
   def is_practicing?
+    @audience.equal? :practicing
   end
 
   def is_advanced?

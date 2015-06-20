@@ -18,6 +18,9 @@ RSpec.describe Audience do
       expect(Audience.new(:practicing).is_initial?).to eq false
     end
 
+    it 'should is_practicing if initialized with :practicing' do
+      expect(Audience.new(:practicing).is_practicing?).to eq true
+    end
   end
 
 end
