@@ -3,6 +3,7 @@ Feature: Revisors designated by Admin
 Background:
   Given an admin user
   And   a regular user
+  And   a user with revisor permission
 
 Scenario: regular user as revisor
   When admin designates regular user as revisor

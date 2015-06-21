@@ -84,3 +84,4 @@ Scenario: revisor user cannot evaluate a proposal multiple times
   And  selects the same proposal
   When clicks on "Evaluar" button
   Then should see "Ya has evaluado esta propuesta"
+

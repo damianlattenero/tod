@@ -1,7 +1,8 @@
 require 'rubygems'
 require 'dm-core'
 require 'dm-tags'
-
+require_relative '../mappers/proposal_session_type_mapper'
+require_relative 'proposal_session_type'
 class Proposal
   include DataMapper::Resource
 
@@ -10,6 +11,7 @@ class Proposal
   property :title,       String, required: true, :length => 3..50
   property :description, Text,   required: true, :length => 1..500
   property :author,      String, required: true, :length => 3..50
+  property :type,    ProposalSessionTypeMapper, :default  => ProposalSessionType.new(:presentation)
   property :date,        DateTime
   has n,   :comments
   has n,   :evaluations
@@ -27,5 +29,9 @@ class Proposal
     self.evaluations.any? do |evaluation|
       evaluation.evaluator == user_name
     end
+  end
+
+  def set_session(session)
+    self.update!(:type => ProposalSessionType.new(session) )
   end
 end

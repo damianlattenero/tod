@@ -27,6 +27,7 @@ Given(/^a proposal not evaluated by that user$/) do
     :comment     => 'This is a valid comment',
     :opinion     => EvaluationOpinion.new
   )
+
   @evaluation_2.save!
 end
 

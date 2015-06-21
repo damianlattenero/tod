@@ -37,6 +37,9 @@ en:
         tags_placeholder:        "Ej: Agile, Scrum, Software Arquitecture"
         send_button:             Send
         cancel_button:           Cancel
+        type:                    Type
+        select_1:                "workshop"
+        select_2:                "presentation"
       result:
         success:         Proposal submitted successfully
         error:           Proposal could not be sent
@@ -47,6 +50,7 @@ en:
         title:  Title
         author: Author
         tags:   Tags
+        type:   Type
       empty: "Still no proposals, you can add one if you want."
     detail:
       tags:              "Tags: %{tags}"

@@ -7,4 +7,5 @@
 //= require jquery-ujs
 //= require bootstrap
 //= require admin
+//= require toastr
 //= require_tree .
