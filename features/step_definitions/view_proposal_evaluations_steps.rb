@@ -2,7 +2,8 @@ Given(/^a proposal evaluated by that user$/) do
   @proposal = Proposal.create(
     :title       => "proposal for evaluation list view",
     :description => "proposal for evaluation list view description test",
-    :author      => "a test author who likes evaluations"
+    :author      => "a test author who likes evaluations",
+    :email      => "test@domini.com"
   )
   @proposal.save!
   @evaluation = Evaluation.create(

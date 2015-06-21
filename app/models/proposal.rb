@@ -2,7 +2,9 @@ require 'rubygems'
 require 'dm-core'
 require 'dm-tags'
 require_relative '../mappers/proposal_session_type_mapper'
-require_relative 'proposal_session_type'
+require_relative '../mappers/audience_mapper'
+require_relative '../models/audience'
+
 class Proposal
   include DataMapper::Resource
 
@@ -11,7 +13,9 @@ class Proposal
   property :title,       String, required: true, :length => 3..50
   property :description, Text,   required: true, :length => 1..500
   property :author,      String, required: true, :length => 3..50
-  property :type,    ProposalSessionTypeMapper, :default  => ProposalSessionType.new(:presentation)
+  property :email,       String, required: true, :format => :email_address
+  property :type,        ProposalSessionTypeMapper, :default  => ProposalSessionType.new(:presentation)
+  property :audience,    AudienceMapper, :default  => Audience.new(:initial)
   property :date,        DateTime
   has n,   :comments
   has n,   :evaluations
@@ -25,13 +29,17 @@ class Proposal
     self.title += (" - " + @author)
   end
 
-  def evaluated_by?(user_name)
+  def set_session(session)
+    self.update!(:type => ProposalSessionType.new(session) )
+  end
+
+  def set_audience(audience)
+    self.update!(:audience => Audience.new(audience) )
+  end
+
+  def evaluated_by?(username)
     self.evaluations.any? do |evaluation|
       evaluation.evaluator == user_name
     end
-  end
-
-  def set_session(session)
-    self.update!(:type => ProposalSessionType.new(session) )
   end
 end

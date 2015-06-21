@@ -7,7 +7,7 @@ module Tod
       def validate_fields_size(a_field, min_size = 3)
         if a_field.length < min_size
           raise ("The value " + a_field + " should have more than " +
-                   min_size.to_s + " characters."
+                    min_size.to_s + " characters."
                 )
         end
       end
@@ -20,24 +20,41 @@ module Tod
         a_field.split.size >= min_size
       end
 
+      def user_register(usuario)
+         user=User.all(:name => usuario)
+         if user.nil?
+           user= User.new
+           user.name= author
+           user.save!
+         end
+        user
+      end
+
+      def check_mail?(mail)
+        (mail =~ /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*) @([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/)==0
+      end
+
       def notify_error(msg)
         flash.now[:danger] = msg
+      end
+      def notify_new_proposal_mail_misspelled
+         notify_error t('proposal.error.mail_error')
       end
 
       def notify_on_field_too_short(event, field, minAmount)
         notify_error(
-          t(event,
-             field: t(field),
-             cant: minAmount
-           )
+            t(event,
+              field: t(field),
+              cant: minAmount
+            )
         )
       end
 
       def notify_new_proposal_field_too_short(field, minAmount)
         notify_on_field_too_short(
-          'proposal.new.result.field_too_short',
-          field,
-          minAmount
+            'proposal.new.result.field_too_short',
+            field,
+            minAmount
         )
       end
 
