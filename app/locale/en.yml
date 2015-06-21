@@ -71,6 +71,7 @@ en:
           weakly_a:   Weakly Acceptance
           strongly_a: Strong Acceptance
           weakly_r:   Weak Rejection
+          strongly_r: Strong Rejection
         comment_tag:         Comment
         comment_placeholder: "E.g.: Interesting proposal"
         send_button:         Send
