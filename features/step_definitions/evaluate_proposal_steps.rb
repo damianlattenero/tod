@@ -4,33 +4,34 @@ Given(/^a proposal he did not evaluate yet$/) do
     :description => "This is a proposal for evaluation description test",
     :author      => "Author"
   )
-  @proposal.save
+  @proposal.save!
 end
 
 When(/^a revisor user visit proposal list$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/proposal/list'
 end
 
-When(/^selects a proposal$/) do
-  pending # express the regexp above with the code you wish you had
+And(/^selects a proposal$/) do
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
 end
 
-When(/^clicks on "(.*?)" button$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+And(/^clicks on "(.*?)" button$/) do |arg1|
+  click_link('Evaluar')
 end
 
 Then(/^should see evaluation form$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(page).to have_content 'Proposal for evaluation'
 end
 
-When(/^evaluates it with opinion "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^evaluates it with opinion "(.*?)"$/) do |opinion|
+  select opinion, from: 'evaluation_opinion'
 end
 
-When(/^leaves a valid comment$/) do
-  pending # express the regexp above with the code you wish you had
+And(/^leaves a valid comment$/) do
+  valid_comment = "This is a valid comment"
+  fill_in('evaluation_body', :with => valid_comment)
 end
 
-Then(/^evaluation confirmation with opinion "(.*?)" is displayed$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^evaluation confirmation with opinion "(.*?)" is displayed$/) do |opinion|
+  expect(page).to have_content opinion
 end

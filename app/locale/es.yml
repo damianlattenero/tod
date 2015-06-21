@@ -72,6 +72,8 @@ es:
         comment_tag:         Comentario
         comment_placeholder: "Ej: La propuesta es interesante"
         send_button:         Enviar
+        results:
+          success:      "Propuesta evaluada correctamente: %{opinion}"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados

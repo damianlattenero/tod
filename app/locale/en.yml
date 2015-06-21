@@ -72,6 +72,8 @@ en:
         comment_tag:         Comment
         comment_placeholder: "E.g.: Interesting proposal"
         send_button:         Send
+        results:
+          success:      "Proposal properly evaluated: %{opinion}"
     search:
       title: Search results
       empty: Results have not been found
