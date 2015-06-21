@@ -2,17 +2,20 @@ Given(/^a proposal he did not evaluate yet$/) do
   @proposal = Proposal.create(
     :title       => "Proposal for evaluation",
     :description => "This is a proposal for evaluation description test",
-    :author      => "Author"
+    :author      => "Author",
+    :email       => "some@email.com"
   )
   @proposal.save!
 end
 
 When(/^a revisor user visit proposal list$/) do
   visit '/proposal/list'
+  expect(page).to have_content 'Proposal for evaluation'
 end
 
 And(/^selects a proposal$/) do
   visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
+  expect(page).to have_content 'Deja un comentario:'
 end
 
 And(/^clicks on "(.*?)" button$/) do |btn_label|

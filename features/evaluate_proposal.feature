@@ -46,6 +46,7 @@ Scenario: revisor evaluates a proposal with opinion Rechazo Fuerte
   Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
 
 # cantidad de palabras minimas en el comentario = 3
+
 Scenario: revisor evaluates a proposal and leaves a three words comment
   When a revisor user visit proposal list
   And  selects a proposal
@@ -77,6 +78,7 @@ Scenario: failing evaluation, revisor leaves an empty comment
   Then should see "El campo Comentario tiene menos de 3 palabras"
 
 # revisiones multiples de una propuesta
+
 Scenario: revisor user cannot evaluate a proposal multiple times
   When a revisor user visit proposal list
   And  selects a proposal

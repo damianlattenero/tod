@@ -39,7 +39,7 @@ class Proposal
 
   def evaluated_by?(username)
     self.evaluations.any? do |evaluation|
-      evaluation.evaluator == user_name
+      evaluation.evaluator == username
     end
   end
 end

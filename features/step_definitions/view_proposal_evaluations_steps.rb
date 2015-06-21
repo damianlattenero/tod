@@ -3,7 +3,7 @@ Given(/^a proposal evaluated by that user$/) do
     :title       => "proposal for evaluation list view",
     :description => "proposal for evaluation list view description test",
     :author      => "a test author who likes evaluations",
-    :email      => "test@domini.com"
+    :email       => "test@domini.com"
   )
   @proposal.save!
   @evaluation = Evaluation.create(
@@ -19,7 +19,8 @@ Given(/^a proposal not evaluated by that user$/) do
   @second_proposal = Proposal.create(
     :title       => "Second proposal for evaluation list view",
     :description => "Second proposal for evaluation list view description test",
-    :author      => "another test author who likes evaluations"
+    :author      => "another test author who likes evaluations",
+    :email       => "test@domini.com"
   )
   @second_proposal.save!
   @evaluation_2 = Evaluation.create(
@@ -28,7 +29,6 @@ Given(/^a proposal not evaluated by that user$/) do
     :comment     => 'This is a valid comment',
     :opinion     => EvaluationOpinion.new
   )
-
   @evaluation_2.save!
 end
 
