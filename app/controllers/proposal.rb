@@ -57,7 +57,6 @@ Tod::App.controllers :proposal do
     @proposal_detail = Proposal.get proposal_id
     @comments        = Comment.all(:proposal_id => proposal_id).reverse
     @comment         = Comment.new
-    @evaluation      = Evaluation.new
     render 'proposal/detail'
   end
 
@@ -88,30 +87,11 @@ Tod::App.controllers :proposal do
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
   end
 
-  post :evaluate do
-    opinion     = params[:evaluation][:opinion]
-    body        = params[:evaluation][:evaluation_body]
-    proposal_id = params[:evaluation][:proposal_id]
+  get :evaluation do
+    proposal_id      = params[:proposal_id]
+    @proposal_detail = Proposal.get proposal_id
+    @evaluation      = Evaluation.new
 
-    @evaluation = Evaluation.new
-    @evaluation.evaluator   = session[:user]
-    @evaluation.opinion     = opinion
-    @evaluation.comment     = body
-    @evaluation.proposal_id = proposal_id
-
-    if @evaluation.save
-      flash[:success] = t('proposal.evaluation.form.results.success',
-                          opinion: opinion)
-    else
-      flash[:danger] =
-        t('proposal.evaluation.form.results.words_enough',
-          field: t('proposal.evaluation.form.comment_tag'),
-          cant: 3
-         ) unless words_enough?(body, 3)
-
-      render 'proposal/new'
-    end
-
-    redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+    render 'proposal/evaluation'
   end
 end

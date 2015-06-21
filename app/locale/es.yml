@@ -64,6 +64,8 @@ es:
         send_button:         Enviar
     evaluation:
       eval_button: Evaluar
+      form:
+        title:               "Evaluar Propuesta: %{title}"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
