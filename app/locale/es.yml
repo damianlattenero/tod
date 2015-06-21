@@ -82,9 +82,12 @@ es:
         comment_placeholder: "Ej: Este es un hermoso comentario, positivo y constructivo"
         send_button:         Enviar
     evaluation:
-      has_not:     Esta propuesta no tiene evaluaciones
-      eval_button: Ver Evaluaciones
+      eval_button: Evaluar
+      eval_msg:    Ya has evaluado esta propuesta
+      view_button: Ver Evaluaciones
+      view_msg:    Aún no has evaluado esta propuesta
       form:
+        title:               "Evaluar Propuesta: %{title}"
         opinion_box_tag:     "A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:"
         opinions:
           weakly_a:   Aceptación Débil
@@ -93,11 +96,13 @@ es:
           strongly_r: Rechazo Fuerte
         comment_tag:         Comentario
         comment_placeholder: "Ej: La propuesta es interesante"
-        send_button:         Evaluar
+        send_button:         Enviar
         results:
           success:      "Propuesta evaluada correctamente: %{opinion}"
           error:        No se ha podido evaluar la propuesta
           words_enough: "El campo %{field} tiene menos de %{cant} palabras"
+      list:
+        title: "Evaluaciones: %{title}"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados

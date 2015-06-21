@@ -42,5 +42,4 @@ class Proposal
       evaluation.evaluator == username
     end
   end
-
 end

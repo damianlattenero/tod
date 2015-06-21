@@ -5,6 +5,7 @@ describe Evaluation do
     it { should respond_to( :id) }
     it { should respond_to( :evaluator) }
     it { should respond_to( :comment) }
+    it { should respond_to( :opinion) }
   end
 
   describe 'initialize' do

@@ -9,6 +9,7 @@ describe Proposal do
     it { should respond_to( :date) }
     it { should respond_to( :comments) }
     it { should respond_to( :tags) }
+    it { should respond_to( :evaluations) }
   end
 
   describe 'initialize' do
@@ -98,5 +99,6 @@ describe Proposal do
       expect(proposal.title).to eq 'A title - An author'
     end
   end
+
 end
 
