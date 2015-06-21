@@ -66,6 +66,12 @@ en:
       eval_button: Evaluate
       form:
         title:               "Evaluate Proposal: %{title}"
+        opinion_box_tag:     "Please, select your opinion and leave a comment:"
+        opinions:
+          weakly_a:   Weakly Acceptance
+        comment_tag:         Comment
+        comment_placeholder: "E.g.: Interesting proposal"
+        send_button:         Send
     search:
       title: Search results
       empty: Results have not been found

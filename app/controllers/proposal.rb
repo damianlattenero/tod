@@ -94,4 +94,22 @@ Tod::App.controllers :proposal do
 
     render 'proposal/evaluation'
   end
+
+  post :evaluate do
+    opinion     = params[:evaluation][:opinion]
+    body        = params[:evaluation][:body]
+    proposal_id = params[:evaluation][:proposal_id]
+
+    @evaluation = Evaluation.new
+    @evaluation.evaluator   = session[:user].name
+    @evaluation.opinion     = EvaluationOpinion.new(opinion.to_sym)
+    @evaluation.comment     = body
+    @evaluation.proposal_id = proposal_id
+
+    if @evaluation.save
+      flash[:success] = t('proposal.evaluation.form.results.success', opinion: opinion)
+    end
+
+    redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+  end
 end

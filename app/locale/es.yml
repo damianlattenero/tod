@@ -66,6 +66,12 @@ es:
       eval_button: Evaluar
       form:
         title:               "Evaluar Propuesta: %{title}"
+        opinion_box_tag:     "A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:"
+        opinions:
+          weakly_a:   Aceptación Débil
+        comment_tag:         Comentario
+        comment_placeholder: "Ej: La propuesta es interesante"
+        send_button:         Enviar
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
