@@ -18,4 +18,8 @@ class Evaluation
    self.comment.split.size >= min_size
   end
 
+  def to_paragraph
+    "#{self.opinion}: #{self.comment}"
+  end
+
 end

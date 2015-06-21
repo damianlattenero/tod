@@ -1,11 +1,14 @@
+
+function toastError(){
+    toastr.error('Acción no completada', 'Error')
+}
+
 function changeRevisorRole(uid, url, successCallback){
     jQuery.ajax({
         url: url,
         data:'uid='+uid,
         success:  successCallback(),
-        error: function(){
-            toastr.error('Action not completed', 'Error')
-        }
+        error: toastError
     });
 }
 
@@ -29,6 +32,23 @@ function onRoleClick(){
         } else {
             removeRevisorRole(jQuery(this).val())
         }
+    });
+}
+
+function onSendRevisionsMail(proposalId){
+    var proposalButton = jQuery('#proposal-send-email-'+proposalId);
+    proposalButton.prop('disabled', true);
+    jQuery.ajax({
+        type: 'GET',
+        url: '/proposal/revision_email',
+        data:'proposal_id='+proposalId,
+        success:  function(){
+            //proposalButton.hide(); //in case we want to send only one email
+            toastr.success('Mail enviado correctamente', 'Resultado Enviado')
+        },
+        error: [toastError, function(){
+            proposalButton.prop('disabled', false);
+        }]
     });
 }
 

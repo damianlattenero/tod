@@ -24,5 +24,6 @@ After do
   Proposal.destroy!
   Comment.destroy!
   User.destroy!
+  Evaluation.destroy!
 end
 

@@ -3,5 +3,5 @@ When(/^visit role assignation page$/) do
 end
 
 Then(/^his name should not be listed$/) do
-  expect(page).to have_content(@admin.name, count: 1)
+  expect(page).not_to have_css('.roles-table td', :text => @admin.name)
 end

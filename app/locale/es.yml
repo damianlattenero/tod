@@ -1,11 +1,12 @@
 es:
   title: TOD - Organizador de conferencias
   nav:
-    home_link:          Inicio
+    home_link:          Tod
     new_proposal:       Nueva Propuesta
-    proposal_list:      Lista de propuestas
+    proposal_list:      Propuestas
     report:             Reportes
     roles:              Roles
+    admin:              Admin
     search_placeholder: Búsqueda
     search_button:      Buscar
   footer:
@@ -19,10 +20,16 @@ es:
     logged:  Conectado como
   admin:
     roles:
-      title:      Asignacion de Roles
+      title:      Asignación de Roles
       user_name:  Usuario
       is_revisor: Es Revisor
       empty:      No hay usuarios registrados
+    conference:
+      title:                  Configuración de Conferencia
+      revisions_per_proposal: Revisiones por propuesta
+      save:                   Guardar Cambios
+      success:                Cambios guardados exitosamente
+      fail:                   Acceso Restringido
   proposal:
     new:
       title: Nueva Propuesta
@@ -38,8 +45,8 @@ es:
         send_button:             Enviar
         cancel_button:           Cancelar
         type:                    Tipo
-        select_1:                "taller"
-        select_2:                "presentacion"
+        select_1:                "Taller"
+        select_2:                "Presentación"
       result:
         success:         Propuesta enviada correctamente
         error:           No se ha podido enviar la propuesta
@@ -91,13 +98,15 @@ es:
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados
+    email:
+      notify_result: Notificar resultado
   report:
      title:                Reportes
-     text:                 Busqueda de propuestas por tag
+     text:                 Búsqueda  de propuestas por tag
      tag_placeholder:      "Ej: Tag"
      button:               Buscar
      button_quantity:      Cantidad
      quantity:             "La cantidad de propuestas totales son "
-     quantity_search:      "La cantidad de propuestas buscadas por tag "
+     quantity_search:      La cantidad de propuestas encontradas por tag "%{tags}" fueron
      fail:                 Acceso Restringido
      tag:                  Tag

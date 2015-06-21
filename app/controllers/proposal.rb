@@ -56,11 +56,28 @@ Tod::App.controllers :proposal do
   end
 
   get :detail do
-    proposal_id      = params[:proposal_id]
-    @proposal_detail = Proposal.get proposal_id
-    @comments        = Comment.all(:proposal_id => proposal_id).reverse
-    @comment         = Comment.new
+    proposal_id             = params[:proposal_id]
+    @proposal_detail        = Proposal.get proposal_id
+    @comments               = Comment.all(:proposal_id => proposal_id).reverse
+    @comment                = Comment.new
+    @evaluation             = Evaluation.new
+    @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first.reviews_per_proposal.to_i
+
     render 'proposal/detail'
+  end
+
+  get :revision_email, :params => [ :proposal_id ] do
+    proposal = Proposal.get params[:proposal_id]
+    begin
+      TodMailer.send_mail(
+          User.first(:name => proposal.author).email,
+          "Results for: #{proposal.title}",
+          Evaluation.all(:proposal_id => params[:proposal_id]).map { |e| e.to_paragraph + '\n'}
+      )
+    rescue
+      status 500
+      body '{"success":false}'
+    end
   end
 
   post :comment do
