@@ -65,6 +65,8 @@ es:
     evaluation:
       eval_button: Evaluar
       eval_msg:    Ya has evaluado esta propuesta
+      view_button: Ver Evaluaciones
+      view_msg:    Aún no has evaluado esta propuesta
       form:
         title:               "Evaluar Propuesta: %{title}"
         opinion_box_tag:     "A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:"
@@ -80,6 +82,8 @@ es:
           success:      "Propuesta evaluada correctamente: %{opinion}"
           error:        No se ha podido evaluar la propuesta
           words_enough: "El campo %{field} tiene menos de %{cant} palabras"
+      list:
+        title: "Evaluaciones: %{title}"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados

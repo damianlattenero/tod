@@ -65,6 +65,8 @@ en:
     evaluation:
       eval_button: Evaluate
       eval_msg:    You have already evaluated this proposal
+      view_button: View Evaluations
+      view_msg:    You have not evaluated this proposal yet
       form:
         title:               "Evaluate Proposal: %{title}"
         opinion_box_tag:     "Please, select your opinion and leave a comment:"
@@ -80,6 +82,8 @@ en:
           success:      "Proposal properly evaluated: %{opinion}"
           error:        Could not evaluate the proposal
           words_enough: "Field %{field} contains less than %{cant} words"
+      list:
+        title: "Evaluations: %{title}"
     search:
       title: Search results
       empty: Results have not been found
