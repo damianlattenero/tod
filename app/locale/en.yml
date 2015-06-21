@@ -64,6 +64,7 @@ en:
         send_button:         Send
     evaluation:
       eval_button: Evaluate
+      eval_msg:    You have already evaluated this proposal
       form:
         title:               "Evaluate Proposal: %{title}"
         opinion_box_tag:     "Please, select your opinion and leave a comment:"

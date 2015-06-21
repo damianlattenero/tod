@@ -64,6 +64,7 @@ es:
         send_button:         Enviar
     evaluation:
       eval_button: Evaluar
+      eval_msg:    Ya has evaluado esta propuesta
       form:
         title:               "Evaluar Propuesta: %{title}"
         opinion_box_tag:     "A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:"

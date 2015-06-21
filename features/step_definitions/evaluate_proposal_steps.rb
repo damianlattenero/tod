@@ -44,4 +44,19 @@ Then(/^should see "(.*?)"$/) do |eval_msg|
   expect(page).to have_content eval_msg
 end
 
+When(/^evaluates proposal$/) do
+  steps %{
+      When clicks on "Evaluar" button
+      Then should see evaluation form
+      When evaluates it with opinion "Rechazo Fuerte"
+      And leaves a valid comment
+      When submitting
+  }
+end
+
+When(/^selects the same proposal$/) do
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
+end
+
+
 

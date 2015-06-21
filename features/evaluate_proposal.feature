@@ -77,7 +77,7 @@ Scenario: failing evaluation, revisor leaves an empty comment
   Then should see "El campo Comentario tiene menos de 3 palabras"
 
 # revisiones multiples de una propuesta
-@wip
+
 Scenario: revisor user cannot evaluate a proposal multiple times
   When a revisor user visit proposal list
   And  selects a proposal

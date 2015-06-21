@@ -15,12 +15,12 @@
 
       <% @user = session[:user] %>
       <% if @user %>
-        <% if @user.role.is_revisor? %>
+        <% #if @user.role.is_revisor? %>
           <hr>
           <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluation, :proposal_id => @proposal_detail.id) %>">
             <%= t('proposal.evaluation.eval_button')%>
           </a>
-        <% end %>
+        <% #end %>
       <% end %>
   </div>
 

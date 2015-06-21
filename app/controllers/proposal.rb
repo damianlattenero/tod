@@ -90,9 +90,16 @@ Tod::App.controllers :proposal do
   get :evaluation do
     proposal_id      = params[:proposal_id]
     @proposal_detail = Proposal.get proposal_id
-    @evaluation      = Evaluation.new
 
-    render 'proposal/evaluation'
+    if !@proposal_detail.evaluated_by? session[:user].name
+      @evaluation      = Evaluation.new
+
+      render 'proposal/evaluation'
+    else
+      flash[:danger] = t('proposal.evaluation.eval_msg')
+
+      redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+    end
   end
 
   post :evaluate do
