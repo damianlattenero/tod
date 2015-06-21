@@ -12,4 +12,10 @@ class Evaluation
   property :opinion,     EvaluationOpinionMapper, :default  => EvaluationOpinion.new
   belongs_to :proposal
 
+  validates_with_method :comment, :method => :words_enough?
+
+  def words_enough?(min_size = 3)
+   self.comment.split.size >= min_size
+  end
+
 end

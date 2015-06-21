@@ -77,6 +77,8 @@ en:
         send_button:         Send
         results:
           success:      "Proposal properly evaluated: %{opinion}"
+          error:        Could not evaluate the proposal
+          words_enough: "Field %{field} contains less than %{cant} words"
     search:
       title: Search results
       empty: Results have not been found

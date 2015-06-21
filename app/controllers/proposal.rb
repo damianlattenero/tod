@@ -108,8 +108,16 @@ Tod::App.controllers :proposal do
 
     if @evaluation.save
       flash[:success] = t('proposal.evaluation.form.results.success', opinion: opinion)
-    end
 
-    redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+      redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+    else
+      flash[:danger] =
+        t('proposal.evaluation.form.results.words_enough',
+          field: t('proposal.evaluation.form.comment_tag'),
+          cant: 3
+         ) unless words_enough?(body, 3)
+
+      redirect_to 'proposal/evaluation?proposal_id=' + proposal_id.to_s
+    end
   end
 end

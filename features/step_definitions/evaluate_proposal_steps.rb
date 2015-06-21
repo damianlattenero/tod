@@ -40,3 +40,8 @@ When(/^comments it with comment "(.*?)"$/) do |comment|
   fill_in('evaluation_body', :with => comment)
 end
 
+Then(/^should see "(.*?)"$/) do |eval_msg|
+  expect(page).to have_content eval_msg
+end
+
+
