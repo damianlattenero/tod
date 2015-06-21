@@ -4,51 +4,83 @@ Background:
   Given a revisor user
   And   a proposal he did not evaluate yet
 
-Scenario: revisor evaluates a proposal with opinion 'Aceptación Debil'
+# seleccion de dictamenes con un dropdown
+Scenario: revisor evaluates a proposal with opinion Aceptación Débil
   When a revisor user visit proposal list
   And  selects a proposal
-  And  evaluates it with opinion "Aceptación Débil"
+  And  clicks on "Evaluar" button
+  Then should see evaluation form
+  When evaluates it with opinion "Aceptación Débil"
   And  leaves a valid comment
-  Then evaluation confirmation with opinion "Aceptación Débil" should be displayed
+  When submitting
+  Then evaluation confirmation with opinion "Aceptación Débil" is displayed
 
-Scenario: revisor evaluates a proposal with opinion "Rechazo Debil"
+Scenario: revisor evaluates a proposal with opinion Aceptación Fuerte
   When a revisor user visit proposal list
   And  selects a proposal
-  And  evaluates it with opinion "Rechazo Débil"
+  And  clicks on "Evaluar" button
+  Then should see evaluation form
+  When evaluates it with opinion "Aceptación Fuerte"
   And  leaves a valid comment
-  Then evaluation confirmation with opinion "Rechazo Débil" should be displayed
+  When submitting
+  Then evaluation confirmation with opinion "Aceptación Fuerte" is displayed
 
-Scenario: revisor evaluates a proposal with opinion "Aceptación Fuerte"
+Scenario: revisor evaluates a proposal with opinion Rechazo Débil
   When a revisor user visit proposal list
   And  selects a proposal
-  And  evaluates it with opinion "Aceptación Fuerte"
+  And  clicks on "Evaluar" button
+  Then should see evaluation form
+  When evaluates it with opinion "Rechazo Débil"
   And  leaves a valid comment
-  Then evaluation confirmation with opinion "Aceptación Fuerte" should be displayed
+  When submitting
+  Then evaluation confirmation with opinion "Rechazo Débil" is displayed
 
-Scenario: revisor evaluates a proposal with opinion "Rechazo Fuerte"
+Scenario: revisor evaluates a proposal with opinion Rechazo Fuerte
   When a revisor user visit proposal list
   And  selects a proposal
-  And  evaluates it with opinion "Rechazo Fuerte"
+  And  clicks on "Evaluar" button
+  Then should see evaluation form
+  When evaluates it with opinion "Rechazo Fuerte"
   And  leaves a valid comment
-  Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
+  When submitting
+  Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
 
-Scenario: revisor evaluates a proposal when comment has three words
+# cantidad de palabras minimas en el comentario = 3
+Scenario: revisor evaluates a proposal and leaves a three words comment
   When a revisor user visit proposal list
   And  selects a proposal
-  And  evaluates it with opinion "Rechazo Fuerte"
-  And  comments "A great comment"
-  Then evaluation confirmation with opinion "Rechazo Fuerte" should be displayed
+  And  clicks on "Evaluar" button
+  Then should see evaluation form
+  When evaluates it with opinion "Aceptación Fuerte"
+  And  comments it with comment "This is valid"
+  When submitting
+  Then evaluation confirmation with opinion "Aceptación Fuerte" is displayed
 
-Scenario: falling evaluates submission when comment has two words
+Scenario: failing evaluation, revisor leaves a two words comment
   When a revisor user visit proposal list
   And  selects a proposal
-  And  evaluates it with opinion "Rechazo Fuerte"
-  And  comments "Poor comment"
-  Then it should display "El campo Comentario tiene menos de 3 palabras"
-@wip
+  And  clicks on "Evaluar" button
+  Then should see evaluation form
+  When evaluates it with opinion "Rechazo Fuerte"
+  And  comments it with comment "This not"
+  When submitting
+  Then should see "El campo Comentario tiene menos de 3 palabras"
+
+Scenario: failing evaluation, revisor leaves an empty comment
+  When a revisor user visit proposal list
+  And  selects a proposal
+  And  clicks on "Evaluar" button
+  Then should see evaluation form
+  When evaluates it with opinion "Rechazo Fuerte"
+  And  comments it with comment ""
+  When submitting
+  Then should see "El campo Comentario tiene menos de 3 palabras"
+
+# revisiones multiples de una propuesta
 Scenario: revisor user cannot evaluate a proposal multiple times
   When a revisor user visit proposal list
   And  selects a proposal
   And  evaluates proposal
-  And  visits the proposal detail
-  Then should not be able to evaluate the proposal
+  And  selects the same proposal
+  When clicks on "Evaluar" button
+  Then should see "Ya has evaluado esta propuesta"

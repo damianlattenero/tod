@@ -23,10 +23,9 @@ class Proposal
     self.title += (" - " + @author)
   end
 
-  def evaluated_by?(username)
+  def evaluated_by?(user_name)
     self.evaluations.any? do |evaluation|
-      evaluation.evaluator == username
+      evaluation.evaluator == user_name
     end
   end
-
 end
