@@ -20,8 +20,11 @@ Tod::App.controllers :proposal do
     title       = params[:proposal][:title]
     description = params[:proposal][:description]
     author      = params[:proposal][:author]
+    audience    = params[:proposal][:audience]
     type        = params[:proposal][:type]
     mail        = params[:proposal][:mail]
+
+
     @proposal             = Proposal.new
     @proposal.title       = title
     @proposal.description = description
@@ -30,6 +33,8 @@ Tod::App.controllers :proposal do
     @proposal.email       = mail
     @proposal.tag_list    = params[:proposal][:tags_list].downcase
     @proposal.type        =  ProposalSessionType.new(type)
+    @proposal.audience    =  Audience.new(audience)
+
 
 
     if Proposal.first(:title => title)
@@ -45,9 +50,6 @@ Tod::App.controllers :proposal do
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else
-      notify_new_proposal_mail_misspelled(
-      ) unless check_mail?(mail)
-
       notify_new_proposal_field_too_short(
         'proposal.new.form.author_tag', 3
       ) unless field_length_enough?(author)
@@ -59,6 +61,10 @@ Tod::App.controllers :proposal do
       notify_new_proposal_field_too_short(
         'proposal.new.form.title_tag', 3
       ) unless field_length_enough?(title)
+
+      unless check_mail?(mail)
+        notify_new_proposal_mail_misspelled
+      end
 
       render 'proposal/new'
     end
