@@ -32,7 +32,7 @@ Scenario: revisor evaluates a proposal with opinion Rechazo Débil
   When evaluates it with opinion "Rechazo Débil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Débil" is displayed
-@wip
+  
 Scenario: revisor evaluates a proposal with opinion Rechazo Fuerte
   When a revisor user visit proposal list
   And  selects a proposal
