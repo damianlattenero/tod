@@ -22,6 +22,7 @@ Given(/^there are (\d+) proposals with tag "([^"]*)" only$/) do |cant_prop,tag|
     proposal.title = "#{i}-a title"
     proposal.description = 'A proposal description'
     proposal.author = "#{i}An author"
+    proposal.email= "#{i}test@dominio.com"
     proposal.tag_list = tag.downcase
     proposal.save
   }
@@ -34,6 +35,7 @@ Given(/^there are (\d+) proposals with tag "(.*?)" and "(.*?)"$/) do |cant_prop,
     proposal.title = i.to_s+"-a title"
     proposal.description = "A proposal description"
     proposal.author = i.to_s+"An author"
+    proposal.email= "#{i}test@dominio.com"
     proposal.tag_list = tag_list.downcase
     proposal.save
   }

@@ -6,6 +6,7 @@ Given(/^there are (\d+) proposals$/) do |cant_prop|
     proposal.title = i.to_s+"-a title"
     proposal.description = "-A proposal description"
     proposal.author = i.to_s+"-An author"
+    proposal.email= "#{i}test@dominio.com"
     proposal.tag_list = i.to_s+"-Tag"
     proposal.save
     end

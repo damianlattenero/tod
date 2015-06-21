@@ -7,7 +7,7 @@ end
 
 When(/^an admin user visits proposal "([^"]*)" details$/) do |title|
   proposal = @proposals_map[title]
-  conference = Conference.first
+  conference = Conference.first_or_create
   conference.reviews_per_proposal = 3
   conference.save!
   visit "/proposal/detail?proposal_id=#{proposal.id}"
@@ -35,6 +35,7 @@ def create_proposal(title)
   proposal.title = title
   proposal.description = 'A proposal description'
   proposal.author = 'Admin'
+  proposal.email  = 'some@email.com'
   proposal.save!
   proposal
 end

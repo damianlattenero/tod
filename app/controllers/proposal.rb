@@ -20,13 +20,14 @@ Tod::App.controllers :proposal do
     title       = params[:proposal][:title]
     description = params[:proposal][:description]
     author      = params[:proposal][:author]
-    type     = params[:proposal][:type]
-
+    type        = params[:proposal][:type]
+    mail        = params[:proposal][:mail]
     @proposal             = Proposal.new
     @proposal.title       = title
     @proposal.description = description
-    @proposal.author      = author
+    @proposal.author      =  author
     @proposal.date        = Time.now
+    @proposal.email       = mail
     @proposal.tag_list    = params[:proposal][:tags_list].downcase
     @proposal.type        =  ProposalSessionType.new(type)
 
@@ -35,10 +36,18 @@ Tod::App.controllers :proposal do
       @proposal.append_author_to_title
     end
 
+
     if @proposal.save
+      user =User.new
+      user.name= author
+      user.email= mail
+      user.save!
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
     else
+      notify_new_proposal_mail_misspelled(
+      ) unless check_mail?(mail)
+
       notify_new_proposal_field_too_short(
         'proposal.new.form.author_tag', 3
       ) unless field_length_enough?(author)
@@ -61,7 +70,7 @@ Tod::App.controllers :proposal do
     @comments        = Comment.all(:proposal_id => proposal_id).reverse
     @comment         = Comment.new
     @evaluation      = Evaluation.new
-    @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first.reviews_per_proposal.to_i
+    @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first_or_create.reviews_per_proposal.to_i
     render 'proposal/detail'
   end
 
@@ -69,7 +78,7 @@ Tod::App.controllers :proposal do
     proposal = Proposal.get params[:proposal_id]
     begin
       TodMailer.send_mail(
-          User.first(:name => proposal.author).email,
+          proposal.email,
           "Results for: #{proposal.title}",
           Evaluation.all(:proposal_id => params[:proposal_id]).map { |e| e.to_paragraph + '\n'}
       )
