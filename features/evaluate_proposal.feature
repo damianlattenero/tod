@@ -32,7 +32,7 @@ Scenario: revisor evaluates a proposal with opinion Rechazo Débil
   When evaluates it with opinion "Rechazo Débil"
   And  leaves a valid comment
   Then evaluation confirmation with opinion "Rechazo Débil" is displayed
-  
+
 Scenario: revisor evaluates a proposal with opinion Rechazo Fuerte
   When a revisor user visit proposal list
   And  selects a proposal
@@ -43,13 +43,12 @@ Scenario: revisor evaluates a proposal with opinion Rechazo Fuerte
   Then evaluation confirmation with opinion "Rechazo Fuerte" is displayed
 
 # cantidad de palabras minimas en el comentario = 3
-@wip
 Scenario: revisor evaluates a proposal and leaves a three words comment
   When a revisor user visit proposal list
   And  selects a proposal
   And  clicks on "Evaluar" button
   Then should see evaluation form
-  When evaluates it with opinion  "Aceptación Fuerte"
+  When evaluates it with opinion "Aceptación Fuerte"
   And  comments it with comment "This is a valid comment"
   Then evaluation confirmation with opinion "Aceptación Fuerte" is displayed
 @wip
@@ -58,7 +57,7 @@ Scenario: failing evaluation, revisor leaves a two words comment
   And  selects a proposal
   And  clicks on "Evaluar" button
   Then should see evaluation form
-  When evaluates it with opinion  "Rechazo Fuerte"
+  When evaluates it with opinion "Rechazo Fuerte"
   And  comments it with comment "This not"
   Then should see "El campo Comentario tiene menos de tres palabras"
 @wip
@@ -67,7 +66,7 @@ Scenario: failing evaluation, revisor leaves an empty comment
   And  selects a proposal
   And  clicks on "Evaluar" button
   Then should see evaluation form
-  When evaluates it with opinion  "Rechazo Fuerte"
+  When evaluates it with opinion "Rechazo Fuerte"
   And  comments it with comment ""
   Then should see "El campo Comentario tiene menos de tres palabras"
 

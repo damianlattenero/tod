@@ -15,8 +15,8 @@ And(/^selects a proposal$/) do
   visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
 end
 
-And(/^clicks on "(.*?)" button$/) do |arg1|
-  click_link('Evaluar')
+And(/^clicks on "(.*?)" button$/) do |btn_label|
+  click_link btn_label
 end
 
 Then(/^should see evaluation form$/) do
@@ -35,3 +35,8 @@ end
 Then(/^evaluation confirmation with opinion "(.*?)" is displayed$/) do |opinion|
   expect(page).to have_content opinion
 end
+
+When(/^comments it with comment "(.*?)"$/) do |comment|
+  fill_in('evaluation_body', :with => comment)
+end
+
