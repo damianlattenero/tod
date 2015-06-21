@@ -128,11 +128,18 @@ Tod::App.controllers :proposal do
     end
   end
 
-  get :evaluations do
+  get :view_evaluations do
     proposal_id      = params[:proposal_id]
     @proposal_detail = Proposal.get proposal_id
-    @evaluations     = Evaluation.all(:proposal_id => proposal_id).reverse
+    
+    if !@proposal_detail.evaluated_by? session[:user].name
+      flash[:danger] = t('proposal.evaluation.view_msg')
 
-    render 'proposal/evaluations'
+      redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+    else
+      @evaluations     = Evaluation.all(:proposal_id => proposal_id).reverse
+
+      render 'proposal/evaluation_list'
+    end
   end
 end
