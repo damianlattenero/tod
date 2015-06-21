@@ -70,6 +70,7 @@ es:
         opinions:
           weakly_a:   Aceptación Débil
           strongly_a: Aceptación Fuerte
+          weakly_r:   Rechazo Débil
         comment_tag:         Comentario
         comment_placeholder: "Ej: La propuesta es interesante"
         send_button:         Enviar
