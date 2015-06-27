@@ -106,6 +106,16 @@
           <%= comment.body %>
         </div>
       </div>
-  <% end %>
+      <form method="POST" action="/proposal/delete" >
+        <%= csrf_token_field %>
+        <input type="hidden" id="proposal_id" name="delete[proposal_id]" value= <%= @proposal_detail.id%> />
+        <input type="hidden" id="comment_id" name="delete[comment_id]" value=<%= comment.id%> />
+        <input type="hidden" id="user_role" name="delete[user_role]" value=<%= @user.role%> />
+        <div class="form-actions">
+        <input id='delete-<%=comment.id%>' type="submit" class="btn btn-primary" value= <%= t('proposal.detail.delete')%> />
+        </div>
+      </form>
+
+<% end %>
 </div>
 </div>

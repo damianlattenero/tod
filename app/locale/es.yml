@@ -75,6 +75,9 @@ es:
         success:         Comentario enviado correctamente
         error:           No se ha podido enviar el comentario
         field_too_short: El campo %{field} tiene menos de %{cant} letras
+      delete:            Eliminar
+      delete_result:
+        success:          Comentario eliminado
       form:
         name_tag:            Nombre
         name_placeholder:    "Ej: Don Pepito"

@@ -74,6 +74,9 @@ en:
         success:         Comment submitted successfully
         error:           Comment could not be sent
         field_too_short: Field %{field} has less than %{cant} letters
+      delete:            Remove
+      delete_result:
+        success:         Remove comment
       form:
         name_tag:            Name
         name_placeholder:    "E.g.: Batman"

@@ -77,9 +77,9 @@ Tod::App.controllers :proposal do
     @comment                = Comment.new
     @evaluation             = Evaluation.new
     @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first_or_create.reviews_per_proposal.to_i
-
     render 'proposal/detail'
   end
+
 
   get :revision_email, :params => [ :proposal_id ] do
     proposal = Proposal.get params[:proposal_id]
@@ -119,6 +119,16 @@ Tod::App.controllers :proposal do
          ) unless field_length_enough?(author)
     end
 
+    redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+  end
+
+  post :delete do
+
+    proposal_id   = params[:delete][:proposal_id]
+    comment_id    = params[:delete][:comment_id]
+    user_role    = params[:delete][:user_role]
+    Comment.all(:id => comment_id).destroy
+    flash[:success]= t('proposal.detail.delete_result.success')
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
   end
 

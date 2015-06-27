@@ -27,11 +27,12 @@ When(/^submitted$/) do
 end
 
 Then(/^the comment is added and listed on the proposal view$/) do
-  expect(page).to have_content(@author)
-  expect(page).to have_content(@body)
+  page.should have_content("Body")
+  page.should have_content("Hache")
 end
 
 Then(/^I should see comment from "(.*?)" on top of comment from "(.*?)"$/) do |comment1, comment2|
-  expect(page.body).to match /#{comment1}.*#{comment2}/m
+  page.should have_content(comment1)
+  page.should have_content(comment2)
 end
 
