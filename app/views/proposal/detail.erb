@@ -1,10 +1,20 @@
 <div class="container">
   <div class="media">
-    <div class="media-body">
+    <% @user = session[:user] %>
+    <div class="container">
       <div>
-        <h2 class="media-heading">
+        <h2 class="media-heading col-md-6" style="margin: 0px">
           <%= @proposal_detail.title %>
         </h2>
+        <% if @user.role.is_admin? %>
+            <% if @has_enough_evaluations %>
+                <div class="col-md-2" style="float: right; margin-right: 20px">
+                  <button id="proposal-send-email-<%= @proposal_detail.id %>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
+                    <%= t('proposal.email.notify_result') %>
+                  </button>
+                </div>
+            <% end %>
+        <% end  %>
       </div>
     </div>
     <hr>
@@ -16,18 +26,7 @@
       <%= t('proposal.detail.tags', tags: @proposal_detail.tag_list * " ") %>
     </small>
 
-    <% @user = session[:user] %>
     <% if @user %>
-
-        <% if @user.role.is_admin? %>
-            <% if @has_enough_evaluations %>
-                <div class="@{fa-css-prefix}-align-left">
-                <button id="proposal-send-email-<%= @proposal_detail.id %>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
-                  <%= t('proposal.email.notify_result') %>
-                </button>
-                </div>
-            <% end %>
-        <% end  %>
 
         <% if @user.role.is_revisor? %>
             <hr>
