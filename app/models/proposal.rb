@@ -16,8 +16,9 @@ class Proposal
   property :email,       String, required: true, :format => :email_address
   property :type,        ProposalSessionTypeMapper, :default  => ProposalSessionType.new(:presentation)
   property :audience,    AudienceMapper, :default  => Audience.new(:initial)
+  property :visits,      Integer, :default => 0
   property :date,        DateTime
-  property :visits,      Integer
+
   has n,   :comments
   has n,   :evaluations
   has_tags_on :tags
