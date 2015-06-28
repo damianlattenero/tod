@@ -17,6 +17,7 @@ class Proposal
   property :type,        ProposalSessionTypeMapper, :default  => ProposalSessionType.new(:presentation)
   property :audience,    AudienceMapper, :default  => Audience.new(:initial)
   property :date,        DateTime
+  property :visits,      Integer
   has n,   :comments
   has n,   :evaluations
   has_tags_on :tags
