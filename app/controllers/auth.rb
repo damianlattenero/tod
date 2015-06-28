@@ -1,9 +1,9 @@
 Tod::App.controllers :auth do
-  get :github_callback, :map => '/auth/github/callback' do
+  get :github_callback, :map => '/auth/:provider/callback' do
     omniauth = request.env['omniauth.auth']
 
     user = User.find_uid(omniauth['uid'])
-    user = User.new_from_omniauth(omniauth) if user.nil?
+    user = User.new_from_omniauth(omniauth, params[:provider]) if user.nil?
 
     # save @user into your session to say he's authenticated
     session[:user] = user
@@ -20,8 +20,11 @@ Tod::App.controllers :auth do
   end
 
   get :github do
-    redirect url('/')
     redirect url('/auth/github')
+  end
+
+  get :linkedin do
+    redirect url('/auth/linkedin')
   end
 
   get :log_out do

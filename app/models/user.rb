@@ -17,12 +17,12 @@ class User
     User.first(:uid => uid)
   end
 
-  def self.new_from_omniauth(omniauth)
+  def self.new_from_omniauth(omniauth, provider)
     user          = User.new
     user.uid      = omniauth["uid"]
     user.name     = omniauth["info"]["nickname"]
     user.email    = omniauth["info"]["email"]
-    user.provider = 'github'
+    user.provider = provider
     user.save!
     user
   end
@@ -38,5 +38,8 @@ class User
     self.update!(:role => Role.new(:admin) )
   end
 
+  def to_s
+    @uid
+  end
 end
 

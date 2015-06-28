@@ -24,6 +24,7 @@ gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 gem 'omniauth'
 gem 'omniauth-github', :github => 'intridea/omniauth-github'
+gem 'omniauth-linkedin'
 # gem 'omniauth-twitter'
 
 # Padrino Stable Gem
