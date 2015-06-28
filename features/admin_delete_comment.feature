@@ -17,8 +17,8 @@ Feature: admin delete comments
     And    click on the delete button of comment "un comentario"
     Then  it should display "No tienes permisos para eliminar comentarios"
 
-  #Scenario: revisor user cannot delete the comment
-    #When regular user visits the proposals list
-    #And    enters the details of the proposal
-    #And    click on the delete button of comment "un comentario"
-    #Then  it should display "No tienes permisos para eliminar comentarios"
+  Scenario: revisor user cannot delete the comment
+    When regular user visits the proposals list
+    And    enters the details of the proposal
+    And    click on the delete button of comment "un comentario"
+    Then  it should display "No tienes permisos para eliminar comentarios"
