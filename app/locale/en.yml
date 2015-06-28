@@ -77,7 +77,7 @@ en:
         success:         Comment submitted successfully
         error:           Comment could not be sent
         field_too_short: Field %{field} has less than %{cant} letters
-      delete:            Delete
+      delete:            Delete comment
       delete_result:
         success:         Delete comment
         fail:            You are not allowed to delete comments

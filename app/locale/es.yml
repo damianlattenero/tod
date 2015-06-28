@@ -78,7 +78,7 @@ es:
         success:         Comentario enviado correctamente
         error:           No se ha podido enviar el comentario
         field_too_short: El campo %{field} tiene menos de %{cant} letras
-      delete:            Eliminar
+      delete:            Eliminar comentario
       delete_result:
         success:         Comentario eliminado
         fail:            No tienes permisos para eliminar comentarios
