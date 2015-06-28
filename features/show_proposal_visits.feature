@@ -9,7 +9,7 @@ Scenario:
   Then should see proposal with "3" visits
   When user enters proposal details
   Then should see proposal with "4" visits
-
+@wip
 Scenario: 
   When user visits proposal list
   Then should see proposal with "3" visits
