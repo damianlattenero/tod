@@ -54,4 +54,21 @@ When(/^regular user visits the proposals list$/) do
   click_link('Iniciar sesión con GitHub')
 end
 
+When(/^revisor user visits the proposals list$/) do
+  visit '/'
+  click_link('Cerrar sesión')
+  @revisor       = User.new
+  @revisor.name  = 'Revisor'
+  @revisor.email = 'revisor@mail.com'
+  @revisor.role  = Role.new :revisor
+  @revisor.uid  = 2
+  @revisor.save!
+  logger.debug "CREATED admin with UID=#{@revisor.uid}"
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+                                                                  :provider => 'github',
+                                                                  :uid => @revisor.uid
+                                                              })
+  click_link('Iniciar sesión con GitHub')
+end
 
