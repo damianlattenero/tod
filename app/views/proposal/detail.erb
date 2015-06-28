@@ -94,7 +94,6 @@
         </fieldset>
     <% end %>
   </div>
-
   <hr>
   <% for comment in @comments %>
       <div class="media">
@@ -110,7 +109,7 @@
         <%= csrf_token_field %>
         <input type="hidden" id="proposal_id" name="delete[proposal_id]" value= <%= @proposal_detail.id%> />
         <input type="hidden" id="comment_id" name="delete[comment_id]" value=<%= comment.id%> />
-        <input type="hidden" id="user_role" name="delete[user_role]" value=<%= @user.role%> />
+        <input type="hidden" id="user_role" name="delete[user_uis]" value=<%= session[:user]%> />
         <div class="form-actions">
         <input id='delete-<%=comment.id%>' type="submit" class="btn btn-primary" value= <%= t('proposal.detail.delete')%> />
         </div>

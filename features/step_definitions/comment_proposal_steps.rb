@@ -27,8 +27,8 @@ When(/^submitted$/) do
 end
 
 Then(/^the comment is added and listed on the proposal view$/) do
-  page.should have_content("Body")
-  page.should have_content("Hache")
+  page.should have_content(@author)
+  page.should have_content(@body)
 end
 
 Then(/^I should see comment from "(.*?)" on top of comment from "(.*?)"$/) do |comment1, comment2|

@@ -122,11 +122,10 @@ Tod::App.controllers :proposal do
   end
 
   post :delete do
-
     proposal_id = params[:delete][:proposal_id]
     comment_id = params[:delete][:comment_id]
-    user_role = params[:delete][:user_role]
-    if user_role == "admin"
+    user= User.first(:uid => params[:delete][:user_uis])
+    if  !user.nil? && user.role.is_admin?
       Comment.all(:id => comment_id).destroy
       flash[:success]= t('proposal.detail.delete_result.success')
     else
