@@ -14,8 +14,9 @@ When(/^user visits proposal list$/) do
   expect(page).to have_content 'Lista de Propuestas'
 end
 
-Then(/^should see proposal with "(.*?)" visits$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^should see proposal with "(.*?)" visits$/) do |visits_num|
+  table_row = find('tr', text: @proposal.title)
+  expect(table_row).to have_content visits_num
 end
 
 When(/^user enters proposal details$/) do
