@@ -33,7 +33,7 @@ Tod::App.controllers :auth do
 
 
   get :log_out do
-    session[:user] = nil
+    session.clear
     redirect url('/')
   end
 end
