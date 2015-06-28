@@ -28,7 +28,7 @@ And(/^click on the delete button of comment "(.*?)"$/) do |comentario|
 end
 
 Then(/^it should display "(.*?)"$/) do |msj|
-  page.should have_content(msj)
+   page.should have_content(msj)
 end
 
 And(/^comment "(.*?)" should not appear$/) do |comment|
