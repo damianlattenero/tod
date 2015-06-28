@@ -65,8 +65,10 @@ en:
         tags:       Tags
         type:       Type
         audience:   Audience
+        visits:     Visitas
       empty: "Still no proposals, you can add one if you want."
     detail:
+      visits:            "Visitas: "
       tags:              "Tags: %{tags}"
       send_by:           "Send by: %{author}"
       comment_box_title: "Leave a comment:"

@@ -65,9 +65,10 @@ es:
         tags:       Etiquetas
         type:       Tipo
         audience:   Audiencia
-
+        visits:     Visitas
       empty: "Aun no hay propuestas, puedes agregar una si deseas"
     detail:
+      visits:            "Visitas: "
       tags:              "Etiquetas: %{tags}"
       send_by:           "Enviada por: %{author}"
       comment_box_title: "Deja un comentario:"
