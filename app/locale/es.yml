@@ -15,7 +15,10 @@ es:
   home:
     welcome_message: "Bienvenido a Tod, esperamos esta herramienta te sea de utilidad para organizar las exponencias de tus conferencias. Proveemos de un sistema de fácil manejo teniendo en mente que el público mismo pueda dar feedback de cuáles son los temas que más le llaman la atención y más desean ir a ver en tu conferencia. Diviértete!"
   user:
-    log_in:  Iniciar sesión con GitHub
+    log_in:
+      sign_in:  Iniciar sesión
+      github:   Iniciar sesión con GitHub
+      linkedin: Iniciar sesión con Linkedin
     log_out: Cerrar sesión
     logged:  Conectado como
   admin:
