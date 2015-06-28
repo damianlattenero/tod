@@ -12,6 +12,7 @@
         <th><%= t('proposal.list.table.type')%></th>
         <th><%= t('proposal.list.table.audience')%></th>
         <th><%= t('proposal.list.table.tags')%></th>
+        <th><%= t('proposal.list.table.visits')%></th>
       </tr>
 
       <% @proposals.each do |proposal| %>
@@ -21,7 +22,7 @@
           <td><%= proposal.type %></td>
           <td><%= proposal.audience %></td>
           <td><%= proposal.tag_list * " "%></td>
-
+          <td><%= proposal.visits%></td>
         </tr>
       <% end %>
 
