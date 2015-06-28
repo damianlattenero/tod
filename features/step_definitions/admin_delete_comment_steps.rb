@@ -37,8 +37,6 @@ And(/^comment "(.*?)" should not appear$/) do |comment|
 end
 
 When(/^regular user visits the proposals list$/) do
-  visit '/'
-  click_link('Cerrar sesión')
   @user       = User.new
   @user.name  = 'User'
   @user.email = 'user@mail.com'
@@ -46,17 +44,10 @@ When(/^regular user visits the proposals list$/) do
   @user.uid  = 2
   @user.save!
   logger.debug "CREATED admin with UID=#{@user.uid}"
-  OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-                                                                  :provider => 'github',
-                                                                  :uid => @user.uid
-                                                              })
-  click_link('Iniciar sesión con GitHub')
+  create_new_session(@user.uid)
 end
 
 When(/^revisor user visits the proposals list$/) do
-  visit '/'
-  click_link('Cerrar sesión')
   @revisor       = User.new
   @revisor.name  = 'Revisor'
   @revisor.email = 'revisor@mail.com'
@@ -64,11 +55,16 @@ When(/^revisor user visits the proposals list$/) do
   @revisor.uid  = 2
   @revisor.save!
   logger.debug "CREATED admin with UID=#{@revisor.uid}"
+  create_new_session(@revisor.uid)
+end
+
+def create_new_session(uid)
+  visit '/auth/log_out'
   OmniAuth.config.test_mode = true
   OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
                                                                   :provider => 'github',
-                                                                  :uid => @revisor.uid
+                                                                  :uid => uid
                                                               })
+  visit '/auth/sign_in'
   click_link('Iniciar sesión con GitHub')
 end
-

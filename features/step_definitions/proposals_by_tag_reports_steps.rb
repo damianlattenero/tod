@@ -1,7 +1,7 @@
 # encoding: UTF-8
 
 Given(/^a revisor user$/) do
-  visit '/'
+  visit '/auth/sign_in'
   @revisor= User.new
   @revisor.name= 'Un nombre'
   @revisor.email= 'revisor@tod.com'

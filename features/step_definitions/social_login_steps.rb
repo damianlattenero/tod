@@ -13,7 +13,7 @@ Given(/^a user with a valid (linkedin|github) user$/) do |provider|
 end
 
 When(/^visits the login page$/) do
-  visit '/'
+  visit '/auth/sign_in'
 end
 
 And(/^selects login with (linkedin|github)$/) do |provider|

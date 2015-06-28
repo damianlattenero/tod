@@ -33,14 +33,19 @@
           <% end %>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to t('user.log_out'), url_for(:auth, :log_out) %></li>
+            <li>
+              <p class="navbar-text">
+                <%=@user.name%>
+                <a href="<%= url_for(:auth, :log_out)%>" title="<%=t('user.log_out')%>">
+                  <i class="glyphicon glyphicon-log-out"></i>
+                </a>
+              </p>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><p class="navbar-text"><%= t('user.logged') + ': ' + @user.name %></p></li>
-          </ul>
+
       <% else %>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to t('user.log_in.sign_in'), url_for(:home, :index) %></li>
+            <li><%= link_to t('user.log_in.sign_in'), url_for(:auth, :sign_in) %></li>
           </ul>
       <% end %>
 

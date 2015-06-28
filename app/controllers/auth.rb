@@ -27,8 +27,13 @@ Tod::App.controllers :auth do
     redirect url('/auth/linkedin')
   end
 
+  get :sign_in do
+    render 'auth/sign_in'
+  end
+
+
   get :log_out do
-    session[:user] = nil
+    session.clear
     redirect url('/')
   end
 end
