@@ -6,6 +6,7 @@
           <%= @proposal_detail.title %>
         </h2>
       </div>
+        <p> <%= t('proposal.detail.visits') + @proposal_detail.visits.to_s %> </p>  
     </div>
     <hr>
     <p><%= @proposal_detail.description %></p>
