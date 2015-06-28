@@ -28,12 +28,12 @@ Tod::App.controllers :proposal do
     @proposal             = Proposal.new
     @proposal.title       = title
     @proposal.description = description
-    @proposal.author      =  author
+    @proposal.author      = author
     @proposal.date        = Time.now
     @proposal.email       = mail
     @proposal.tag_list    = params[:proposal][:tags_list].downcase
-    @proposal.type        =  ProposalSessionType.new(type)
-    @proposal.audience    =  Audience.new(audience)
+    @proposal.type        = ProposalSessionType.new(type)
+    @proposal.audience    = Audience.new(audience)
 
 
 
@@ -43,9 +43,9 @@ Tod::App.controllers :proposal do
 
 
     if @proposal.save
-      user =User.new
-      user.name= author
-      user.email= mail
+      user       = User.new
+      user.name  = author
+      user.email = mail
       user.save!
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
@@ -127,7 +127,7 @@ Tod::App.controllers :proposal do
     @proposal_detail = Proposal.get proposal_id
 
     if !@proposal_detail.evaluated_by? session[:user].name
-      @evaluation      = Evaluation.new
+      @evaluation = Evaluation.new
 
       render 'proposal/evaluation'
     else
@@ -142,7 +142,7 @@ Tod::App.controllers :proposal do
     body        = params[:evaluation][:body]
     proposal_id = params[:evaluation][:proposal_id]
 
-    @evaluation = Evaluation.new
+    @evaluation             = Evaluation.new
     @evaluation.evaluator   = session[:user].name
     @evaluation.opinion     = EvaluationOpinion.new(opinion.to_sym)
     @evaluation.comment     = body
