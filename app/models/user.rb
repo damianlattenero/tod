@@ -38,5 +38,8 @@ class User
     self.update!(:role => Role.new(:admin) )
   end
 
+  def to_s
+    @uid
+  end
 end
 

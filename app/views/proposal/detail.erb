@@ -93,10 +93,14 @@
         </fieldset>
     <% end %>
   </div>
-
   <hr>
+
   <% for comment in @comments %>
-      <div class="media">
+      <div class="row">
+
+      <div class="col-xs-6">
+
+        <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
             <%= comment.author %>
@@ -105,6 +109,20 @@
           <%= comment.body %>
         </div>
       </div>
-  <% end %>
+        </div>
+        <div class="col-xs-6">
+          <form method="POST" action="/proposal/delete" >
+            <%= csrf_token_field %>
+            <input type="hidden" id="proposal_id" name="delete[proposal_id]" value= <%= @proposal_detail.id%> />
+            <input type="hidden" id="comment_id" name="delete[comment_id]" value=<%= comment.id%> />
+            <input type="hidden" id="user_role" name="delete[user_uis]" value=<%= session[:user]%> />
+            <button id='delete-<%=comment.id%>' type="submit" class=" btn-lg btn-link  pull-right">
+              <i class="fa fa-trash"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      </br>
+    <% end %>
 </div>
 </div>

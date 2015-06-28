@@ -20,7 +20,7 @@ Then(/^I should see no results$/) do
 end
 
 Then(/^I should see (\d+) results$/) do |amount|
-  page.should have_css("tbody#results tr", :count=>amount)
+  page.should have_css("tbody#results tr",:count=> amount)
 end
 
 Then(/^result should be proposal with title "(.*?)"$/) do |title|
