@@ -10,7 +10,8 @@ Given(/^a proposal with "(.*?)" visits$/) do |visits_num|
 end
 
 When(/^user visits proposal list$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/proposal/list'
+  expect(page).to have_content 'Lista de Propuestas'
 end
 
 Then(/^should see proposal with "(.*?)" visits$/) do |arg1|
