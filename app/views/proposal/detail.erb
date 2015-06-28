@@ -22,20 +22,20 @@
         <% if @user.role.is_admin? %>
             <% if @has_enough_evaluations %>
                 <div class="@{fa-css-prefix}-align-left">
-                <button id="proposal-send-email-<%= @proposal_detail.id %>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
-                  <%= t('proposal.email.notify_result') %>
-                </button>
+                  <button id="proposal-send-email-<%= @proposal_detail.id %>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
+                    <%= t('proposal.email.notify_result') %>
+                  </button>
                 </div>
             <% end %>
-        <% end  %>
+        <% end %>
 
         <% if @user.role.is_revisor? %>
             <hr>
             <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluation, :proposal_id => @proposal_detail.id) %>">
-              <%= t('proposal.evaluation.eval_button')%>
+              <%= t('proposal.evaluation.eval_button') %>
             </a>
             <a class="btn btn-large btn-primary" href="<%= url(:proposal, :view_evaluations, :proposal_id => @proposal_detail.id) %>">
-              <%= t('proposal.evaluation.view_button')%>
+              <%= t('proposal.evaluation.view_button') %>
             </a>
         <% end %>
 
@@ -70,7 +70,7 @@
                                    placeholder: t('proposal.detail.form.name_placeholder')
                   %>
                 </div>
-            <% end # session[:user] %>
+            <% end # session[:user]   %>
           </div>
           <div class="form-group">
             <%= f.label t('proposal.detail.form.comment_tag'),
@@ -95,26 +95,36 @@
     <% end %>
   </div>
   <hr>
+
   <% for comment in @comments %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= comment.author %>
-            <small><%= comment.date.strftime('%c') %></small>
-          </h4>
-          <%= comment.body %>
+      <div class="row form-group">
+        <div class="col-xs-6">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%= comment.author %>
+                <small><%= comment.date.strftime('%c') %></small>
+              </h4>
+              <%= comment.body %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-6">
+          <form method="POST" action="/proposal/delete">
+            <%= csrf_token_field %>
+            <input type="hidden" id="proposal_id" name="delete[proposal_id]" value=<%= @proposal_detail.id %>/>
+            <input type="hidden" id="comment_id" name="delete[comment_id]" value=<%= comment.id %>/>
+            <input type="hidden" id="user_role" name="delete[user_uis]" value=<%= session[:user] %>/>
+            <button id='delete-<%= comment.id %>' type="submit" class="btn  pull-right">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+          </form>
         </div>
       </div>
-      <form method="POST" action="/proposal/delete" >
-        <%= csrf_token_field %>
-        <input type="hidden" id="proposal_id" name="delete[proposal_id]" value= <%= @proposal_detail.id%> />
-        <input type="hidden" id="comment_id" name="delete[comment_id]" value=<%= comment.id%> />
-        <input type="hidden" id="user_role" name="delete[user_uis]" value=<%= session[:user]%> />
-        <div class="form-actions">
-        <input id='delete-<%=comment.id%>' type="submit" class="btn btn-primary" value= <%= t('proposal.detail.delete')%> />
-        </div>
-      </form>
+      </br>
+  <% end %>
 
-<% end %>
+
 </div>
 </div>
