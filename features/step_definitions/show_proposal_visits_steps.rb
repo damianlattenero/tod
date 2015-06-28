@@ -19,8 +19,8 @@ Then(/^should see proposal listed with "(.*?)" visits$/) do |visits_num|
   expect(table_row).to have_content visits_num
 end
 
-Then(/^should see proposal with "(.*?)" visits$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^should see proposal with "(.*?)" visits$/) do |visits_num|
+  expect(page).to have_content 'Visitas: ' + visits_num.to_s
 end
 
 When(/^user enters proposal details$/) do
