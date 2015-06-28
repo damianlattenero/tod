@@ -20,5 +20,5 @@ Then(/^should see proposal with "(.*?)" visits$/) do |visits_num|
 end
 
 When(/^user enters proposal details$/) do
-  pending # express the regexp above with the code you wish you had
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
 end
