@@ -1,6 +1,6 @@
 # encoding: UTF-8
 Given(/^an admin user$/) do
-  visit '/'
+  visit '/auth/sign_in'
   @admin       = User.new
   @admin.name  = 'Admin'
   @admin.email = 'admin@mail.com'
