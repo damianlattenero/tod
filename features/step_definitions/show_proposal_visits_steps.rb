@@ -20,7 +20,8 @@ Then(/^should see proposal listed with "(.*?)" visits$/) do |visits_num|
 end
 
 Then(/^should see proposal with "(.*?)" visits$/) do |visits_num|
-  expect(page).to have_content 'Visitas: ' + visits_num.to_s
+  visits_value = find('#visits')
+  expect(visits_value).to have_content visits_num.to_s
 end
 
 When(/^user enters proposal details$/) do
