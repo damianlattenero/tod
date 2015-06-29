@@ -36,9 +36,9 @@ gem 'rspec', :group => 'test'
 gem 'rack-test', :require => 'rack/test', :group => 'test'
 gem 'guard'
 gem 'guard-rspec'
-gem 'cucumber'
-gem 'capybara'
-gem 'capybara-webkit'
+gem 'cucumber', :group => 'test'
+gem 'capybara', :group => 'test'
+gem 'capybara-webkit', :group => 'test'
 
 # Heroku
 gem 'dm-postgres-adapter', :group => :production
