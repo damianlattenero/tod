@@ -1,4 +1,5 @@
 require 'iconv'
+require 'json'
 
 Tod::App.controllers :proposal do
   get :new do
@@ -90,9 +91,9 @@ Tod::App.controllers :proposal do
           "Results for: #{proposal.title}",
           Evaluation.all(:proposal_id => params[:proposal_id]).map { |e| e.to_paragraph + '\n' }
       )
-    rescue
+    rescue Exception => ex
       status 500
-      body '{"success":false}'
+      body({:success => false, :message=>ex.message, :backtrace=>ex.backtrace}.to_json)
     end
   end
 
