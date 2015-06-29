@@ -12,7 +12,7 @@ Given(/^a user with mail "(.*?)"$/) do |mail|
           :uid => @user.uid
       }
   )
-  visit '/'
+  visit '/auth/sign_in'
 end
 
 When(/^logging in$/) do
