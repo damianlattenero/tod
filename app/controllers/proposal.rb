@@ -28,23 +28,21 @@ Tod::App.controllers :proposal do
     @proposal = Proposal.new
     @proposal.title = title
     @proposal.description = description
-    @proposal.author = author
-    @proposal.date = Time.now
-    @proposal.email = mail
-    @proposal.tag_list = params[:proposal][:tags_list].downcase
-    @proposal.type = ProposalSessionType.new(type)
-    @proposal.audience = Audience.new(audience)
-
+    @proposal.author      = author
+    @proposal.date        = Time.now
+    @proposal.email       = mail
+    @proposal.tag_list    = params[:proposal][:tags_list].downcase
+    @proposal.type        = ProposalSessionType.new(type)
+    @proposal.audience    = Audience.new(audience)
 
     if Proposal.first(:title => title)
       @proposal.append_author_to_title
     end
 
-
     if @proposal.save
-      user =User.new
-      user.name= author
-      user.email= mail
+      user       = User.new
+      user.name  = author
+      user.email = mail
       user.save!
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
@@ -76,6 +74,10 @@ Tod::App.controllers :proposal do
     @comment = Comment.new
     @evaluation = Evaluation.new
     @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first_or_create.reviews_per_proposal.to_i
+
+    current_visits = @proposal_detail.visits
+    @proposal_detail.update(:visits => current_visits +1)
+
     render 'proposal/detail'
   end
 
@@ -154,10 +156,10 @@ Tod::App.controllers :proposal do
     body = params[:evaluation][:body]
     proposal_id = params[:evaluation][:proposal_id]
 
-    @evaluation = Evaluation.new
-    @evaluation.evaluator = session[:user].name
-    @evaluation.opinion = EvaluationOpinion.new(opinion.to_sym)
-    @evaluation.comment = body
+    @evaluation             = Evaluation.new
+    @evaluation.evaluator   = session[:user].name
+    @evaluation.opinion     = EvaluationOpinion.new(opinion.to_sym)
+    @evaluation.comment     = body
     @evaluation.proposal_id = proposal_id
 
     if @evaluation.save

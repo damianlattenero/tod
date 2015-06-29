@@ -10,6 +10,7 @@ describe Proposal do
     it { should respond_to( :comments) }
     it { should respond_to( :tags) }
     it { should respond_to( :evaluations) }
+    it { should respond_to( :visits) }
   end
 
   describe 'initialize' do
