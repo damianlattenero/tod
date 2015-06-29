@@ -89,7 +89,7 @@ Tod::App.controllers :proposal do
       TodMailer.send_mail(
           proposal.email,
           "Results for: #{proposal.title}",
-          Evaluation.all(:proposal_id => params[:proposal_id]).map { |e| e.to_paragraph + '\n' }
+          Evaluation.all(:proposal_id => params[:proposal_id]).map { |e| e.to_paragraph}
       )
     rescue Exception => ex
       status 500

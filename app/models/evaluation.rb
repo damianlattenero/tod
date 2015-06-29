@@ -19,7 +19,8 @@ class Evaluation
   end
 
   def to_paragraph
-    "#{self.opinion}: #{self.comment}"
+    "#{self.opinion}: #{self.comment}
+    "
   end
 
 end
