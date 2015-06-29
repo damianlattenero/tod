@@ -6,7 +6,7 @@
 # DataMapper.setup(:default, 'postgres://user:password@localhost/the_database_name')
 #
 # A Sqlite3 connection
-DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "tod_development.db"))
+# DataMapper.setup(:default, "sqlite3://" + Padrino.root('db', "tod_development.db"))
 #
 # # Setup DataMapper using config/database.yml
 # DataMapper.setup(:default, YAML.load_file(Padrino.root('config/database.yml'))[RACK_ENV])
