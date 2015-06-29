@@ -1,1 +1,1 @@
-web: bundle exec padrino start -d -e production -p $PORT -a thin
+web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
