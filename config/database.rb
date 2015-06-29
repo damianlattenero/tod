@@ -38,8 +38,3 @@ case Padrino.env
   when :production  then DataMapper.setup(:default, ENV['DATABASE_URL'])
   when :test        then DataMapper.setup(:default, "sqlite3::memory:")
 end
-
-
-require  'dm-migrations'
-DataMapper.auto_migrate!
-DataMapper.auto_upgrade!
