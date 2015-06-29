@@ -8,7 +8,7 @@ gem 'rake'
 # Component requirements
 gem 'data_mapper'
 gem 'erubis', '~> 2.7.0'
-gem 'dm-sqlite-adapter'
+gem 'dm-sqlite-adapter', :group => :test
 gem 'dm-validations'
 gem 'dm-timestamps'
 gem 'dm-migrations'
