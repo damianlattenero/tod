@@ -78,6 +78,9 @@ Tod::App.controllers :proposal do
     @evaluation             = Evaluation.new
     @has_enough_evaluations = Evaluation.count(:proposal_id => proposal_id).to_i >= Conference.first_or_create.reviews_per_proposal.to_i
 
+    current_visits = @proposal_detail.visits
+    @proposal_detail.update(:visits => current_visits +1)
+    
     render 'proposal/detail'
   end
 
