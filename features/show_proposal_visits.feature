@@ -9,10 +9,10 @@ Scenario: regular user increments proposal detail visits
   Then should see proposal listed with "3" visits
   When user enters proposal details
   Then should see proposal with "4" visits
-@wip
+
 Scenario: regular user increments proposal list visits
   When user visits proposal list
   Then should see proposal listed with "3" visits
   When user enters proposal details
   And  user visits proposal list
-  Then should see proposal with "4" visits
+  Then should see proposal listed with "4" visits
