@@ -41,4 +41,4 @@ gem 'capybara', :group => 'test'
 gem 'capybara-webkit', :group => 'test'
 
 # Heroku
-gem 'dm-postgres-adapter', :group => :production
+gem 'dm-postgres-adapter', :group => 'production'
