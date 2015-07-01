@@ -57,6 +57,9 @@ When(/^revisor user visits the proposals list$/) do
   logger.debug "CREATED admin with UID=#{@revisor.uid}"
   create_new_session(@revisor.uid)
 end
+Then(/^it not should display delete button$/) do
+  expect(page).not_to have_content("#delete-#{@comment.id}")
+end
 
 def create_new_session(uid)
   visit '/auth/log_out'
