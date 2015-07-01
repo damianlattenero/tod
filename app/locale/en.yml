@@ -68,7 +68,7 @@ en:
         tags:       Tags
         type:       Type
         audience:   Audience
-        visits:     Visitas
+        visits:     Views
       empty: "Still no proposals, you can add one if you want."
     detail:
       visits:            "Visitas: "
