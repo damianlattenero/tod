@@ -1,9 +1,9 @@
 <div class="container page-header">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li><%= link_to t('nav.home_link'), url_for(:home, :index) %></li>
-      </ul>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><%= t('nav.home_link')%></a>
+      </div>
       <ul class="nav navbar-nav">
         <li><%= link_to t('nav.new_proposal'), url_for(:proposal, :new) %></li>
       </ul>
