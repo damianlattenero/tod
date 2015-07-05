@@ -1,6 +1,6 @@
 
 function toastError(){
-    toastr.error('Acción no completada', 'Error')
+    toastr.error(I18n["email"]["email_not_delivered"], I18n["evaluation"]["evaluation_result_email_error"])
 }
 
 function changeRevisorRole(uid, url, successCallback){
@@ -14,13 +14,13 @@ function changeRevisorRole(uid, url, successCallback){
 
 function giveRevisorRole(uid){
     changeRevisorRole(uid, '/admin/asign_role', function(){
-        toastr.success('El usuario es ahora revisor', 'Rol Modificado')
+        toastr.success(I18n["roles"]["role_is_now_revisor"],I18n["roles"]["role_modified"])
     });
 }
 
 function removeRevisorRole(uid){
     changeRevisorRole(uid, '/admin/remove_role', function(){
-        toastr.success('El el revisor es ahora un usuario regular', 'Rol Modificado')
+        toastr.success(I18n["roles"]["role_is_now_regular"],I18n["roles"]["role_modified"])
     });
 }
 
@@ -44,7 +44,7 @@ function onSendRevisionsMail(proposalId){
         data:'proposal_id='+proposalId,
         success:  function(){
             //proposalButton.hide(); //in case we want to send only one email
-            toastr.success('Mail enviado correctamente', 'Resultado Enviado')
+            toastr.success(I18n["email"]["email_sent"], I18n["evaluation"]["evaluation_result_sent"])
         },
         error: [toastError, function(){
             proposalButton.prop('disabled', false);

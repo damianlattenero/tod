@@ -318,3 +318,6 @@ DEPENDENCIES
   uglifier (= 2.1.1)
   unicorn
   yui-compressor (= 0.9.6)
+
+BUNDLED WITH
+   1.10.3

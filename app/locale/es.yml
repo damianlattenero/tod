@@ -23,10 +23,13 @@ es:
     logged:  Conectado como
   admin:
     roles:
-      title:      Asignación de Roles
-      user_name:  Usuario
-      is_revisor: Es Revisor
-      empty:      No hay usuarios registrados
+      title:               Asignación de Roles
+      user_name:           Usuario
+      is_revisor:          Es Revisor
+      empty:               No hay usuarios registrados
+      role_modified:       Rol Modificado
+      role_is_now_revisor: El usuario es ahora revisor
+      role_is_now_regular: El el revisor es ahora un usuario regular
     conference:
       title:                  Configuración de Conferencia
       revisions_per_proposal: Revisiones por propuesta
@@ -94,6 +97,8 @@ es:
       eval_msg:    Ya has evaluado esta propuesta
       view_button: Ver Evaluaciones
       view_msg:    Aún no has evaluado esta propuesta
+      evaluation_result_sent:        Resultado Enviado
+      evaluation_result_email_error: Result not delivered
       form:
         title:               "Evaluar Propuesta: %{title}"
         opinion_box_tag:     "A continuación, seleccione un dictamen y deje un comentario sobre el dictamen:"
@@ -118,6 +123,8 @@ es:
       mail_error:    "Email ingresado incorrectamente"
     email:
       notify_result: Notificar resultado
+      email_sent:    Mail enviado correctamente
+      email_not_delivered: Acción no completada
   report:
      title:                Reportes
      text:                 Búsqueda  de propuestas por tag
