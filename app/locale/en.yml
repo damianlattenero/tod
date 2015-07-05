@@ -27,6 +27,9 @@ en:
       user_name:  User
       is_revisor: Is Revisor
       empty:      No registered users
+      role_modified:       Role Modified
+      role_is_now_revisor: User is now revisor
+      role_is_now_regular: Revisor is now regular user
     conference:
       title:                  Conference Settings
       revisions_per_proposal: Revisions per proposal
@@ -94,6 +97,8 @@ en:
       eval_msg:    You have already evaluated this proposal
       view_button: View Evaluations
       view_msg:    You have not evaluated this proposal yet
+      evaluation_result_sent: Results sent
+      evaluation_result_email_error: Action not completed
       form:
         title:               "Evaluate Proposal: %{title}"
         opinion_box_tag:     "Please, select your opinion and leave a comment:"
@@ -118,6 +123,8 @@ en:
       mail_error:    "mail misspelled"
     email:
       notify_result: Notify result
+      email_sent:    Email sent successfully
+      email_not_delivered: Email could not be sent
   report:
      title:                Reports
      text:                 Search proposed by tag
