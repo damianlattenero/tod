@@ -1,4 +1,5 @@
 # encoding: UTF-8
+
 Given(/^an admin user$/) do
   visit '/auth/sign_in'
   @admin       = User.new

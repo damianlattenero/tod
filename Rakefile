@@ -14,7 +14,10 @@ if ['development', 'test'].include?(RACK_ENV)
   require 'cucumber/rake/task'
 
   RSpec::Core::RakeTask.new
-  Cucumber::Rake::Task.new
+
+  Cucumber::Rake::Task.new(:cucumber) do |task|
+    task.cucumber_opts = ['--tags ~@wip']
+  end
 
   task :default => [:spec, :cucumber]
 
