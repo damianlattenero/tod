@@ -1,3 +1,4 @@
+# encoding: UTF-8
 Given(/^proposal detail page$/) do
   @proposal = Proposal.new
   @proposal.title = "Proposal test"
@@ -11,23 +12,35 @@ Given(/^proposal detail page$/) do
   visit "/proposal/detail?proposal_id=#{@id}"
 end
 
-
 When(/^clicks on "(.*?)"$/) do |boton|
-  click_button(boton)
+  click_link boton
+  print "hola"
 end
+
+
+
+
 
 Given(/^user is logged in$/) do
 
-  @mail = 'damianlattenero@gmail.com'
-  @user = User.new_user @mail
-  @user.name = 'Damian Lattenero'
+  @user       = User.new
+  @user.name  = 'User'
+  @user.email = 'user@mail.com'
+  @user.role  = Role.new :user
+  @user.uid  = 2
   @user.save!
+  logger.debug "CREATED admin with UID=#{@user.uid}"
+  create_new_session(@user.uid)
+end
+
+def create_new_session(uid)
+  visit '/auth/log_out'
   OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(
-      {
-          :provider => :github,
-          :uid => @user.uid
-      }
-  )
+  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+                                                                  :provider => 'github',
+                                                                  :uid => uid
+                                                              })
+  visit '/auth/sign_in'
+  click_link('github-login')
 end
 

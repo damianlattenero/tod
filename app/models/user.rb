@@ -13,6 +13,8 @@ class User
   property :uid, String
   property :provider, String
 
+  has n,   :user_votes
+
   def self.find_uid(uid)
     User.first(:uid => uid)
   end

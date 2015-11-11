@@ -116,6 +116,8 @@ es:
           words_enough: "El campo %{field} tiene menos de %{cant} palabras"
       list:
         title: "Evaluaciones: %{title}"
+    rating:
+      success_msg: "Gracias por su voto"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados

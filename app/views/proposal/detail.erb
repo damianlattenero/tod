@@ -7,22 +7,38 @@
           <%= @proposal_detail.title %>
         </h2>
         <% if @user && @user.role.is_admin? %>
-          <% if @has_enough_evaluations %>
-            <div class="col-md-2" style="float: right; margin-right: 20px">
-              <button id="proposal-send-email-<%= @proposal_detail.id %>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
-                <%= t('proposal.email.notify_result') %>
-              </button>
-            </div>
-          <% end %>
+            <% if @has_enough_evaluations %>
+                <div class="col-md-2" style="float: right; margin-right: 20px">
+                  <button id="proposal-send-email-<%= @proposal_detail.id %>" type="button" class="btn btn-danger" onclick="onSendRevisionsMail(<%=@proposal_detail.id%>)">
+                    <%= t('proposal.email.notify_result') %>
+                  </button>
+                </div>
+            <% end %>
         <% end %>
       </div>
     </div>
     <br>
 
     <div class="container">
-      <div class="col-md-11" style="margin: left">
+      <div class="col-md-9" style="margin: left">
         <p><%= @proposal_detail.description %></p>
       </div>
+
+      <% if @user %>
+          <div class="col-md-1" style="margin: right">
+            <a id="Positive rating button" class="btn btn-sm" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => 1) %>">
+              <span id="visits" class="glyphicon glyphicon-thumbs-up"></span>
+            </a>
+            <br>
+            <%= @positive_votes %>
+          </div>
+          <!--div class="col-md-1" style="margin: right">
+            <a class="btn btn-sm" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => -1) %>">
+            <span id="visits" class="glyphicon glyphicon-thumbs-down"></span>
+            </a>
+          </div-->
+      <% end %>
+
       <div class="col-md-1" style="margin: right">
         <span id="visits" class="glyphicon glyphicon-eye-open">
           <%= @proposal_detail.visits.to_s %> </span>
@@ -39,14 +55,14 @@
     <hr>
 
     <% if @user && @user.role.is_revisor? %>
-      <div>
-        <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluation, :proposal_id => @proposal_detail.id) %>">
-          <%= t('proposal.evaluation.eval_button')%>
-        </a>
-        <a class="btn btn-large btn-primary" href="<%= url(:proposal, :view_evaluations, :proposal_id => @proposal_detail.id) %>">
-          <%= t('proposal.evaluation.view_button')%>
-        </a>
-      </div>
+        <div>
+          <a class="btn btn-large btn-primary" href="<%= url(:proposal, :evaluation, :proposal_id => @proposal_detail.id) %>">
+            <%= t('proposal.evaluation.eval_button')%>
+          </a>
+          <a class="btn btn-large btn-primary" href="<%= url(:proposal, :view_evaluations, :proposal_id => @proposal_detail.id) %>">
+            <%= t('proposal.evaluation.view_button')%>
+          </a>
+        </div>
         <hr>
     <% end %>
   </div>
@@ -103,35 +119,35 @@
   </div>
 
   <% for comment in @comments %>
-    <div class="row">
-      <div class="col-xs-6">
-        <div class="media">
-          <div class="media-body">
-            <h4 class="media-heading">
-              <%= comment.author %>
-              <small><%= comment.date.strftime('%c') %></small>
-            </h4>
-            <%= comment.body %>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">
+                <%= comment.author %>
+                <small><%= comment.date.strftime('%c') %></small>
+              </h4>
+              <%= comment.body %>
+            </div>
           </div>
         </div>
+        <div class="col-xs-6">
+          <% if @user && @user.role.is_admin? %>
+              <form method="POST" action="/proposal/delete" >
+                <%= csrf_token_field %>
+                <input type="hidden" id="proposal_id" name="delete[proposal_id]" value= <%= @proposal_detail.id%> />
+                <input type="hidden" id="comment_id" name="delete[comment_id]" value=<%= comment.id%> />
+                <input type="hidden" id="user_role" name="delete[user_uis]" value=<%= session[:user]%> />
+                <button id='delete-<%=comment.id%>' type="submit" class=" btn-lg btn-link  pull-right">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </form>
+          <% end %>
+        </div>
       </div>
-      <div class="col-xs-6">
-        <% if @user && @user.role.is_admin? %>
-            <form method="POST" action="/proposal/delete" >
-              <%= csrf_token_field %>
-              <input type="hidden" id="proposal_id" name="delete[proposal_id]" value= <%= @proposal_detail.id%> />
-              <input type="hidden" id="comment_id" name="delete[comment_id]" value=<%= comment.id%> />
-              <input type="hidden" id="user_role" name="delete[user_uis]" value=<%= session[:user]%> />
-              <button id='delete-<%=comment.id%>' type="submit" class=" btn-lg btn-link  pull-right">
-                <i class="fa fa-trash"></i>
-              </button>
-            </form>
-        <% end %>
-      </div>
-    </div>
-    </br>
+      </br>
   <% end %>
 </div>
-  <script type="text/javascript">
-      window.I18n = <%= current_translations['proposal'].to_json.html_safe %> ;
-  </script>
+<script type="text/javascript">
+  window.I18n = <%= current_translations['proposal'].to_json.html_safe %> ;
+</script>

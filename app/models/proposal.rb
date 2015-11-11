@@ -4,6 +4,7 @@ require 'dm-tags'
 require_relative '../mappers/proposal_session_type_mapper'
 require_relative '../mappers/audience_mapper'
 require_relative '../models/audience'
+require_relative '../models/user_vote'
 
 class Proposal
   include DataMapper::Resource
@@ -21,6 +22,8 @@ class Proposal
 
   has n,   :comments
   has n,   :evaluations
+  has n,   :user_votes
+
   has_tags_on :tags
 
   def same_title?(a_proposal)

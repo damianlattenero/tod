@@ -79,6 +79,8 @@ Tod::App.controllers :proposal do
     current_visits = @proposal_detail.visits
     @proposal_detail.update(:visits => current_visits +1)
 
+    # @positive_votes = @proposal_detail.user_votes.select{|curr| curr.value == 1}.size
+
     render 'proposal/detail'
   end
 
@@ -193,4 +195,24 @@ Tod::App.controllers :proposal do
       render 'proposal/evaluation_list'
     end
   end
+
+  get :rating do
+
+    proposal_id = params[:proposal_id]
+    proposal_detail = Proposal.get proposal_id
+
+    user = User.find_uid session[:user].uid
+    value = params[:value].to_i
+
+    user_vote = UserVote.new( :user => user,
+                              :proposal => proposal_detail,
+                              :value => value)
+    user_vote.save()
+
+    flash[:success] = t('proposal.rating.success_msg')
+
+    redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
+
+  end
+
 end

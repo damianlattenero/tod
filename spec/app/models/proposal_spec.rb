@@ -1,4 +1,5 @@
 require_relative '../../../app/models/proposal'
+require_relative '../../../app/models/user'
 
 describe Proposal do
   describe 'model' do
@@ -11,6 +12,7 @@ describe Proposal do
     it { should respond_to( :tags) }
     it { should respond_to( :evaluations) }
     it { should respond_to( :visits) }
+    it { should respond_to( :user_votes) }
   end
 
   describe 'initialize' do
@@ -100,6 +102,5 @@ describe Proposal do
       expect(proposal.title).to eq 'A title - An author'
     end
   end
-
 end
 
