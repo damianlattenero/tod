@@ -8,7 +8,6 @@ Feature: rating
     When clicks on "Positive rating button"
     Then should see "Gracias por su voto"
 
-  @wip
   Scenario: Rate a proposal negatively
     When clicks on "Negative rating button"
     Then should see "Gracias por su voto"
