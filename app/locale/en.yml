@@ -118,6 +118,7 @@ en:
         title: "Evaluations: %{title}"
     rating:
       success_msg: "Thanks for your vote"
+      already_voted_msg: "Can't vote a proposal more than once"
     search:
       title: Search results
       empty: Results have not been found

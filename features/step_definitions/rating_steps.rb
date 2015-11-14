@@ -14,9 +14,11 @@ end
 
 When(/^clicks on "(.*?)"$/) do |boton|
   click_link boton
-  print "hola"
 end
 
+Given(/^user already voted the current proposal$/) do
+  click_link "Positive rating button"
+end
 
 
 

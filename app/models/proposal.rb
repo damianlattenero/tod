@@ -47,4 +47,20 @@ class Proposal
       evaluation.evaluator == username
     end
   end
+
+  def vote(user, value)
+    user_vote = UserVote.new(:user => user,
+                             :proposal => self,
+                             :value => value)
+    # user_vote.user = user
+    # user_vote.proposal = self
+    # user_vote.value = value
+    user_vote
+  end
+
+  def voted_by?(user)
+    return self.user_votes.any? do |vote|
+      vote.user == user
+    end
+  end
 end

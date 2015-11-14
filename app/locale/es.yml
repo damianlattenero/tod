@@ -118,6 +118,7 @@ es:
         title: "Evaluaciones: %{title}"
     rating:
       success_msg: "Gracias por su voto"
+      already_voted_msg: "No puede votar una propuesta mas de una vez"
     search:
       title: Resultados de búsqueda
       empty: No se han encontrado resultados

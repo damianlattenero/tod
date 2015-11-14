@@ -8,6 +8,4 @@ class UserVote
 
   belongs_to :user
   belongs_to :proposal
-
-
 end

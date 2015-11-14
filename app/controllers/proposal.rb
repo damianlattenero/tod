@@ -204,12 +204,15 @@ Tod::App.controllers :proposal do
     user = User.find_uid session[:user].uid
     value = params[:value].to_i
 
-    user_vote = UserVote.new( :user => user,
-                              :proposal => proposal_detail,
-                              :value => value)
-    user_vote.save()
 
-    flash[:success] = t('proposal.rating.success_msg')
+    if proposal_detail.voted_by? user
+      flash[:danger] = t('proposal.rating.already_voted_msg')
+    else
+      user_vote = proposal_detail.vote(user,value)
+      user_vote.save()
+
+      flash[:success] = t('proposal.rating.success_msg')
+    end
 
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
 
