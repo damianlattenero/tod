@@ -1,5 +1,5 @@
 # encoding: UTF-8
-
+require 'capybara-webkit'
 Given(/^an admin user$/) do
   visit '/auth/sign_in'
   @admin       = User.new

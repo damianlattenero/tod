@@ -1,8 +1,8 @@
 case Padrino.env
   when :development then begin
     TodMailer.config_mailgun(
-        key = 'key-8d24af78cd198587a39e7e1c0cee25b5',
-        sender = 'sandboxefb52827f90c4a2c88ad6776b1f97c2f'
+        key = 'key-b2393fc2d4e86509d7a78d1e2649772e',
+        sender = 'sandboxb17fa6d466794a3aa45d015b771a37f2'
     )
   end
   when :production  then begin
