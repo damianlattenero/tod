@@ -44,3 +44,5 @@ gem 'capybara-webkit', :group => 'test'
 gem 'dm-postgres-adapter', :group => :production
 gem 'unicorn', :group => :production
 
+gem 'debugger', :group => 'test'
+
