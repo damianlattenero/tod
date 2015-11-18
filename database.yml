@@ -12,5 +12,5 @@ production:
   username: nsgigzjzxvwiqk
   password: aZYNsS8Hzj0Kt1N05a9a7eR3An
   socket: /tmp/mysql.sock
-  host: 127.0.0.1     #defaults to 127.0.0.1
+  host: host=ec2-54-83-53-120.compute-1.amazonaws.com     #defaults to 127.0.0.1
   port: 5432
