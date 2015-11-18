@@ -3,11 +3,11 @@ Feature: Rating statistics
   Background:
     Given user is logged in
 
-  @wip
+#  @wip
   Scenario: A positive vote adds 1 to the total positive votes count
     Given a user creates a proposal
     When user votes a proposal positively
-    Then should see "1" in "votos positivos"
+    Then should see "1" positive vote
 
   @wip
   Scenario: A negative vote adds 1 to the total negative votes count

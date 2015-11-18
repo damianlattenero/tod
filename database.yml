@@ -2,4 +2,19 @@ development:
   adapter: postgresql
   host: localhost
   username: user
+<<<<<<< HEAD
   database: app-dev
+=======
+  database: app-dev
+
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: dohieigihodl3
+  username: nsgigzjzxvwiqk
+  password: aZYNsS8Hzj0Kt1N05a9a7eR3An
+  socket: /tmp/mysql.sock
+  host: host=ec2-54-83-53-120.compute-1.amazonaws.com     #defaults to 127.0.0.1
+  port: 5432
+>>>>>>> rating_statics

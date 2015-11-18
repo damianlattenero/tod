@@ -1,6 +1,7 @@
 require 'thor'
 require 'padrino-core/cli/rake'
 
+
 RACK_ENV = ENV['RACK_ENV'] ||= 'test' unless defined?(RACK_ENV)
 
 PadrinoTasks.use(:database)

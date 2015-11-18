@@ -9,6 +9,11 @@ When(/^user votes a proposal positively$/) do
   click_link "Positive rating button"
 end
 
+When(/^user votes a proposal negatively$/) do
+  click_link "Negative rating button"
+end
+
+
 Then(/^"([^"]*)" should be disabled$/) do |arg1|
   @btn = find_by_id('Positive rating button')
   expect(@btn[:class].include?("disabled")).to be_truthy
