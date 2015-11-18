@@ -65,7 +65,12 @@ class Proposal
     cantidad_de_votos_positivos = self.user_votes.select {|vote| vote.value == 1}.size
 
     regla_de_tres = cantidad_de_votos_positivos * 100
-    regla_de_tres_resultado = regla_de_tres / cantidad_de_votos
+
+    if cantidad_de_votos == 0
+      return "0%"
+    else
+      regla_de_tres_resultado = regla_de_tres / cantidad_de_votos
+    end
 
     regla_de_tres_resultado.to_s + "%"
   end
