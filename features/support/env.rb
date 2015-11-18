@@ -1,6 +1,4 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../config/boot")
-require 'active_support'
-require 'active_record'
 require 'data_mapper'
 require 'capybara/cucumber'
 require 'rspec'
