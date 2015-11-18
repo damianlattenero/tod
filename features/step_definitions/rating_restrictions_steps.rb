@@ -14,6 +14,14 @@ Then(/^"([^"]*)" should be disabled$/) do |arg1|
   expect(@btn[:class].include?("disabled")).to be_truthy
 end
 
+Then(/^only "([^"]*)" should be enabled$/) do |arg1|
+  @positive_btn = find_by_id('Positive rating button')
+  @negative_btn = find_by_id('Negative rating button')
+  expect(@positive_btn[:class].include?("disabled")).to be_falsey
+  expect(@negative_btn[:class].include?("disabled")).to be_truthy
+end
+
+
 def create_example_proposal()
   @proposal = Proposal.new
   @proposal.title = "Proposal test"

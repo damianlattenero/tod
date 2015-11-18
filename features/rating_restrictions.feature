@@ -10,7 +10,6 @@ Feature: Rating restrictions
 
 ## Se botón de voto realizado (positivo en este caso) se deshabilita
 
-  @wip
   Scenario: Let user modify its vote on a proposal
     Given a user creates a proposal
     And user votes a proposal positively
