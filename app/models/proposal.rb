@@ -63,4 +63,17 @@ class Proposal
       vote.user == user
     end
   end
+
+  def positively_voted_by?(user)
+    return self.user_votes.any? do |vote|
+      vote.user == user and vote.value == 1
+    end
+  end
+
+  def negatively_voted_by?(user)
+    return self.user_votes.any? do |vote|
+      vote.user == user and vote.value == -1
+    end
+  end
+
 end

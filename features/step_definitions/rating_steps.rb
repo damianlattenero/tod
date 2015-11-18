@@ -16,13 +16,6 @@ When(/^clicks on "(.*?)"$/) do |boton|
   click_link boton
 end
 
-Given(/^user already voted the current proposal$/) do
-  click_link "Positive rating button"
-end
-
-
-
-
 Given(/^user is logged in$/) do
 
   @user       = User.new

@@ -81,6 +81,18 @@ Tod::App.controllers :proposal do
 
     # @positive_votes = @proposal_detail.user_votes.select{|curr| curr.value == 1}.size
 
+    if (not session[:user].nil?)
+      user = User.find_uid session[:user].uid
+
+      if @proposal_detail.positively_voted_by? user
+        @positive_vote_disabled = "disabled"
+      end
+
+      if @proposal_detail.negatively_voted_by? user
+        @negative_vote_disabled = "disabled"
+      end
+    end
+
     render 'proposal/detail'
   end
 
@@ -204,10 +216,7 @@ Tod::App.controllers :proposal do
     user = User.find_uid session[:user].uid
     value = params[:value].to_i
 
-
-    if proposal_detail.voted_by? user
-      flash[:danger] = t('proposal.rating.already_voted_msg')
-    else
+    if not proposal_detail.voted_by?(user)
       user_vote = proposal_detail.vote(user,value)
       user_vote.save()
 
