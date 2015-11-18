@@ -13,6 +13,7 @@
         <th><%= t('proposal.list.table.audience')%></th>
         <th><%= t('proposal.list.table.tags')%></th>
         <th><%= t('proposal.list.table.visits')%></th>
+        <th><%= ('votos positivos')%></th>
       </tr>
 
       <% @proposals.each do |proposal| %>
@@ -23,6 +24,7 @@
           <td><%= proposal.audience %></td>
           <td><%= proposal.tag_list * " "%></td>
           <td><%= proposal.visits%></td>
+          <td><%= proposal.user_votes_avg%></td>
         </tr>
       <% end %>
 

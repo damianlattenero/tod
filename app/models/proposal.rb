@@ -60,6 +60,16 @@ class Proposal
     user_vote
   end
 
+  def user_votes_avg
+    cantidad_de_votos = self.user_votes.size
+    cantidad_de_votos_positivos = self.user_votes.select {|vote| vote.value == 1}.size
+
+    regla_de_tres = cantidad_de_votos_positivos * 100
+    regla_de_tres_resultado = regla_de_tres / cantidad_de_votos
+
+    regla_de_tres_resultado.to_s + "%"
+  end
+
   def voted_by?(user)
     return self.user_votes.any? do |vote|
       vote.user == user

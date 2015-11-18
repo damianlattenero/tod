@@ -14,6 +14,8 @@ When(/^user votes a proposal negatively$/) do
 end
 
 
+
+
 Then(/^"([^"]*)" should be disabled$/) do |arg1|
   @btn = find_by_id('Positive rating button')
   expect(@btn[:class].include?("disabled")).to be_truthy
