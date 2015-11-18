@@ -21,9 +21,9 @@ Feature: Rating statistics
     And user votes a proposal negatively
     Then should see "1" negative vote and "0" positive votes
 
-  @wip
+#  @wip
   Scenario: A negative vote adds 1 to the total negative votes count
     Given a user creates a proposal
     And user votes a proposal positively
     When another user votes a proposal negatively
-    Then should see "50%" in "porcentaje votos positivos"
+    Then should see "50%" in porcentaje votos positivos
