@@ -3,3 +3,14 @@ development:
   host: localhost
   username: user
   database: app-dev
+
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: dohieigihodl3
+  username: root
+  password: ñññ
+  socket: /tmp/mysql.sock
+  host: 127.0.0.1     #defaults to 127.0.0.1
+  port: 5432
