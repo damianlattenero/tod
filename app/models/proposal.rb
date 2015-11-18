@@ -49,12 +49,14 @@ class Proposal
   end
 
   def vote(user, value)
-    user_vote = UserVote.new(:user => user,
+    if not self.voted_by?(user)
+      user_vote = UserVote.new(:user => user,
                              :proposal => self,
                              :value => value)
-    # user_vote.user = user
-    # user_vote.proposal = self
-    # user_vote.value = value
+    else
+      user_vote = self.user_votes.first(:user => user)
+      user_vote.value = value
+    end
     user_vote
   end
 
@@ -63,4 +65,17 @@ class Proposal
       vote.user == user
     end
   end
+
+  def positively_voted_by?(user)
+    return self.user_votes.any? do |vote|
+      vote.user == user and vote.value == 1
+    end
+  end
+
+  def negatively_voted_by?(user)
+    return self.user_votes.any? do |vote|
+      vote.user == user and vote.value == -1
+    end
+  end
+
 end
