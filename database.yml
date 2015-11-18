@@ -10,7 +10,7 @@ production:
   encoding: utf8
   database: dohieigihodl3
   username: root
-  password: ñññ
+  password: aZYNsS8Hzj0Kt1N05a9a7eR3An
   socket: /tmp/mysql.sock
   host: 127.0.0.1     #defaults to 127.0.0.1
   port: 5432
