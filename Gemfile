@@ -47,3 +47,4 @@ gem 'unicorn', :group => :production
 gem 'debugger', :group => 'test'
 
 gem 'pg'
+gem 'activerecord-postgis-adapter'
