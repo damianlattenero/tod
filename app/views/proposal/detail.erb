@@ -36,6 +36,8 @@
             <a id='Negative rating button' class="btn btn-sm <%= @negative_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => -1) %>">
             <span id="visits" class="glyphicon glyphicon-thumbs-down"></span>
             </a>
+            <br>
+            <%= @negative_votes %>
           </div>
       <% end %>
 
