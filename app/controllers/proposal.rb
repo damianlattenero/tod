@@ -79,7 +79,7 @@ Tod::App.controllers :proposal do
     current_visits = @proposal_detail.visits
     @proposal_detail.update(:visits => current_visits +1)
 
-    # @positive_votes = @proposal_detail.user_votes.select{|curr| curr.value == 1}.size
+    @positive_votes = @proposal_detail.user_votes.select{|curr| curr.value == 1}.size
 
     if (not session[:user].nil?)
       user = User.find_uid session[:user].uid
