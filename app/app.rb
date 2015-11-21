@@ -18,7 +18,8 @@ module Tod
         provider :linkedin, ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET']
       else
         #development, test
-        provider :github, 'e30e91ed48d24ed4f1a6', 'f6416573448abd04dca24aaa19434b4c1b6a561b', scope: 'user:email'
+        provider :github, '588599d48ed948ac0375', '3e5a3751a03e608a45b4e9b467bff7fb02e69076', scope: 'user:email'
+        # provider :github, 'e30e91ed48d24ed4f1a6', 'f6416573448abd04dca24aaa19434b4c1b6a561b', scope: 'user:email'
         provider :linkedin, '77yig0im17acj8', 'oQeilJS8L71pjN6t'
       end
 
