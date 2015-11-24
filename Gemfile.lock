@@ -177,6 +177,9 @@ GEM
       rack (~> 1.0)
     omniauth-linkedin (0.2.0)
       omniauth-oauth (~> 1.0)
+    omniauth-linkedin-oauth2 (0.1.5)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-oauth (1.1.0)
       oauth
       omniauth (~> 1.0)
@@ -317,6 +320,7 @@ DEPENDENCIES
   omniauth
   omniauth-github!
   omniauth-linkedin
+  omniauth-linkedin-oauth2
   padrino (= 0.12.4)
   padrino-sprockets
   rack-test
@@ -327,3 +331,6 @@ DEPENDENCIES
   uglifier (= 2.1.1)
   unicorn
   yui-compressor (= 0.9.6)
+
+BUNDLED WITH
+   1.10.6
