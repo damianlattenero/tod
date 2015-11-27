@@ -20,7 +20,6 @@ Feature:
     And   user visits proposal detail page
     Then he should not see voting stats
 
-  @wip
   Scenario: Show votes when user votes the proposal
     Given a proposal he did not vote yet
     And   user visits proposal detail page

@@ -24,6 +24,16 @@ Then(/^he should not see voting stats$/) do
   expect{find('.voting_stats')}.to raise_error
 end
 
+When(/^user votes a proposal$/) do
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
+  click_link "Positive rating button"
+end
+
+Then(/^he should see voting stats$/) do
+  assert_selector('.voting_stats', :count => 2)
+end
+
+
 def create_example_proposal()
   @proposal = Proposal.new
 
