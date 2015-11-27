@@ -9,7 +9,7 @@ Feature: Rating modify vote
     Given a proposal he did not vote yet
     And   user visits proposal detail page
     Then  he should not see "Modify_button" button
-  @wip
+
   Scenario: Shows button Modificar voto in a proposal he voted
     Given a proposal he already voted
     And   user visits proposal detail page
