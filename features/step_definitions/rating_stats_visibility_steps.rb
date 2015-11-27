@@ -12,7 +12,7 @@ end
 Given(/^a proposal he already voted$/) do
   create_example_proposal()
   visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
-  click_link "Positive rating button"
+  click_link "Positive_rating_button"
 end
 
 
@@ -26,7 +26,7 @@ end
 
 When(/^user votes a proposal$/) do
   visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
-  click_link "Positive rating button"
+  click_link "Positive_rating_button"
 end
 
 Then(/^he should see voting stats$/) do

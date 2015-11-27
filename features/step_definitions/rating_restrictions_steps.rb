@@ -6,24 +6,26 @@ Given(/^a user creates a proposal$/) do
 end
 
 When(/^user votes a proposal positively$/) do
-  click_link "Positive rating button"
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
+  click_link "Positive_rating_button"
 end
 
 When(/^user votes a proposal negatively$/) do
-  click_link "Negative rating button"
+  visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
+  click_link "Negative_rating_button"
 end
 
 
 
 
 Then(/^"([^"]*)" should be disabled$/) do |arg1|
-  @btn = find_by_id('Positive rating button')
+  @btn = find_by_id('Positive_rating_button')
   expect(@btn[:class].include?("disabled")).to be_truthy
 end
 
 Then(/^only "([^"]*)" should be enabled$/) do |arg1|
-  @positive_btn = find_by_id('Positive rating button')
-  @negative_btn = find_by_id('Negative rating button')
+  @positive_btn = find_by_id('Positive_rating_button')
+  @negative_btn = find_by_id('Negative_rating_button')
   expect(@positive_btn[:class].include?("disabled")).to be_falsey
   expect(@negative_btn[:class].include?("disabled")).to be_truthy
 end

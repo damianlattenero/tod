@@ -18,14 +18,14 @@ Then(/^should see "([^"]*)" in porcentaje votos positivos$/) do |porcentaje_voto
 end
 
 When(/^user votes a proposal positively and log out$/) do
-  click_link "Positive rating button"
+  click_link "Positive_rating_button"
   visit '/auth/log_out'
 end
 
 
 
 When(/^user votes a proposal negatively and log out$/) do
-  click_link "Negative rating button"
+  click_link "Negative_rating_button"
   visit '/auth/log_out'
 end
 
@@ -48,7 +48,7 @@ When(/^a user with mail "([^"]*)" votes a proposal positively$/) do |mail|
 
   click_link('Iniciar sesión con GitHub')
   visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
-  click_link "Positive rating button"
+  click_link "Positive_rating_button"
 end
 
 When(/^a user with mail "([^"]*)" votes a proposal negatively$/) do |mail|
@@ -70,5 +70,5 @@ When(/^a user with mail "([^"]*)" votes a proposal negatively$/) do |mail|
   visit '/auth/sign_in'
   click_link('Iniciar sesión con GitHub')
   visit '/proposal/detail?proposal_id=' + @proposal.id.to_s
-  click_link "Negative rating button"
+  click_link "Negative_rating_button"
 end

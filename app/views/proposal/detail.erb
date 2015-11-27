@@ -25,8 +25,15 @@
       </div>
 
       <% if @user %>
+          <% if @proposal_detail.positively_voted_by? @user %>
+            <% @positive_button_size = "btn-lg" %>
+            <% @negative_button_size = "btn-xs" %>
+          <% else %>
+            <% @negative_button_size = "btn-lg" %>
+            <% @positive_button_size = "btn-xs" %>
+          <% end %>
           <div class="col-md-1" style="margin: right">
-            <a id="Positive rating button" class="btn btn-sm <%= @positive_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => 1) %>">
+            <a id="Positive_rating_button" class="btn <%= @positive_button_size%>  <%= @positive_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => 1) %>">
               <span id="visits" class="glyphicon glyphicon-thumbs-up"></span>
             </a>
             <% if  @proposal_detail.voted_by?(@user)%>
@@ -34,7 +41,7 @@
             <% end %>
           </div>
           <div class="col-md-1" style="margin: right">
-            <a id='Negative rating button' class="btn btn-sm <%= @negative_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => -1) %>">
+            <a id='Negative_rating_button' class="btn <%= @negative_button_size%> <%= @negative_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => -1) %>">
             <span id="visits" class="glyphicon glyphicon-thumbs-down"></span>
             </a>
             <% if @proposal_detail.voted_by?(@user)%>
