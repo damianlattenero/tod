@@ -25,28 +25,31 @@
       </div>
 
       <% if @user %>
-          <% if @proposal_detail.positively_voted_by? @user %>
-            <% @positive_button_size = "btn-lg" %>
-            <% @negative_button_size = "btn-xs" %>
-          <% else %>
-            <% @negative_button_size = "btn-lg" %>
-            <% @positive_button_size = "btn-xs" %>
-          <% end %>
-          <div class="col-md-1" style="margin: right">
+          <div class="col-md-2" style="margin: right">
+            <div class="row">
             <a id="Positive_rating_button" class="btn <%= @positive_button_size%>  <%= @positive_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => 1) %>">
               <span id="visits" class="glyphicon glyphicon-thumbs-up"></span>
             </a>
             <% if  @proposal_detail.voted_by?(@user)%>
                 <span class="voting_stats"><%= @positive_votes %></span>
             <% end %>
-          </div>
-          <div class="col-md-1" style="margin: right">
+
             <a id='Negative_rating_button' class="btn <%= @negative_button_size%> <%= @negative_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => -1) %>">
             <span id="visits" class="glyphicon glyphicon-thumbs-down"></span>
             </a>
             <% if @proposal_detail.voted_by?(@user)%>
                 <span class="voting_stats"><%= @negative_votes %></span>
             <% end %>
+            </div>
+            <div class="row">
+              <% if @proposal_detail.voted_by? @user %>
+                <span class="center" >
+                    <a id="Modify_button" class="btn btn-sm btn-danger" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => @modify_button_value) %>">
+                        Modificar voto a &nbsp; <span id="visits" class="glyphicon glyphicon-thumbs-<%=@modify_button_icon%>"></span>
+                    </a>
+                </span>
+              <% end %>
+            </div>
           </div>
       <% end %>
 

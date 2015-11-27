@@ -23,6 +23,15 @@ Then(/^"([^"]*)" should be disabled$/) do |arg1|
   expect(@btn[:class].include?("disabled")).to be_truthy
 end
 
+Then(/^voting buttons should be disabled$/) do
+  @btn = find_by_id('Positive_rating_button')
+  expect(@btn[:class].include?("disabled")).to be_truthy
+
+  @btn = find_by_id('Negative_rating_button')
+  expect(@btn[:class].include?("disabled")).to be_truthy
+end
+
+
 Then(/^only "([^"]*)" should be enabled$/) do |arg1|
   @positive_btn = find_by_id('Positive_rating_button')
   @negative_btn = find_by_id('Negative_rating_button')

@@ -89,12 +89,23 @@ Tod::App.controllers :proposal do
     if (not session[:user].nil?)
       user = User.find_uid session[:user].uid
 
-      if @proposal_detail.positively_voted_by? user
+      if @proposal_detail.voted_by? user
         @positive_vote_disabled = "disabled"
+        @negative_vote_disabled = "disabled"
+      end
+
+      if @proposal_detail.positively_voted_by? user
+        @positive_button_size = "btn-lg"
+        @negative_button_size = "btn-xs"
+        @modify_button_icon = 'down'
+        @modify_button_value = -1
       end
 
       if @proposal_detail.negatively_voted_by? user
-        @negative_vote_disabled = "disabled"
+        @positive_button_size = "btn-xs"
+        @negative_button_size = "btn-lg"
+        @modify_button_icon = 'up'
+        @modify_button_value = 1
       end
     end
 
