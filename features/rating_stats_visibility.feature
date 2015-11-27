@@ -10,7 +10,6 @@ Feature:
     And   user visits proposal list
     Then he should see "votar para ver" in votes percentage column
 
-  @wip
   Scenario: When user votes he can see percentage of votes
     Given a proposal he already voted
     And   user visits proposal list
