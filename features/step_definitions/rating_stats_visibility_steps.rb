@@ -21,13 +21,12 @@ Given(/^user visits proposal detail page$/) do
 end
 
 Then(/^he should not see voting stats$/) do
-  find('.voting_stats')
+  expect{find('.voting_stats')}.to raise_error
 end
-
-
 
 def create_example_proposal()
   @proposal = Proposal.new
+
   @proposal.title = "Proposal test"
   @proposal.description = "A proposal description"
   @proposal.author = "An author"

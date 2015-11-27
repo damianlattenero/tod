@@ -29,15 +29,17 @@
             <a id="Positive rating button" class="btn btn-sm <%= @positive_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => 1) %>">
               <span id="visits" class="glyphicon glyphicon-thumbs-up"></span>
             </a>
-            <br>
-            <%= @positive_votes %>
+            <% if  @proposal_detail.voted_by?(@user)%>
+                <span class="voting_stats"><%= @positive_votes %></span>
+            <% end %>
           </div>
           <div class="col-md-1" style="margin: right">
             <a id='Negative rating button' class="btn btn-sm <%= @negative_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => -1) %>">
             <span id="visits" class="glyphicon glyphicon-thumbs-down"></span>
             </a>
-            <br>
-            <%= @negative_votes %>
+            <% if @proposal_detail.voted_by?(@user)%>
+                <span class="voting_stats"><%= @negative_votes %></span>
+            <% end %>
           </div>
       <% end %>
 

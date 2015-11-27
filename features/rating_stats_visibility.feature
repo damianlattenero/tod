@@ -15,7 +15,6 @@ Feature:
     And   user visits proposal list
     Then he should see "%" in votes percentage column
 
-  @wip
   Scenario: Hide votes until user votes the proposal
     Given a proposal he did not vote yet
     And   user visits proposal detail page
