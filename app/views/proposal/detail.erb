@@ -28,7 +28,7 @@
           <% if @proposal_detail.positively_voted_by? @user %>
             <% @positive_button_size = "btn-lg" %>
             <% @negative_button_size = "btn-xs" %>
-          <% else %>
+          <% elsif @proposal_detail.negatively_voted_by? @user %>
             <% @negative_button_size = "btn-lg" %>
             <% @positive_button_size = "btn-xs" %>
           <% end %>

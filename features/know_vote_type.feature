@@ -14,3 +14,7 @@ Feature:
     Given a proposal he did not vote yet
     And user votes a proposal negatively
     Then "Negative_rating_button" should be bigger than "Positive_rating_button"
+
+  Scenario: if I did not vote
+    Given a proposal he did not vote yet
+    Then "Negative_rating_button" should equale "Positive_rating_button"
