@@ -15,9 +15,9 @@ Feature: Rating modify vote
     And   user visits proposal detail page
     Then he should see "Modify_button" button
 
-  @wip
+
   Scenario: Modificar voto lets user modify its vote on a proposal
     Given a user creates a proposal
     And user votes a proposal positively
     When clicks on "Modify_button"
-    Then "Positive_rating_button" should be bigger than "Negative_rating_button"
+    Then "Negative_rating_button" should be bigger than "Positive_rating_button"
