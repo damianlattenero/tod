@@ -67,12 +67,12 @@ class Proposal
     regla_de_tres = cantidad_de_votos_positivos * 100
 
     if cantidad_de_votos == 0
-      return "0%"
+      return 0
     else
       regla_de_tres_resultado = regla_de_tres / cantidad_de_votos
     end
 
-    regla_de_tres_resultado.to_s + "%"
+    return regla_de_tres_resultado
   end
 
   def voted_by?(user)

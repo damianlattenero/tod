@@ -9,6 +9,10 @@ Tod::App.controllers :proposal do
 
   get :list do
     @proposals = Proposal.reverse
+    if (not session[:user].nil?)
+      @user = User.find_uid session[:user].uid
+    end
+
     render 'proposal/list'
   end
 

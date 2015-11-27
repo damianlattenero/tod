@@ -13,7 +13,7 @@
         <th><%= t('proposal.list.table.audience')%></th>
         <th><%= t('proposal.list.table.tags')%></th>
         <th><%= t('proposal.list.table.visits')%></th>
-        <th><%= ('votos positivos')%></th>
+        <th><%= t('proposal.list.table.positive_votes')%></th>
       </tr>
 
       <% @proposals.each do |proposal| %>
@@ -24,7 +24,16 @@
           <td><%= proposal.audience %></td>
           <td><%= proposal.tag_list * " "%></td>
           <td><%= proposal.visits%></td>
-          <td><%= proposal.user_votes_avg%></td>
+          <% if @user  %>
+            <% if proposal.voted_by? @user %>
+              <% @percentage = proposal.user_votes_avg.to_s + '%' %>
+            <% else %>
+              <% @percentage = 'votar para ver' %>
+            <% end %>
+          <% else %>
+            <% @percentage = proposal.user_votes_avg.to_s + '%' %>
+          <% end %>
+          <td class="votes_percentage"><%= @percentage %></td>
         </tr>
       <% end %>
 

@@ -72,6 +72,7 @@ es:
         type:       Tipo
         audience:   Audiencia
         visits:     Visitas
+        positive_votes: Votos positivos
       empty: "Aun no hay propuestas, puedes agregar una si deseas"
     detail:
       visits:            "Visitas: "

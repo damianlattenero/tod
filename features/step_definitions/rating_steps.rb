@@ -31,11 +31,11 @@ end
 def create_new_session(uid)
   visit '/auth/log_out'
   OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
-                                                                  :provider => 'github',
+  OmniAuth.config.mock_auth[:linkedin] = OmniAuth::AuthHash.new({
+                                                                  :provider => 'linkedin',
                                                                   :uid => uid
                                                               })
   visit '/auth/sign_in'
-  click_link('github-login')
+  click_link('linkedin-login')
 end
 
