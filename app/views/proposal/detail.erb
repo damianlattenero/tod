@@ -28,14 +28,14 @@
           <div class="col-md-2" style="margin: right">
             <div class="row">
             <a id="Positive_rating_button" class="btn <%= @positive_button_size%>  <%= @positive_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => 1) %>">
-              <span id="visits" class="glyphicon glyphicon-thumbs-up"></span>
+              <span class="glyphicon glyphicon-thumbs-up"></span>
             </a>
             <% if  @proposal_detail.voted_by?(@user)%>
                 <span class="voting_stats"><%= @positive_votes %></span>
             <% end %>
 
             <a id='Negative_rating_button' class="btn <%= @negative_button_size%> <%= @negative_vote_disabled %>" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => -1) %>">
-            <span id="visits" class="glyphicon glyphicon-thumbs-down"></span>
+            <span  class="glyphicon glyphicon-thumbs-down"></span>
             </a>
             <% if @proposal_detail.voted_by?(@user)%>
                 <span class="voting_stats"><%= @negative_votes %></span>
@@ -45,7 +45,7 @@
               <% if @proposal_detail.voted_by? @user %>
                 <span class="center" >
                     <a id="Modify_button" class="btn btn-sm btn-danger" role="button" href="<%= url(:proposal, :rating, :proposal_id => @proposal_detail.id, :value => @modify_button_value) %>">
-                        Modificar voto a &nbsp; <span id="visits" class="glyphicon glyphicon-thumbs-<%=@modify_button_icon%>"></span>
+                        Modificar voto a &nbsp; <span  class="glyphicon glyphicon-thumbs-<%=@modify_button_icon%>"></span>
                     </a>
                 </span>
               <% end %>
@@ -80,7 +80,14 @@
         <hr>
     <% end %>
   </div>
-
+  <div class="row">
+    <div class="col-md-12">
+        <% if @proposal_detail.file %>
+          <h3>Archivo adjunto</h3>
+          <a class='btn btn-bitbucket' href="<%= @proposal_detail.file.url %>"><span  class="glyphicon glyphicon-download-alt"></span></a>
+        <% end %>
+    </div>
+  </div>
   <div class="well">
     <h4><%= t('proposal.detail.comment_box_title') %></h4>
     <% form_for(@comment, '/proposal/comment', html: {class: 'form'}) do |f| %>

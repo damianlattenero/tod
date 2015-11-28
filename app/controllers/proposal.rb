@@ -1,5 +1,6 @@
 require 'iconv'
 require 'json'
+require 'fileutils'
 
 Tod::App.controllers :proposal do
   get :new do
@@ -16,6 +17,8 @@ Tod::App.controllers :proposal do
     render 'proposal/list'
   end
 
+
+
   post :search do
     @proposals = search("#{params[:query]}").uniq
     render 'proposal/search'
@@ -28,7 +31,7 @@ Tod::App.controllers :proposal do
     audience = params[:proposal][:audience]
     type = params[:proposal][:type]
     mail = params[:proposal][:mail]
-
+    file = params[:proposal][:file]
 
     @proposal = Proposal.new
     @proposal.title = title
@@ -44,6 +47,11 @@ Tod::App.controllers :proposal do
       @proposal.append_author_to_title
     end
 
+    #halt 409, "File seems to be emtpy" unless params[:file][:tempfile].size > 0
+    if  not params[:proposal][:file].nil? and params[:proposal][:file][:tempfile].size > 0
+      @proposal.file = make_paperclip_mash(file)
+    end
+    #halt 409, "There were some errors processing your request...\n#{resource.errors.inspect}" unless @proposal.save
     if @proposal.save
       user       = User.new
       user.name  = author
@@ -51,6 +59,7 @@ Tod::App.controllers :proposal do
       user.save!
       flash[:success] = t('proposal.new.result.success')
       redirect 'proposal/list'
+
     else
       notify_new_proposal_field_too_short(
           'proposal.new.form.author_tag', 3
@@ -71,6 +80,7 @@ Tod::App.controllers :proposal do
       render 'proposal/new'
     end
   end
+
 
   get :detail do
     proposal_id = params[:proposal_id]
@@ -240,5 +250,17 @@ Tod::App.controllers :proposal do
     redirect_to 'proposal/detail?proposal_id=' + proposal_id.to_s
 
   end
+end
 
+module Tod
+  class App
+    def make_paperclip_mash(file_hash)
+      mash = Mash.new
+      mash['tempfile'] = file_hash[:tempfile]
+      mash['filename'] = file_hash[:filename]
+      mash['content_type'] = file_hash[:type]
+      mash['size'] = file_hash[:tempfile].size
+      mash
+    end
+  end
 end

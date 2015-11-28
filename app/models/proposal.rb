@@ -1,13 +1,19 @@
 require 'rubygems'
 require 'dm-core'
 require 'dm-tags'
+require 'dm-paperclip'
+require 'fileutils'
 require_relative '../mappers/proposal_session_type_mapper'
 require_relative '../mappers/audience_mapper'
 require_relative '../models/audience'
 require_relative '../models/user_vote'
 
+APP_ROOT = File.expand_path(File.dirname(__FILE__))
+
+
 class Proposal
   include DataMapper::Resource
+  include Paperclip::Resource
 
   # property <name>, <type>
   property :id,          Serial
@@ -25,6 +31,9 @@ class Proposal
   has n,   :user_votes
 
   has_tags_on :tags
+
+  has_attached_file :file
+
 
   def same_title?(a_proposal)
     self.title.eql? a_proposal.title
