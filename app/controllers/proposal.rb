@@ -50,7 +50,10 @@ Tod::App.controllers :proposal do
     #halt 409, "File seems to be emtpy" unless params[:file][:tempfile].size > 0
     if  not params[:proposal][:file].nil? and params[:proposal][:file][:tempfile].size > 0
       @proposal.file = make_paperclip_mash(file)
+    else
+      @proposal.file = nil
     end
+
     #halt 409, "There were some errors processing your request...\n#{resource.errors.inspect}" unless @proposal.save
     if @proposal.save
       user       = User.new

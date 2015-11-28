@@ -32,7 +32,8 @@ class Proposal
 
   has_tags_on :tags
 
-  has_attached_file :file
+  has_attached_file :file,
+                    :url => "/system/:attachment/:id/:style/:basename.:extension"
 
 
   def same_title?(a_proposal)
