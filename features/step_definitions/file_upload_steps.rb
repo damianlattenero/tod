@@ -4,5 +4,5 @@ Given(/^uploaded file is "([^"]*)"$/) do |arg1|
 end
 
 Then(/^file is attached$/) do
-  expect(Proposal.all[0].file.url.to_s.include? @filename).to be_truthy
+  expect(Proposal.all[0].file.exists?).to be_truthy
 end
