@@ -14,7 +14,7 @@ Feature: Show download link to attached file on proposal
     When submitting
     Then file is attached
 
-  @wip
   Scenario: Doesn't show download link in proposal detail if there is NO attached file
+    Given user decides no uploadding file
     When submitting
-    Then  there is no file attached
+    Then there is no file attached

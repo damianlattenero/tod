@@ -6,3 +6,11 @@ end
 Then(/^file is attached$/) do
   expect(Proposal.all[0].file.exists?).to be_truthy
 end
+
+Given(/^user decides no uploadding file$/) do
+  #The user no choose file
+end
+
+Then(/^there is no file attached$/) do
+  expect(Proposal.all[0].file.exists?).to be_falsey
+end
